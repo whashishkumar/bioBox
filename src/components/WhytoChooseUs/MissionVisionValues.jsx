@@ -46,7 +46,7 @@ const MissionVisionValues = () => {
           <div className="mission-card">
     
             <div className="mission-content">
-              <h1 className="title">Value</h1>
+              <h1 className="title">Values</h1>
               <p className="sub-title">
                 Emphasize core principles such as integrity, excellence, and
                 innovation
