@@ -110,7 +110,7 @@
 .footer-categories-box {
   display: flex;
   justify-content: flex-start;
-  gap: 60;
+  gap: 60 !important;
 }
 
 .footer-map {
