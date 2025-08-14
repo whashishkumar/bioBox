@@ -19,7 +19,7 @@
 }
 
 .align-text {
-  text-align: left;
+  text-align: left !important;
 }
 
 .flex {
