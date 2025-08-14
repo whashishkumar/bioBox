@@ -41,12 +41,12 @@ const MissionVisionValues = () => {
         </div>
         <div className="content-box mission-card-wrapper">
            <div className="icon-wrapper-container">
-                <img src={'/images/values.png'} alt=""/>
+                <img src={'/images/values.png'} alt="vision"/>
               </div>
           <div className="mission-card">
     
             <div className="mission-content">
-              <h1 className="title">Values</h1>
+              <h1 className="title">Value</h1>
               <p className="sub-title">
                 Emphasize core principles such as integrity, excellence, and
                 innovation
@@ -54,7 +54,7 @@ const MissionVisionValues = () => {
             </div>
           </div>
           <div className="image-container-bg">
-            <img src={"/images/Value.png"} alt="mission" />
+            <img src={"/images/value.png"} alt="values" />
           </div>
         </div>
       </div>
