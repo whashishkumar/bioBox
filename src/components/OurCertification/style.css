@@ -1,7 +1,7 @@
 .our-certifacation {
-  background: #05A0E2;
+  background: var(--color-primary);
   height: 400px;
-  mask: radial-gradient(50% 20px at bottom, transparent 97%, black);
+  mask: radial-gradient(50% 20px at bottom, transparent 97%, var(--color-text));
   position: relative;
   z-index: 1;
 }
@@ -22,7 +22,7 @@
 }
 
 .title-heading {
-  color: #fff;
+  color: var(--color-white);
 }
 
 .certifacation-icon-conatainer {

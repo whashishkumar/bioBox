@@ -54,7 +54,7 @@ export default function ProductGallery() {
       </div>
      </div>
      <div>
-      <div className='box-container margin'>
+      <div className='box-container margin margin-top-none'>
         {products.map((p,id) => (
           <div key={id} className='product-container-box'>
             <img src={p.image} alt={p.name} />

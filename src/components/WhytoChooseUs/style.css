@@ -103,7 +103,6 @@
   margin-top: 60px;
 }
 
-
 .title  {
   font-family: var(--font-red-hat-display);
   font-weight: 600;
@@ -111,12 +110,11 @@
   line-height: 28px;
   margin-bottom: 25px;
   padding: 0 20px;
-  }
+}
 
 .sub-title {
-    color:  #000000;
     font-family: var(--font-sanchez);
-    color: #000;
+    color: var(--text-color-text);
     padding: 1px 35px;
     font-size: 16px;
     font-weight: 400;

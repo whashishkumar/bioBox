@@ -1,7 +1,7 @@
 .heading {
   font-size: 40px;
   font-weight: 700;
-  color: rgba(5, 160, 226, 1);
+  color: var(--color-primary);
   line-height: 45PX;
   margin-bottom: 16px;
   font-family: var(--font-red-hat-display);
@@ -16,4 +16,5 @@
   font-size: 15px;
   line-height: 28px;
   text-align: center;
+  color: var(--text-color-text);
 }

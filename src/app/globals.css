@@ -1,8 +1,21 @@
-/* Reset and base styles */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+:root {
+  --color-primary: #05A0E2;  
+  --color-background-secondary :#0d3b82;
+  --color-text: #111827;   
+  --color-white: #ffffff;
+  --color-gray:#828599;
+  --color-gray-light:#E9E9F0;
+  --color-light-white:#ccefff;
+  --color-black:#000000;
+ --color-category :#fcf9f9;
+ --text-color-text : #494949;
+ --text-color-category :#232323;
 }
 
 body, html {
@@ -33,5 +46,18 @@ body, html {
 }
 
 .padding-y-axis {
-  padding: 40px 0;
+  padding: 60px 0;
 }
+
+.margin-top-none {
+  margin-top: 0px;
+}
+
+
+@media (max-width: 768px) {
+  .padding-y-axis {
+  padding: 30px 0;
+}
+
+}
+@media (max-width: 1024px) {}

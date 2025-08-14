@@ -7,7 +7,7 @@
   border-radius: 40px;
   margin: 0;
   position: absolute;
-  top: 1%;
+  top: 2%;
   left: 50%;
   transform: translate(-50%, 0%);
 }
@@ -17,7 +17,7 @@
 }
 
 .bg {
-  background: rgba(3, 158, 229, 1);
+  background: var(--color-primary);
   padding: 0 15px;
   height: 650px;
 }
