@@ -6,7 +6,9 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-container sub-container">
-        <div className="footer-col footer-logo">
+        <div className="section-container">
+          <div className="col-left">
+          <div className="footer-col-bx footer-logo">
           <div className="logo-box">
             <Image
               src="/images/footerlogo.png"
@@ -21,7 +23,6 @@ export default function Footer() {
             in WHO-GMP-certified facilities. We offer monopoly-based PCD
             franchise opportunities.
           </p>
-
           <div className="footer-socials">
             <a href="#">
               <FaFacebook />
@@ -37,7 +38,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <div className="footer-col footer-links">
+        <div className=" footer-links">
           <h4>Quick Links</h4>
           <ul>
             <li>
@@ -54,7 +55,7 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div className="footer-col footer-categories">
+        <div className=" footer-categories">
           <h4>Categories</h4>
           <div className="footer-categories-box">
             <ul>
@@ -87,19 +88,21 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        <div className="footer-col footer-map">
+          </div>
+        <div className="footer-map-container">
           <iframe
+          className="footer-map"
             title="BioBox Location"
             src="https://maps.google.com/maps?q=zirakpur&t=&z=13&ie=UTF8&iwloc=&output=embed"
-            width="320"
-            height="320"
+            width="100%"
+            height="100%"
             style={{ border: 0, borderRadius: "12px" }}
             allowFullScreen=""
             loading="lazy"
-          ></iframe>
+          ></iframe>   
+        </div>
         </div>
       </div>
-
       <div className="footer-bottom">
         ©2025 Bioboxpharma. All rights reserved
       </div>
