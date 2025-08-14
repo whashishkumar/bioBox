@@ -36,7 +36,7 @@ const MissionVisionValues = () => {
             </div>
           </div>
           <div className="image-container-bg">
-            <img src={"/images/value.png"} alt="mission" />
+            <img src={"/images/vision.png"} alt="mission" />
           </div>
         </div>
         <div className="content-box mission-card-wrapper">
