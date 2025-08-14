@@ -109,8 +109,8 @@
 
 .footer-categories-box {
   display: flex;
-  justify-content: flex-start;
-  gap: 60 !important;
+  justify-content: space-around;
+
 }
 
 .footer-map {
