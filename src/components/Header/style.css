@@ -1,0 +1,138 @@
+.navbar {
+  background-color: white;
+  border-radius: 50px;
+  margin: 0 auto;
+  max-width: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 0 25px;
+  height: 104px;
+  position: relative;
+}
+
+.logoImg {
+  height: 59px;
+}
+
+.navLinks ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.link {
+  font-size: 15px;
+  color: #000;
+  cursor: pointer;
+  position: relative;
+  font-weight: 400;
+  font-family: var(--font-red-hat-display);
+}
+
+.link:hover {
+  color: rgba(3, 158, 229, 1);
+}
+
+.dropdownArrow {
+  font-size: 10px;
+  margin-left: 5px;
+}
+
+.callButton {
+  background: rgba(3, 158, 229, 1);
+  color: white;
+  height: 50px;
+  width: 173px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: var(--font-red-hat-display);
+}
+
+.mobileCallButton {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Tablet (769px – 992px) */
+@media screen and (max-width: 992px) and (min-width: 769px) {
+  .navLinks {
+    gap: 15px;
+  }
+   .navbar {
+    height: auto;
+  }
+  .callButton {
+    width: 140px;
+    font-size: 14px;
+    display: flex;
+  }
+  .mobileCallButton {
+    display: none;
+  }
+}
+
+/* Mobile (Up to 768px) */
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navbar {
+    height: auto;
+  }
+  .header-container {
+    padding-top: 0;
+  }
+  .navbar {
+    box-shadow: none;
+    border-radius: 0;
+  }
+  .navLinks {
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    border-radius: 0 0 20px 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    padding: 0px 40px;
+    z-index: -1; 
+  }
+  .navLinks ul {
+    flex-direction: column;
+    padding: 30px 0;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .navLinks.open {
+    max-height: 400px; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  .callButton {
+    display: none; 
+  }
+  .mobileCallButton {
+    display: flex; 
+  }
+}
+

@@ -1,0 +1,81 @@
+.our-certifacation {
+  background: #05A0E2;
+  height: 400px;
+  mask: radial-gradient(50% 20px at bottom, transparent 97%, black);
+  position: relative;
+  z-index: 1;
+}
+
+.our-certifacation::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/group.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.title-heading {
+  color: #fff;
+}
+
+.certifacation-icon-conatainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
+  gap: 25px;
+}
+
+.certifacation-icon {
+  height: 150px;
+  width: 150px;
+  object-fit: contain;
+}
+
+.makeIn-India-icon {
+  width: 200px;
+  height: 163px;
+  object-fit: contain;
+}
+
+/* Tablet view */
+@media (max-width: 1024px) {
+  .our-certifacation {
+    height: auto;
+    padding: 40px 20px;
+  }
+  .certifacation-icon {
+    height: 120px;
+    width: 120px;
+  }
+  .makeIn-India-icon {
+    width: 160px;
+    height: auto;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .our-certifacation {
+    height: auto;
+    padding: 30px 15px;
+    text-align: center;
+  }
+  .certifacation-icon {
+    height: 90px;
+    width: 90px;
+  }
+  .makeIn-India-icon {
+    width: 120px;
+    height: auto;
+  }
+  .certifacation-icon-conatainer {
+    gap: 15px;
+  }
+}

@@ -1,0 +1,52 @@
+.parent-container {
+  height: 700px;
+  background: url('/images/Banner.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  border-radius: 40px;
+  margin: 0;
+  position: absolute;
+  top: 1%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+.header-container {
+  padding-top: 30px;
+}
+
+.bg {
+  background: rgba(3, 158, 229, 1);
+  padding: 0 15px;
+  height: 650px;
+}
+
+/* Tablet view */
+@media (max-width: 1024px) {
+  .parent-container {
+    height: 500px;
+    border-radius: 25px;
+  }
+  .bg {
+    height: 480px;
+  }
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .parent-container {
+    height: auto; 
+    border-radius: 15px;
+    top: 0;
+    transform: translate(-50%, 0);
+    background-size: contain; 
+    background-repeat: no-repeat;
+    background-position: center;
+    aspect-ratio: 16 / 12 /* Optional: keeps consistent ratio */
+  }
+  .bg {
+    height: auto;
+    padding: 0 10px;
+  }
+}

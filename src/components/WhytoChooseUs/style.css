@@ -1,0 +1,124 @@
+.mv-container  {
+   display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  align-items: center;
+  gap: 20px; 
+}
+
+
+.mission-container-box {
+  display: flex;
+  gap: 10rem  20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.padding-bottom {
+  padding-bottom: 10px;
+}
+
+.mission-card-wrapper {
+  filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.19));
+}
+
+.mission-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  width: 325px;
+  height: 369px;
+  border-radius: 25px;
+  -webkit-clip-path: path("M54.32 9.14 Q21.67 27.49 21.67 58.98 L21.67 314.01 Q21.67 335.28 64.98 348.29 L203.64 378.11 Q210.08 426.18 87.74 386.26 L265.41 348.29 Q303.33 336.73 304.33 307.94 L303.33 120 Q303.33 88.89 255.33 70.14 L111.99 22.07 Q64.98 4.55 45.49 15.21 Z");
+  clip-path: path("M54.32 9.14 Q21.67 27.49 21.67 58.98 L21.67 314.01 Q21.67 335.28 64.98 348.29 L203.64 378.11 Q210.08 426.18 87.74 386.26 L265.41 348.29 Q303.33 336.73 304.33 307.94 L303.33 120 Q303.33 88.89 255.33 70.14 L111.99 22.07 Q64.98 4.55 45.49 15.21 Z");
+  /* clip-path: polygon(
+    20px 0,
+    calc(100% - 20px) 20px,
+    100% 60px,
+    100% calc(100% - 60px),
+    calc(50% + 20px) 100%,
+    calc(50% - 20px) 100%,
+    0 calc(100% - 60px),
+    0 20px
+  ); */
+
+}
+.bg-image{
+  height: 300;
+  width: 398px;
+  object-fit: contain;
+}
+
+.margin-boottom {
+  margin-bottom: 20px;
+}
+
+.content-box {
+  position: relative;
+}
+
+.icon-wrapper-container {
+  height: 500px;
+  width: 600px;
+}
+
+.icon-wrapper-container  img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.image-container-bg {
+  position: absolute;
+  bottom: -14%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: -1;
+}
+
+.image-container-bg  img {
+  width: 250px;
+  object-fit: contain;
+}
+
+.icon-wrapper-container {
+    z-index: 1;
+    width: 285px;
+    height: 200px;
+    position: absolute;
+    top: -18%;
+    left: 18%;
+}
+
+.icon-wrapper-container img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.mission-content{
+  text-align: center;
+  margin-top: 60px;
+}
+
+
+.title  {
+  font-family: var(--font-red-hat-display);
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 28px;
+  margin-bottom: 25px;
+  padding: 0 20px;
+  }
+
+.sub-title {
+    color:  #000000;
+    font-family: var(--font-sanchez);
+    color: #000;
+    padding: 1px 35px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
