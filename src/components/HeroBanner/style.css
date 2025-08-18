@@ -1,19 +1,17 @@
 .parent-container {
-  height: 700px;
+  height: 750px;
   background: url('/images/bannerH.png');
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: contain;
+  background-size: cover;
 	overflow: hidden;
-  border-radius: 60px;
-  margin: 0;
+  /* border-radius: 30px; */
+  /* margin: 0; */
   position: absolute;
   top: 2%;
   left: 50%;
   transform: translate(-50%, 0%);
 }
-
-
 
 .header-container {
   padding-top: 50px;

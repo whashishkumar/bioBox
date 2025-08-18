@@ -2,6 +2,8 @@
 import { useState } from "react";
 import { FaPhoneAlt, FaBars, FaTimes } from "react-icons/fa";
 import "./style.css";
+import Link from "next/link";
+
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,15 +18,18 @@ export default function Header() {
       </div>
       <div className={`navLinks ${menuOpen ? "open" : ""}`}>
         <ul>
-          <li className="link active">Home</li>
-          <li className="link">About us</li>
+          <Link href={'/'}><li className="link active">Home</li></Link>
+         
+          <Link href={'/about-us'}>   <li className="link">About us</li></Link>
           <li className="link">
             Our Products <span className="dropdownArrow">▼</span>
           </li>
           <li className="link">
             Our Services <span className="dropdownArrow">▼</span>
           </li>
+          <Link href={'/contact-us'}>
           <li className="link">Contact Us</li>
+          </Link>
           <li className="callButton mobileCallButton">
             <FaPhoneAlt />
             <span>82638 85578</span>
