@@ -6,7 +6,7 @@ export default function PCDSection() {
   return (
     <>
     <section className="pcd-section ">
-      <div className="pcd-container padding">
+      <div className="pcd-container padding  sub-container">
         <div className="pcd-image-wrapper">
           <Image
             src="/images/footerimg.png" 
@@ -58,7 +58,7 @@ export default function PCDSection() {
           </div>
         </div>
       </div>
-        <div className="footer-parent-container padding">
+        <div className="footer-parent-container">
          <Footer/>
       </div>
     </section>   

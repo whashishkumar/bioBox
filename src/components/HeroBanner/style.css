@@ -1,10 +1,11 @@
 .parent-container {
   height: 700px;
-  background: url('/images/Banner.png');
+  background: url('/images/bannerH.png');
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: cover;
-  border-radius: 40px;
+  background-size: contain;
+	overflow: hidden;
+  border-radius: 60px;
   margin: 0;
   position: absolute;
   top: 2%;
@@ -12,8 +13,10 @@
   transform: translate(-50%, 0%);
 }
 
+
+
 .header-container {
-  padding-top: 30px;
+  padding-top: 50px;
 }
 
 .bg {
@@ -37,13 +40,13 @@
 @media (max-width: 768px) {
   .parent-container {
     height: auto; 
-    border-radius: 15px;
+    border-radius: 0px;
     top: 0;
     transform: translate(-50%, 0);
     background-size: contain; 
     background-repeat: no-repeat;
     background-position: center;
-    aspect-ratio: 16 / 12 /* Optional: keeps consistent ratio */
+    aspect-ratio: 15 / 10 
   }
   .bg {
     height: auto;

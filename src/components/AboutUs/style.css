@@ -167,7 +167,7 @@
     font-size: 26px;
   }
   .about-desc {
-    text-align: left;
+    text-align: center;
   }
   .bullet-wrapper {
     flex-direction: column;

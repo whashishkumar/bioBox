@@ -11,7 +11,7 @@ export default function OurCertification() {
   return (
     <div className='our-certifacation'>
       <PageHeadingTitle heading={headerObject.heading} subheading={headerObject.subHeading} className='title-heading'/>
-       <div className='certifacation-icon-conatainer'>
+       <div className='certifacation-icon-conatainer sub-container'>
         <img src={'/images/iso.png'} alt='who' className='certifacation-icon'/>
          <img src={'/images/makeInIndia.png'} alt='who' className='makeIn-India-icon' />
         <img src={'/images/who.png'} alt='who' className='certifacation-icon'/>

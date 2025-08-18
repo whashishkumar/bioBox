@@ -39,17 +39,11 @@ const poppins = localFont({
   variable: '--font-poppins', 
 });
 
-  const roboto = Roboto({
-  subsets: ['latin'],          
-  weight: ['100', '300', '400', '500', '700', '900'], 
-  variable: '--font-roboto',  
-});
-
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${redHatDisplay.variable} ${sanchez.variable} ${poppins.variable} ${roboto.variable}`}>
+      <body className={`${geistSans.variable} ${redHatDisplay.variable} ${sanchez.variable} ${poppins.variable}`}>
         {children}
       </body>
     </html>

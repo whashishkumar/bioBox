@@ -2,7 +2,7 @@ import "./style.css";
 const MissionVisionValues = () => {
   return (
     <div className="mv-container sub-container margin">
-      <div className="mission-container-box  ">
+      <div className="mission-container-box">
         <div className="content-box mission-card-wrapper">
            <div className="icon-wrapper-container">
                 <img src={'/images/mission.png'} alt=""/>
@@ -25,8 +25,7 @@ const MissionVisionValues = () => {
            <div className="icon-wrapper-container">
                 <img src={'/images/wvalues.png'} alt=""/>
               </div>
-          <div className="mission-card">
-      
+          <div className="mission-card">   
             <div className="mission-content">
               <h1 className="title">Vision</h1>
               <p className="sub-title">
@@ -35,7 +34,7 @@ const MissionVisionValues = () => {
               </p>
             </div>
           </div>
-          <div className="image-container-bg">
+          <div className="image-container-bg ">
             <img src={"/images/vision.png"} alt="mission" />
           </div>
         </div>

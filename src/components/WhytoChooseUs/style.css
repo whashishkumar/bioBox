@@ -6,7 +6,6 @@
   gap: 20px; 
 }
 
-
 .mission-container-box {
   display: flex;
   gap: 10rem  20px;
@@ -45,12 +44,17 @@
   ); */
 
 }
+
 .bg-image{
   height: 300;
   width: 398px;
   object-fit: contain;
 }
 
+.padding-bottom {
+ /* margin-bottom: 20px; */
+ /* bottom: -15%; */
+}
 .margin-boottom {
   margin-bottom: 20px;
 }
@@ -72,7 +76,7 @@
 
 .image-container-bg {
   position: absolute;
-  bottom: -14%;
+  bottom: -12%;
   left: 50%;
   transform: translate(-50%, 0);
   z-index: -1;

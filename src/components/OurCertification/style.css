@@ -22,14 +22,15 @@
 }
 
 .title-heading {
-  color: var(--color-white);
+  color: var(--color-white) !important;
 }
 
 .certifacation-icon-conatainer {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap; /* allows wrapping on smaller screens */
-  gap: 25px;
+  /* justify-content: center; */
+  flex-wrap: wrap; 
+  gap: 50px;
+  justify-content: space-between;
 }
 
 .certifacation-icon {
@@ -54,6 +55,9 @@
     height: 120px;
     width: 120px;
   }
+  .certifacation-icon-conatainer {
+    justify-content: center;
+  }
   .makeIn-India-icon {
     width: 160px;
     height: auto;
@@ -70,6 +74,9 @@
   .certifacation-icon {
     height: 90px;
     width: 90px;
+  }
+  .certifacation-icon-conatainer {
+    justify-content: center;
   }
   .makeIn-India-icon {
     width: 120px;

@@ -1,8 +1,7 @@
 .navbar {
   background-color:var(--color-white);
   border-radius: 50px;
-  margin: 0 auto;
-  max-width: 1100px;
+  max-width: 1300px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -70,14 +69,19 @@
   cursor: pointer;
 }
 
-/* Tablet (769px – 992px) */
-@media screen and (max-width: 992px) and (min-width: 769px) {
+@media (max-width: 1024px) {
   .navLinks {
     gap: 15px;
   }
    .navbar {
+    max-width: 1100px;
+    width: auto;
     height: auto;
   }
+  .link {
+  font-size: 12px;
+
+}
   .callButton {
     width: 140px;
     font-size: 14px;
@@ -86,14 +90,16 @@
   .mobileCallButton {
     display: none;
   }
+  .header-container {
+    padding-top: 0;
+  }
 }
 
-/* Mobile (Up to 768px) */
-@media screen and (max-width: 768px) {
+
+@media (max-width: 768px) {
   .hamburger {
     display: block;
   }
-
   .navbar {
     height: auto;
   }

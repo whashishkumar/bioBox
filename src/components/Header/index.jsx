@@ -7,18 +7,13 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="navbar">
-      {/* Logo */}
+    <nav className="navbar sub-container">
       <div className="logo">
         <img src="/images/logo.png" alt="BioBox Logo" className="logoImg" />
       </div>
-
-      {/* Hamburger Icon */}
       <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
         {menuOpen ? <FaTimes /> : <FaBars />}
       </div>
-
-      {/* Navigation Links */}
       <div className={`navLinks ${menuOpen ? "open" : ""}`}>
         <ul>
           <li className="link active">Home</li>
@@ -36,8 +31,6 @@ export default function Header() {
           </li>
         </ul>
       </div>
-
-      {/* Desktop Call Button */}
       <div className="callButton">
         <FaPhoneAlt />
         <span>82638 85578</span>

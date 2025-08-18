@@ -4,9 +4,9 @@ import "./style.css";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 export default function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-container sub-container">
-        <div className="section-container">
+    <footer className="footer hero-sub-container">
+      <div className="footer-container ">
+        <div className="section-container sub-container">
           <div className="col-left">
           <div className="footer-col-bx footer-logo">
           <div className="logo-box">
@@ -38,7 +38,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <div className=" footer-links">
+        <div className="footer-links">
           <h4>Quick Links</h4>
           <ul>
             <li>
@@ -88,8 +88,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-          </div>
-        <div className="footer-map-container">
+          <div className="footer-map-container">
           <iframe
           className="footer-map"
             title="BioBox Location"
@@ -101,6 +100,7 @@ export default function Footer() {
             loading="lazy"
           ></iframe>   
         </div>
+          </div>
         </div>
       </div>
       <div className="footer-bottom">
