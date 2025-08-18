@@ -60,3 +60,15 @@ body, html {
 }
 
 }
+
+/* ============ */
+.over-write-header{
+  background-color:var(--color-white);
+  border-radius: 0 !important;
+  max-width:100% !important;
+  margin: 0 auto !important;
+}
+
+.over-write-foolter {
+  border-radius: 0 !important;
+}

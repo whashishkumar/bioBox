@@ -1,12 +1,12 @@
 .parent-container {
   height: 750px;
-  background: url('/images/bannerH.png');
+  background: url('/images/bgo.jpeg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
 	overflow: hidden;
-  /* border-radius: 30px; */
-  /* margin: 0; */
+  border-radius: 50px;
+  margin: 0;
   position: absolute;
   top: 2%;
   left: 50%;

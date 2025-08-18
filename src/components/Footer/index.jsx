@@ -2,9 +2,9 @@
 import Image from "next/image";
 import "./style.css";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
-export default function Footer() {
+export default function Footer({className}) {
   return (
-    <footer className="footer hero-sub-container">
+    <footer className={`footer hero-sub-container ${className}`}  >
       <div className="footer-container ">
         <div className="section-container sub-container">
           <div className="col-left">
@@ -104,7 +104,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-bottom">
-        ©2025 Bioboxpharma. All rights reserved
+         <p>©{new Date().getFullYear()} BioBox. All rights reserved.</p>
       </div>
     </footer>
   );
