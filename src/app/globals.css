@@ -58,17 +58,16 @@ body, html {
   .padding-y-axis {
   padding: 30px 0;
 }
-
 }
 
-/* ============ */
-.over-write-header{
-  background-color:var(--color-white);
-  border-radius: 0 !important;
-  max-width:100% !important;
-  margin: 0 auto !important;
+/* ============== */
+.radius-none{
+  /* border-radius: 0 !important; */
+}
+.banner-image {
+  /* height: 650px !important; */
 }
 
-.over-write-foolter {
-  border-radius: 0 !important;
+.bg-height {
+  /* height: 450px !important; */
 }

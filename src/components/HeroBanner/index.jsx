@@ -2,10 +2,10 @@ import React from 'react'
 import './style.css'
 import Header from '../Header'
 
-export default function HeroBanner() {
+export default function HeroBanner({className}) {
   return (
- <div className='bg'>
-     <div className='parent-container hero-sub-container'>
+ <div className={`bg ${className}`}>
+     <div className={`parent-container hero-sub-container ${className}`}>
       <div className='ban-cont'>
         <div className='header-container'>
        < Header/>

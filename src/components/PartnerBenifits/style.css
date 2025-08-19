@@ -1,0 +1,47 @@
+.benifits-card-container {
+   /* background-color: #ddd; */
+}
+.cards-wrapper {
+ display: flex;
+ flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.gift-card {
+  width: 650px;
+  height: 200px;
+  background-color: var(--color-white);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.19);
+  display: flex;           
+  overflow: hidden;
+  border-radius: 10px;     
+}
+
+.gift-card img {
+  width: 230px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 30px;
+  gap: 15px;
+}
+
+.card-heading {
+  color: var(--color-primary);
+  font-size: 28px;
+  font-weight: 500;
+  font-family: var(--font-red-hat-display);
+}
+
+.card-description {
+  font-family: var(--font-sanchez);
+  color: var(--text-color-text);
+  font-size: 15px;
+  font-weight: 400;
+}

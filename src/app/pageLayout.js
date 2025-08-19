@@ -2,15 +2,17 @@ import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import React from 'react'
 import './globals.css'
+import HeroBanner from '@/components/HeroBanner'
+
 
 
 
 export default function PageLayout({children}) {
   return (
     <div>
-      <Header className={'over-write-header'} />
+      <HeroBanner className={'banner-image bg-height'}/>
         {children}
-      <Footer className={'over-write-foolter'}/> 
+      <Footer className={'radius-none'}/> 
     </div>
   )
 }

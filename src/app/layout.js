@@ -43,7 +43,7 @@ const poppins = localFont({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${redHatDisplay.variable} ${sanchez.variable} ${poppins.variable}`}>
+      <body className={`${geistSans.variable} ${redHatDisplay.variable} ${sanchez.variable} ${poppins.variable} `}>
         {children}
       </body>
     </html>

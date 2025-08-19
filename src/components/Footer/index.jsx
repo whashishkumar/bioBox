@@ -4,8 +4,8 @@ import "./style.css";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 export default function Footer({className}) {
   return (
-    <footer className={`footer hero-sub-container ${className}`}  >
-      <div className="footer-container ">
+    <footer className={`footer hero-sub-container ${className} `}  >
+      <div className="footer-container padding ">
         <div className="section-container sub-container">
           <div className="col-left">
           <div className="footer-col-bx footer-logo">

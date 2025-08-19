@@ -5,11 +5,11 @@ import Link from "next/link";
 import './style.css'
 
 
-export default function Header({ className }) {
+export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className={`navbar sub-container ${className}`}>
+    <nav className={`navbar sub-container`}>
       {/* Logo */}
       <Link href={'/'}>
         <div className="logo">
