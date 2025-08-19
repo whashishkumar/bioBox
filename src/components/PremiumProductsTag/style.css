@@ -1,0 +1,30 @@
+.product-tag-root{
+  /* background-color: #ddd; */
+}
+
+.product-tag-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.heading {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+  font-family: var(--font-red-hat-display);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.subtext {
+  max-width: 1000px;
+  margin: 0 auto 0px;
+  font-family: var(--font-sanchez);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 28px;
+  text-align: center;
+  color: var(--text-color-text);
+}

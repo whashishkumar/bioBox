@@ -8,6 +8,10 @@
   gap: 50px;
 }
 
+.margin-top {
+  margin-top: 50px;
+}
+
 .left-col {
   width: 40%;
 }
@@ -23,9 +27,7 @@
 .image-wrapper {
   position: relative;
   display: inline-block; 
-
 }
-
 
 .image-wrapper .overlay-img {
   position: absolute;
