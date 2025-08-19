@@ -26,6 +26,7 @@ export default function ProductGallery() {
   const [activeCategory, setActiveCategory] = useState(categories[0]);
   return (
     <>
+    
       <div className="product-container">
         <div className='width-left-col'>
            <PageHeadingTitle
@@ -48,8 +49,10 @@ export default function ProductGallery() {
       </div>
      </div>
      <div>
+
       <ProductCard/>
-  
+
+
      </div>
     </>
   );

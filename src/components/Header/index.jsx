@@ -2,16 +2,29 @@
 import { useState } from "react";
 import { FaPhoneAlt, FaBars, FaTimes } from "react-icons/fa";
 import Link from "next/link";
-import './style.css'
-
+import { usePathname } from "next/navigation";
+import './style.css';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const navLinks = [
+    { name: "Home", path: "/" },
+    { name: "About us", path: "/about-us" },
+    { name: "Our Products", path: "/products" },
+    { name: "Our Services", path: "/services" },
+    { name: "Contact Us", path: "/contact-us" },
+  ];
+
+  const handleLinkClick = () => {
+    setMenuOpen(false); // ✅ close menu when link clicked
+  };
 
   return (
-    <nav className={`navbar sub-container`}>
+    <nav className="navbar sub-container">
       {/* Logo */}
-      <Link href={'/'}>
+      <Link href="/">
         <div className="logo">
           <img src="/images/logo.png" alt="BioBox Logo" className="logoImg" />
         </div>
@@ -25,21 +38,17 @@ export default function Header() {
       {/* Nav Links */}
       <div className={`navLinks ${menuOpen ? "open" : ""}`}>
         <ul>
-          <Link href={'/'}>
-            <li className="link active">Home</li>
-          </Link>
-          <Link href={'/about-us'}>
-            <li className="link">About us</li>
-          </Link>
-          <li className="link">
-            Our Products <span className="dropdownArrow">▼</span>
-          </li>
-          <li className="link">
-            Our Services <span className="dropdownArrow">▼</span>
-          </li>
-          <Link href={'/contact-us'}>
-            <li className="link">Contact Us</li>
-          </Link>
+          {navLinks.map((link) => (
+            <Link href={link.path} key={link.name} onClick={handleLinkClick}>
+              <li className={`link ${pathname === link.path ? "active" : ""}`}>
+                {link.name}
+                {(link.name === "Our Products" || link.name === "Our Services") && (
+                  <span className="dropdownArrow">▼</span>
+                )}
+              </li>
+            </Link>
+          ))}
+          {/* Mobile call button */}
           <li className="callButton mobileCallButton">
             <FaPhoneAlt />
             <span>82638 85578</span>
@@ -47,7 +56,7 @@ export default function Header() {
         </ul>
       </div>
 
-      {/* Call Button */}
+      {/* Desktop Call Button */}
       <div className="callButton">
         <FaPhoneAlt />
         <span>82638 85578</span>

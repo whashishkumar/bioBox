@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import './style.css'
 
+
 export default function CategoryCard({ title, image, icon }) {
   return (
     <div className="card">

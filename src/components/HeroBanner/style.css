@@ -48,7 +48,9 @@
     background-size: contain; 
     background-repeat: no-repeat;
     background-position: center;
-    aspect-ratio: 15 / 10 
+    /* aspect-ratio: 15 / 10  */
+      aspect-ratio: 16 / 8;
+
   }
   .bg {
     height: auto;

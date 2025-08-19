@@ -79,7 +79,6 @@
 }
 
 .check-icon {
-  /* background: #002678; */
   background: var(--color-background-secondary);
   color: var(--color-white);
   border-radius: 50%;

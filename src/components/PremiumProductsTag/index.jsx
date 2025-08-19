@@ -3,7 +3,7 @@ import './style.css'
 
 export default function PremiumProductTag() {
   return (
-    <div className='product-tag-root'>
+    <div className='product-tag-root padding'>
         <div className='sub-container product-tag-box padding-y-axis'>
           <h2 className='heading'> Innovating Healthcare with Over 2500 Premium Products.</h2>
           <h3 className='heading'>Revolutionizing Healthcare</h3>
