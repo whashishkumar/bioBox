@@ -1,24 +1,18 @@
-'use client'
-import PageLayout from '@/app/pageLayout'
-import ProductCard from '@/components/OurProducts/ProductCard';
-import PartnerBenifits from '@/components/PartnerBenifits'
-import PremiumProductTag from '@/components/PremiumProductsTag';
-
-import React, { Suspense, lazy } from "react";
-const BioBoxPharma = lazy(() => import("../components/BioBoxPharma"));
-
+import React from "react";
+import { lazyImport } from "@/utils/lazyImport";
+const PageLayout = lazyImport(() => import("@/app/pageLayout"));
+const ProductCard = lazyImport(() => import("@/components/OurProducts/ProductCard"));
+const PartnerBenifits = lazyImport(() => import("@/components/PartnerBenifits"));
+const PremiumProductTag = lazyImport(() => import("@/components/PremiumProductsTag"));
+const BioBoxPharma = lazyImport(() => import("@/components/BioBoxPharma"));
 
 export default function AboutUs() {
   return (
-    <div>
-      <PageLayout>
-        <Suspense fallback={<div>Loading...</div>}>
-        <BioBoxPharma />
-      </Suspense>
-        <PartnerBenifits/>
-        <PremiumProductTag/>
-        <ProductCard/>
-      </PageLayout>
-    </div>
-  )
+    <PageLayout>
+      <BioBoxPharma />
+      <PartnerBenifits />
+      <PremiumProductTag />
+      <ProductCard />
+    </PageLayout>
+  );
 }

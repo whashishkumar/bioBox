@@ -1,24 +1,26 @@
 import AboutUs from '@/components/AboutUs'
-import FooterBanner from '@/components/FooterBanner'
-import HeroBanner from '@/components/HeroBanner'
-import OurCertification from '@/components/OurCertification'
-import OurProducts from '@/components/OurProducts'
-import ProductCategories from '@/components/ProductCatogries'
-import ProductTypes from '@/components/ProductTypes'
-import Choose from '@/components/WhytoChooseUs'
+import { lazyImport } from '@/utils/lazyImport'
 import React from 'react'
+
+const FooterBanner = lazyImport(() => import("@/components/FooterBanner"));
+const HeroBanner = lazyImport(() => import("@/components/HeroBanner"));
+const OurCertification = lazyImport(() => import("@/components/OurCertification"));
+const OurProducts = lazyImport(() => import("@/components/OurProducts"));
+const ProductCategories = lazyImport(() => import("@/components/ProductCatogries"));
+const ProductTypes = lazyImport(() => import("@/components/ProductTypes"));
+const Choose = lazyImport(() => import("@/components/WhytoChooseUs"));
 
 export default function LandingPage() {
   return (
-    <div>
-        <HeroBanner/>
-        <ProductCategories/>
-        <AboutUs/>
-        <ProductTypes/>
-        <Choose/>
-        <OurCertification/>
-        <OurProducts/>
-        <FooterBanner/>
-    </div>
+    <>
+      <HeroBanner/>
+      <ProductCategories/>
+      <AboutUs/>
+      <ProductTypes/>
+      <Choose/>
+      <OurCertification/>
+      <OurProducts/>
+      <FooterBanner/>
+    </>
   )
 }

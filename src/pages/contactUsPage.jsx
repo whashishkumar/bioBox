@@ -1,16 +1,17 @@
-import PageLayout from '@/app/pageLayout'
-import ContactUsAddress from '@/components/ContactUsAddress'
-import StayConnected from '@/components/ContactUsStayConnected'
-import React from 'react'
+import React from "react";
+import { lazyImport } from "@/utils/lazyImport";
 
+const PageLayout = lazyImport(() => import("@/app/pageLayout"));
+const ContactUsAddress = lazyImport(() => import("@/components/ContactUsAddress"));
+const StayConnected = lazyImport(() => import("@/components/ContactUsStayConnected"));
 
 export default function ContactUsPage() {
   return (
     <PageLayout>
-    <>
-       <ContactUsAddress/>
-       <StayConnected/>
-    </>
+      <>
+        <ContactUsAddress />
+        <StayConnected />
+      </>
     </PageLayout>
-  )
+  );
 }
