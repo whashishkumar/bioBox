@@ -5,8 +5,8 @@ import { IoLocationSharp } from "react-icons/io5";
 
 export default function ContactUsAddress() {
   return (
-    <div className="contact-us padding">
-      <div className="contact-us__wrapper">
+    <div className="contact-us padding ">
+      <div className="contact-us__wrapper sub-container ">
         <div className="contact-us__block">
           <iframe
             className="contact-us__map"

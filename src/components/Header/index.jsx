@@ -18,24 +18,20 @@ export default function Header() {
   ];
 
   const handleLinkClick = () => {
-    setMenuOpen(false); // ✅ close menu when link clicked
+    setMenuOpen(false); 
   };
 
   return (
     <nav className="navbar sub-container">
-      {/* Logo */}
       <Link href="/">
         <div className="logo">
           <img src="/images/logo.png" alt="BioBox Logo" className="logoImg" />
         </div>
       </Link>
-
-      {/* Hamburger */}
-      <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+    <div className="nav-bar-col-2">
+         <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
         {menuOpen ? <FaTimes /> : <FaBars />}
       </div>
-
-      {/* Nav Links */}
       <div className={`navLinks ${menuOpen ? "open" : ""}`}>
         <ul>
           {navLinks.map((link) => (
@@ -48,19 +44,17 @@ export default function Header() {
               </li>
             </Link>
           ))}
-          {/* Mobile call button */}
           <li className="callButton mobileCallButton">
             <FaPhoneAlt />
             <span>82638 85578</span>
           </li>
         </ul>
       </div>
-
-      {/* Desktop Call Button */}
-      <div className="callButton">
+        <div className="callButton">
         <FaPhoneAlt />
         <span>82638 85578</span>
       </div>
+    </div>
     </nav>
   );
 }

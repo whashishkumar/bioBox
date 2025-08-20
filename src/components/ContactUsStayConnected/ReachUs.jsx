@@ -1,5 +1,4 @@
 import React from 'react'
-import { FaShoppingBasket } from "react-icons/fa";
 import { IoLocationSharp } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
@@ -7,6 +6,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { FaPinterest } from "react-icons/fa";
+import Link from 'next/link';
 
 
 
@@ -31,20 +31,20 @@ export default function ReachUs() {
                   <div className='reachUs-container'>
                       <h2 className="reachus-title">Reach us through</h2>
                   <p className="loc-icon">
-                    {" "}
-                    <IoLocationSharp />{" "}
+                    
+                    <IoLocationSharp />
                     <span className="location-des">Office 20, Paras<br/> down square Mall,<br/> Zirakpur, <br/>Punjab 140603</span>
                   </p>
                     <p className="loc-icon">
-                    {" "}
-                    <FaPhone />{" "}
+                    
+                    <FaPhone />
                     <span className="location-des">
                       +91 9988195950
                     </span>
                   </p>
                      <p className="loc-icon">
-                    {" "}
-                    <MdEmail />{" "}
+                    
+                    <MdEmail />
                     <span className="location-des">
                        bioboxpharma@gmail.com
                     </span>
@@ -54,30 +54,36 @@ export default function ReachUs() {
                       <div className='social-network'>
                       <h2 className="reachus-title">Social Networks</h2>
                           <p className="loc-icon">
-                    {" "}
-                    <FaFacebookF />{" "}
+                      <Link href={""}>
+                    
+                    <FaFacebookF />
                     <span className="location-des">Facebook</span>
+                    </Link>
                   </p>
                     <p className="loc-icon">
-                    {" "}
-                    <FaTwitter />{" "}
+                       <Link href={""}>
+           
+                    <FaTwitter />
                     <span className="location-des">
                       Twitter
                     </span>
+                    </Link>
                   </p>
                      <p className="loc-icon">
-                    {" "}
-                    <FaInstagram />{" "}
+                      <Link href={""}>
+                    <FaInstagram />
                     <span className="location-des">
                        Instagram
                     </span>
+                    </Link>
                   </p>
                         <p className="loc-icon">
-                    {" "}
-                    <FaPinterest />{" "}
+                    <Link href={""}>
+                    <FaPinterest />
                     <span className="location-des">
                        Pinterest
                     </span>
+                    </Link>
                   </p>
                   </div>
                 </div>

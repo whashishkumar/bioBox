@@ -1,24 +1,16 @@
-
-
-
-/* ===== PCD Section ===== */
 .pcd-section {
   background-color: var(--color-background-secondary);
   color: var(--color-white);
   position: relative;
-  min-height: 100vh; /* full screen height */
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
+  min-height: 100vh; 
   padding: 60px 20px; 
-  /* overflow: hidden; */
-    height: 880px;
+  height: 880px;
 }
 
 .pcd-section::before {
   content: "";
   position: absolute;
-  inset: 0; /* shorthand for top/right/bottom/left: 0 */
+  inset: 0; 
   background: url('/images/pcdbg.png') center/cover no-repeat;
   opacity: 0.1;
   z-index: 0;
@@ -31,7 +23,6 @@
   justify-content: space-between;
   gap: 60px;
   width: 100%;
-  /* max-width: 1200px;  */
   position: relative;
   z-index: 1;
   margin: 0 auto;
@@ -39,11 +30,9 @@
 
 .pcd-image-wrapper {
   flex: 1 1 500px;
-  /* max-width: 628px; */
-    min-width: 280px;
+  min-width: 280px;
   max-width: 600px;
   position: relative;
-  
 }
 
 .pcd-image {
@@ -62,7 +51,6 @@
 
 .tag-container img {
   width: 78px;
-  /* height: 26px; */
 }
 
 .pentogone { 
@@ -135,18 +123,14 @@
 .pcd-info-block p {
   font-family: var(--font-sanchez);
 }
-
 .pcd-icon img {
   height: 50px;
   width: 50px;
   object-fit: contain;
 }
-
-.footer-parent-container {
-  position: relative;
-  width: 100%;
-  margin-top: 60px;
-}
+  .footer-parent-container {
+    margin-top: 30px;
+  }
 
 .bg-white {
   height: 200px;
@@ -154,7 +138,7 @@
 
 
 /* ===== Tablet View ===== */
-@media (max-width: 1024px) {
+ @media (max-width: 1024px) {
   .pcd-container {
     flex-direction: column;
     gap: 40px;
@@ -192,10 +176,16 @@
     top: 30%;
     right: -10px;
   }
-}
+  .footer-parent-container {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    margin-top: 25px;
+  }
+} 
 
 /* ===== Mobile View ===== */
-@media (max-width: 768px) {
+ @media (max-width: 768px) {
   .pcd-title {
     font-size: 22px;
   }
@@ -225,10 +215,12 @@
     object-fit: contain;
   }
   .footer-parent-container {
-    margin: 0;
+    margin-top: 25px;
+    position: absolute;
+    z-index: 1;
+    left: 0;
   }
   .pentogone {
     height: auto;
   }
-
-}
+} 

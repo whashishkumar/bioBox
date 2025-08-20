@@ -4,7 +4,7 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-	overflow: hidden;
+  overflow: hidden;
   border-radius: 50px;
   position: absolute;
   top: 2%;
@@ -27,33 +27,39 @@
   height: 650px;
 }
 
-/* Tablet view */
 @media (max-width: 1024px) {
   .parent-container {
     height: 500px;
     border-radius: 25px;
+    background: url('/images/Banner.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
   }
+
   .bg {
-    height: 480px;
+    max-height: 320px;
   }
+
 }
 
-/* Mobile view */
-@media (max-width: 768px) {
-  .parent-container {
-    height: auto; 
-    border-radius: 0px;
-    top: 0;
-    transform: translate(-50%, 0);
-    background-size: contain; 
-    background-repeat: no-repeat;
-    background-position: center;
-    /* aspect-ratio: 15 / 10  */
-      aspect-ratio: 16 / 8;
 
-  }
-  .bg {
+
+@media (max-width: 768px) {
+  .header-container {
     height: auto;
-    padding: 0 10px;
+    min-height: 100vh;
+  }
+
+  .parent-container {
+    border-radius: 0px;
+    background: url('/images/Banner.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center top;
+  }
+
+  .bg {
+    max-height: 150px;
   }
 }

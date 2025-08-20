@@ -30,6 +30,7 @@
   display: flex;
   justify-content: space-between;
 }
+
 .col-left {
   display: flex;
   justify-content: space-between;
@@ -41,7 +42,7 @@
 
 .footer-logo .logo-box {
   margin-bottom: 10px;
-  background-color:  var(--color-white);
+  background-color: var(--color-white);
   height: 99px;
   width: 216px;
   border-radius: 5px;
@@ -59,7 +60,7 @@
 }
 
 .footer-socials a {
-  color:  var(--color-white);
+  color: var(--color-white);
   margin-right: 16px;
   font-size: 23px;
   text-decoration: none;
@@ -73,7 +74,7 @@
 .footer-links {
   display: flex;
   flex-direction: column;
- align-items: center;
+  align-items: center;
 }
 
 .footer-links h4,
@@ -87,7 +88,7 @@
 
 .gm-style .place-card-medium {
   display: none !important;
-} 
+}
 
 .footer-links ul,
 .footer-categories ul {
@@ -107,7 +108,7 @@
 
 .footer-links a,
 .footer-categories a {
-  color:  var(--color-white);
+  color: var(--color-white);
   text-decoration: none;
   font-size: 16px;
   font-family: var(--font-sanchez);
@@ -142,44 +143,54 @@
 }
 
 @media (max-width: 1024px) {
-  .section-container{
-    flex-direction: column;
-     gap: 40px;
-  }
-  .footer-col-bx {
-  width: auto;
-}
-.col-left {
+  .section-container {
     flex-direction: column;
     gap: 40px;
+  }
+
+  .footer-col-bx {
+    width: auto;
+  }
+
+  .col-left {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .footer-links {
+    align-items: flex-start;
+  }
+
+  .footer-map {
+    width: 100%;
+  }
 }
-.footer-links {
-  align-items: flex-start;
-} 
-.footer-map {
-  width: 100%;
-}
-}
+
 @media (max-width: 768px) {
 
-    .section-container{
+  .section-container {
     flex-direction: column;
     grid-area: 50px;
   }
+
   .footer-col-bx {
     width: auto;
-}
-.col-left {
-gap: 40px;
+  }
+
+  .col-left {
+    gap: 40px;
     flex-direction: column;
-}
-.footer-links {
-  align-items: flex-start;
-} 
-.footer-map {
-  width: 100%;
-}
-.footer-bottom{
-  padding: 30px 0;
-}
+  }
+
+  .footer-links {
+    align-items: flex-start;
+  }
+
+  .footer-map {
+    width: 100%;
+  }
+
+  .footer-bottom {
+    padding: 30px 0;
+  }
 }

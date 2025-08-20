@@ -92,13 +92,13 @@
   .margin-top-none {
     margin-top: 40px;
   }
-    .padding-top {
-    padding-top: 0;
-  }
 }
 
 /* Mobile */
 @media (max-width: 768px) {
+  .padding-top {
+    padding-top: 10px;
+  }
   .root-container {
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
@@ -128,7 +128,7 @@
   .margin-top-none {
     margin-top: 40px;
   }
-  .padding-top {
+  /* .padding-top {
     padding-top: 0;
-  }
+  } */
 }

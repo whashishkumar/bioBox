@@ -13,6 +13,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .title-connect {
@@ -48,6 +49,14 @@
   color: #cc9955;
   padding: 8px 0;
 }
+.loc-icon a {
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #cc9955;
+}
 .location-des{
   font-size: 16px;
   font-weight: 400;
@@ -56,12 +65,7 @@
   font-family: var(--font-sanchez);
 }
 
-
-/* ======================================== */
-
 .form-wrapper {
-  /* max-width: 600px; 
-  margin: 0 auto; */
   border-radius: 20px;
   background: #fff;
   text-align: left;
@@ -105,7 +109,6 @@ textarea {
   border: none;
   border-radius: 30px;
   background: #f5f5f5;
-  /* background-color: var(--color-category); */
   font-size: 16px;
   outline: none;
   box-sizing: border-box;
@@ -154,4 +157,133 @@ textarea {
   color: green;
   font-weight: 500;
   text-align: center;
+}
+
+/* ====== Tablet (≤1024px) ====== */
+@media (max-width: 1024px) {
+  .reach-us-parent-content {
+    flex-direction: column;
+    gap: 20px;
+    /* align-items: center; */
+  }
+
+  .reach-us-map {
+    width: 100%;
+    height: 280px;
+  }
+
+  .contact-form {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .tag-line {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+/* ====== Mobile (≤768px) ====== */
+@media (max-width: 768px) {
+   .contact-us {
+    /* padding-top: 60px; */
+  }
+  .col-section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .reach-us-parent-content {
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px 0;
+    /* margin-top: 30px; */
+  }
+
+  .reach-us-map {
+    width: 100%;
+    height: 220px;
+  }
+
+  .reachUs-container {
+    width: 100%;
+  }
+
+  .social-network{
+    width: 100%;
+  }
+
+  .contact-form {
+    width: 100%;
+    padding: 0 15px; 
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .tag-line {
+    font-size: 16px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  input,
+  textarea {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .submit-btn {
+    font-size: 14px;
+    padding: 14px;
+  }
+}
+
+/* ====== Small Mobile (≤480px) ====== */
+@media (max-width: 480px) {
+  .contact-us {
+    padding-top: 60px;
+  }
+  .title {
+    font-size: 18px;
+  }
+
+  .tag-line {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .reach-us-map {
+    height: 180px;
+  }
+  .reachUs-container {
+    width: 100%;
+  }
+  .social-network{
+    width: 100%;
+  }
+
+  .contact-form {
+    gap: 14px;
+  }
+
+  input,
+  textarea {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .submit-btn {
+    font-size: 13px;
+    padding: 12px;
+  }
 }

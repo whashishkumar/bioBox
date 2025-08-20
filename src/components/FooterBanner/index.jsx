@@ -5,7 +5,7 @@ import Footer from "../Footer";
 export default function PCDSection() {
   return (
     <>
-    <section className="pcd-section ">
+    <section className="pcd-section">
       <div className="pcd-container padding  sub-container">
         <div className="pcd-image-wrapper">
           <Image
@@ -32,7 +32,6 @@ export default function PCDSection() {
             products, and unmatched support to help you build a successful
             pharma business.
           </p>
-
           <div className="pcd-info-block">
             <div className="pcd-icon">
               <img src={'/icons/pcd1.png'} alt="pcd-icon"/>
@@ -57,11 +56,11 @@ export default function PCDSection() {
             </div>
           </div>
         </div>
-      </div>
+      </div>  
         <div className="footer-parent-container">
          <Footer/>
-      </div>
-    </section>   
+      </div>  
+    </section>  
     <div className="bg-white"></div>
     </>
   );

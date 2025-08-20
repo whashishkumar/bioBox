@@ -11,6 +11,13 @@
   position: relative;
 }
 
+.nav-bar-col-2 {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+
+}
+
 .logoImg {
   height: 59px;
 }
@@ -18,12 +25,13 @@
 .navLinks ul {
   list-style: none;
   display: flex;
-  gap: 25px;
+  gap: 30px;
   align-items: center;
   margin: 0;
   padding: 0;
   transition: all 0.3s ease-in-out;
 }
+
 .navLinks ul a {
   text-decoration: none;
 }
@@ -36,15 +44,17 @@
   font-weight: 400;
   font-family: var(--font-red-hat-display);
 }
+
 .link:hover {
   color: var(--color-primary);
 }
 
-/* Active Nav Item */
+
 .link.active {
   color: var(--color-primary);
   font-weight: 600;
 }
+
 .link.active::after {
   content: "";
   position: absolute;
@@ -87,33 +97,39 @@
   cursor: pointer;
 }
 
-/* Tablet */
-/* @media (max-width: 1024px) {
+@media (max-width: 1024px) {
   .navLinks {
     gap: 15px;
   }
+
   .navbar {
     max-width: 1100px;
     width: auto;
     height: auto;
   }
+  .navLinks ul {
+    gap: 15px;
+  }
+
   .link {
     font-size: 12px;
   }
+
   .callButton {
     width: 140px;
     font-size: 14px;
   }
+
   .mobileCallButton {
     display: none;
   }
+
   .header-container {
     padding-top: 0 !important;
   }
-} */
+}
 
-/* Mobile */
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
   .hamburger {
     display: block;
   }
@@ -122,12 +138,11 @@
     box-shadow: none;
     border-radius: 0;
   }
-
   .navLinks {
     position: absolute;
     top: 100%;
     left: 0;
-    width: 100vw; 
+    width: 100vw;
     background: var(--color-white);
     flex-direction: column;
     border-radius: 0 0 20px 20px;
@@ -135,25 +150,25 @@
     overflow: hidden;
     transition: all 0.3s ease-in-out;
     padding: 0 40px;
-    z-index: 1000; 
+    z-index: 1000;
   }
-
   .navLinks ul {
     flex-direction: column;
     padding: 30px 0;
     align-items: flex-start;
     width: 100%;
   }
-
   .navLinks.open {
     max-height: 500px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
-
   .callButton {
     display: none;
   }
   .mobileCallButton {
     display: flex;
   }
-} */
+  .navLinks {
+    z-index: 1;
+  }
+}
