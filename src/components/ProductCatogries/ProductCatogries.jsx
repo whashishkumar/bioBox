@@ -76,7 +76,7 @@ export const categories = [
 
 const headingObject = {
   heading:'Product Categories',
-  subHeading :'From everyday health concerns to complex therapeutic needs, our product categories are designed to deliver trust and results. Covering General, Cardiac, Diabetic, Gynae, Ortho & more – we ensure complete care under one trusted name.'
+  subHeading :'From everyday health concerns to complex therapeutic needs, our product categories are designed to deliver trust and results.Covering General, Cardiac, Diabetic, Gynae, Ortho & more – we ensure complete care under one trusted name.'
 }
 
 

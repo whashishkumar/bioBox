@@ -6,6 +6,7 @@
   margin-bottom: 16px;
   font-family: var(--font-red-hat-display);
   text-align: center;
+  text-transform: capitalize;
 }
 
 .subtext {
