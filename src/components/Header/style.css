@@ -88,7 +88,7 @@
 }
 
 /* Tablet */
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   .navLinks {
     gap: 15px;
   }
@@ -110,10 +110,10 @@
   .header-container {
     padding-top: 0 !important;
   }
-}
+} */
 
 /* Mobile */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .hamburger {
     display: block;
   }
@@ -156,4 +156,4 @@
   .mobileCallButton {
     display: flex;
   }
-}
+} */

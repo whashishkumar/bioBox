@@ -207,6 +207,6 @@ export default function BioBoxPharma() {
           </div>
         </div>
       </div>
-    </div>
+    </div>   
   );
 }
