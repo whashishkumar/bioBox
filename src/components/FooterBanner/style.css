@@ -138,7 +138,10 @@
 
 
 /* ===== Tablet View ===== */
- @media (max-width: 1024px) {
+ @media (min-width: 768px) and (max-width: 1024px) {
+.pcd-section {
+    height: auto;
+  }
   .pcd-container {
     flex-direction: column;
     gap: 40px;
@@ -186,6 +189,9 @@
 
 /* ===== Mobile View ===== */
  @media (max-width: 768px) {
+  .pcd-section {
+    height: auto;
+  }
   .pcd-title {
     font-size: 22px;
   }

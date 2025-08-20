@@ -128,7 +128,7 @@
 }
 
 
-@media (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .gift-card {
     flex: 1 1 100%;
     height: auto;   

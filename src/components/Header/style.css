@@ -9,6 +9,7 @@
   padding: 0 25px;
   height: 104px;
   position: relative;
+  margin-top: 30px;
 }
 
 .nav-bar-col-2 {
@@ -97,7 +98,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .navLinks {
     gap: 15px;
   }
@@ -106,6 +107,7 @@
     max-width: 1100px;
     width: auto;
     height: auto;
+    margin-top: 0;
   }
   .navLinks ul {
     gap: 15px;
@@ -123,10 +125,6 @@
   .mobileCallButton {
     display: none;
   }
-
-  .header-container {
-    padding-top: 0 !important;
-  }
 }
 
 @media (max-width: 768px) {
@@ -137,6 +135,7 @@
     height: auto;
     box-shadow: none;
     border-radius: 0;
+    margin-top: 0;
   }
   .navLinks {
     position: absolute;

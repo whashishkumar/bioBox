@@ -34,7 +34,7 @@ const aboutUs = {
 export default function AboutUs() {
   return (
     <section className="sub-container about-section padding-y-axis">
-      <div className="about-container">
+      <div className="about-container padding">
         <div className="about-left">
          <div className="container-image-sec">
   <img src="/images/about02.png" alt="Doctor" className="about-image-quality" />

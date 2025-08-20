@@ -46,7 +46,7 @@
 }
 
 /* Tablet view */
-@media (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .our-certifacation {
     height: auto;
     padding: 40px 20px;

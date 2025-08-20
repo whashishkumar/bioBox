@@ -16,7 +16,7 @@ import Link from 'next/link';
 export default function ReachUs() {
   return (
 
-        <div className="registred-address">
+        <div className="registred-address padding">
                 <iframe
                   className="reach-us-map"
                   title="BioBox Location"

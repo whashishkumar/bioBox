@@ -83,7 +83,7 @@ const headingObject = {
 const ProductCategories = () => {
   return (
     <div className='root-container'>
-      <div className="section padding-top">
+      <div className="section padding-top-category">
        <PageHeadingTitle heading={headingObject.heading} subheading={headingObject.subHeading}/>
       <div className="sub-container grid">
         {categories.map((cat, index) => (

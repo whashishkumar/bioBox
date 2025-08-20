@@ -1,4 +1,3 @@
-
 .contact-us {
   background-color: #f2f1e6;
   padding-top: 150px;
@@ -10,7 +9,6 @@
   gap: 40px;
   flex-wrap: wrap;
 }
-
 
 .contact-us__block {
   flex: 1;
@@ -54,4 +52,60 @@
   display: flex;
   align-items: center;
   gap: 6px;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .contact-us {
+    padding-top: 180px; 
+  }
+
+  .contact-us__wrapper {
+    gap: 30px;
+    flex-direction: column;
+    margin-top: 80px;
+    
+  }
+
+
+  .contact-us__block {
+    max-width: 100%;
+
+  }
+
+  .contact-us__map {
+    height: 280px; 
+  }
+
+  .contact-us__title {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 767px) {
+  .contact-us {
+    padding-top: 40px; 
+  }
+
+  .contact-us__wrapper {
+    flex-direction: column; 
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .contact-us__block {
+    max-width: 100%; 
+  }
+
+  .contact-us__map {
+    height: 220px; 
+  }
+
+  .contact-us__title {
+    font-size: 18px;
+  }
+
+  .contact-us__location {
+    font-size: 14px;
+    line-height: 20px;
+  }
 }

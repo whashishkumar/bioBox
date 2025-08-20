@@ -114,7 +114,7 @@
 }
 
 /* Tablet */
-@media (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .about-container {
     flex-direction: column;
     align-items: center;
@@ -150,8 +150,22 @@
 
 /* Mobile */
 @media (max-width: 768px) {
+  .padding-y-axis {
+    padding: 0;
+  }
+    .about-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .about-left {
+    justify-content: center;
+    width: 100%;
+  }
   .about-right {
-    gap: 25px;
+     justify-content: center;
+    width: 100%;
+    align-items: center;
   }
   .about-image-bg {
     width: 300px;
