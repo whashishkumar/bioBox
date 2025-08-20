@@ -1,3 +1,4 @@
+'use client'
 import dynamic from "next/dynamic";
 import { DotLoader } from "react-spinners";
 import '../app/globals.css'
@@ -13,6 +14,6 @@ export const Loader = () => {
 }
 export function lazyImport(factory) {
   return dynamic(factory, {
-    loading: () => <Loader/>,
-  });
+    loading: () => <Loader/>,   ssr: false }
+  );
 }
