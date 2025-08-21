@@ -16,7 +16,7 @@
 .about-image-bg {
   position: relative;
   display: block;
-  max-width: 550;
+  max-width: 550px;
   object-fit: cover;
 }
 
