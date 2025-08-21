@@ -3,9 +3,8 @@ import categoryReducer from './features/productCategory/categorySlice';
 
 const store = configureStore({
   reducer: {
-      catogeries: categoryReducer
+    categories: categoryReducer,
   },
-}); 
+});
 
-
-export default store; 
+export default store;

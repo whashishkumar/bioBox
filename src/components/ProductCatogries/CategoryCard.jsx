@@ -1,11 +1,7 @@
-
 import Image from 'next/image';
-import './style.css'
-
+import './style.css';
 
 export default function CategoryCard({ title, image, icon }) {
-
-  
   return (
     <div className="card">
       <div className="image-wrapper-category">
@@ -18,4 +14,3 @@ export default function CategoryCard({ title, image, icon }) {
     </div>
   );
 }
-

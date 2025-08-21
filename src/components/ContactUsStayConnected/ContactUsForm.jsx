@@ -1,14 +1,13 @@
-"use client";
-import { useState } from "react";
-
+'use client';
+import { useState } from 'react';
 export default function ContactUsForm() {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    city: "",
-    state: "",
-    message: "",
+    name: '',
+    email: '',
+    phone: '',
+    city: '',
+    state: '',
+    message: '',
   });
 
   const [errors, setErrors] = useState({});
@@ -22,20 +21,20 @@ export default function ContactUsForm() {
   // validate form
   const validate = () => {
     let newErrors = {};
-    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.name.trim()) newErrors.name = 'Name is required';
     if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
+      newErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Invalid email format";
+      newErrors.email = 'Invalid email format';
     }
     if (!formData.phone.trim()) {
-      newErrors.phone = "Phone is required";
+      newErrors.phone = 'Phone is required';
     } else if (!/^\d{10}$/.test(formData.phone)) {
-      newErrors.phone = "Enter valid 10 digit phone no";
+      newErrors.phone = 'Enter valid 10 digit phone no';
     }
-    if (!formData.city.trim()) newErrors.city = "City is required";
-    if (!formData.state.trim()) newErrors.state = "State is required";
-    if (!formData.message.trim()) newErrors.message = "Message is required";
+    if (!formData.city.trim()) newErrors.city = 'City is required';
+    if (!formData.state.trim()) newErrors.state = 'State is required';
+    if (!formData.message.trim()) newErrors.message = 'Message is required';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -45,15 +44,15 @@ export default function ContactUsForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      console.log("Form Data Submitted:", formData);
+      console.log('Form Data Submitted:', formData);
       setSubmitted(true);
       setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        city: "",
-        state: "",
-        message: "",
+        name: '',
+        email: '',
+        phone: '',
+        city: '',
+        state: '',
+        message: '',
       });
       setErrors({});
     }
@@ -129,7 +128,9 @@ export default function ContactUsForm() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="message">PCD Pharma Franchise/Bulk Order Inquiry</label>
+          <label htmlFor="message">
+            PCD Pharma Franchise/Bulk Order Inquiry
+          </label>
           <textarea
             id="message"
             name="message"
