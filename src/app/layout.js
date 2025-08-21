@@ -1,6 +1,13 @@
-import { Geist, Roboto,} from "next/font/google";
+'use client';
+import { Geist, } from "next/font/google";
 import "./globals.css";
 import localFont from "next/font/local";
+import { Provider } from "react-redux";
+import store from "@/store/store";
+import Head from "next/head";
+
+
+
 
 
 const geistSans = Geist({
@@ -8,10 +15,6 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "bioBox Pharma",
-  description: "BioBox Pharma commitment to quality Healthcare",
-};
 
 const sanchez= localFont({
   src: './../../public/fonts/Sanchez-Regular.ttf', 
@@ -43,9 +46,20 @@ const poppins = localFont({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Head>
+        <title>bioBox Pharma</title>
+        <meta name="description" content="BioBox Pharma commitment to quality Healthcare" />
+      </Head>
+        <title>BioBox Pharma</title>
+        <meta name="description" content="BioBox Pharma commitment to quality Healthcare" />
+        <link rel="icon" href="/favicon.ico" />
       <body className={`${geistSans.variable} ${redHatDisplay.variable} ${sanchez.variable} ${poppins.variable} `}>
-        {children}
+        <Provider store={store}>
+          {children}
+        </Provider>
       </body>
     </html>
   );
 }
+
+

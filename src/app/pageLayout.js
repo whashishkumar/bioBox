@@ -1,5 +1,4 @@
 import Footer from '@/components/Footer'
-import Header from '@/components/Header'
 import React from 'react'
 import './globals.css'
 import HeroBanner from '@/components/HeroBanner'
