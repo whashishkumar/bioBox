@@ -1,11 +1,10 @@
 .navbar {
   background-color: var(--color-white);
   border-radius: 50px;
-  max-width: 1300px;
+  max-width: 1200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 0 25px;
   height: 104px;
   position: relative;
@@ -26,24 +25,31 @@
 .navLinks ul {
   list-style: none;
   display: flex;
-  gap: 30px;
+  gap: 40px;
   align-items: center;
   margin: 0;
   padding: 0;
-  transition: all 0.3s ease-in-out;
 }
 
 .navLinks ul a {
   text-decoration: none;
-}
-
-.link {
   font-size: 15px;
-  color: #000;
+  color: var(--color-text);
   cursor: pointer;
   position: relative;
   font-weight: 400;
-  font-family: var(--font-red-hat-display);
+  font-family: var(--font-sanchez);
+  line-height: 32px;
+}
+
+.link {
+  /* font-size: 15px;
+  color: var(--color-text);
+  cursor: pointer;
+  position: relative;
+  font-weight: 400;
+  font-family: var(--font-sanchez);
+  line-height: 32px; */
 }
 
 .link:hover {
@@ -53,7 +59,6 @@
 
 .link.active {
   color: var(--color-primary);
-  font-weight: 600;
 }
 
 .link.active::after {
@@ -85,7 +90,7 @@
   font-weight: 700;
   cursor: pointer;
   font-size: 15px;
-  font-family: var(--font-red-hat-display);
+  font-family: var(--font-sanchez);
 }
 
 .mobileCallButton {
@@ -109,6 +114,7 @@
     height: auto;
     margin-top: 0;
   }
+
   .navLinks ul {
     gap: 15px;
   }
@@ -131,12 +137,14 @@
   .hamburger {
     display: block;
   }
+
   .navbar {
     height: auto;
     box-shadow: none;
     border-radius: 0;
     margin-top: 0;
   }
+
   .navLinks {
     position: absolute;
     top: 100%;
@@ -151,22 +159,27 @@
     padding: 0 40px;
     z-index: 1000;
   }
+
   .navLinks ul {
     flex-direction: column;
     padding: 30px 0;
     align-items: flex-start;
     width: 100%;
   }
+
   .navLinks.open {
     max-height: 500px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
+
   .callButton {
     display: none;
   }
+
   .mobileCallButton {
     display: flex;
   }
+
   .navLinks {
     z-index: 1;
   }

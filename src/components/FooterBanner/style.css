@@ -2,15 +2,15 @@
   background-color: var(--color-background-secondary);
   color: var(--color-white);
   position: relative;
-  min-height: 100vh; 
-  padding: 60px 20px; 
+  min-height: 100vh;
+  padding: 60px 20px;
   height: 880px;
 }
 
 .pcd-section::before {
   content: "";
   position: absolute;
-  inset: 0; 
+  inset: 0;
   background: url('/images/pcdbg.png') center/cover no-repeat;
   opacity: 0.1;
   z-index: 0;
@@ -29,9 +29,10 @@
 }
 
 .pcd-image-wrapper {
-  flex: 1 1 500px;
-  min-width: 280px;
-  max-width: 600px;
+  width: 45%;
+  /* flex: 1 1 500px; */
+  /* min-width: 280px; */
+  max-width: 628px;
   position: relative;
 }
 
@@ -53,7 +54,7 @@
   width: 78px;
 }
 
-.pentogone { 
+.pentogone {
   width: 30px;
   height: 26px;
   background-color: var(--color-primary);
@@ -70,7 +71,7 @@
   top: 0;
   right: 25px;
   transform: translateX(50%);
-   border-bottom-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 .pcd-experience-tag {
@@ -91,12 +92,13 @@
 }
 
 .pcd-content {
-  flex: 1 1 300px;
+  width: 47%;
+  /* flex: 1 1 300px; */
   min-width: 280px;
 }
 
 .pcd-title {
-  font-size: 28px;
+  font-size: 40px;
   margin-bottom: 20px;
   font-family: var(--font-red-hat-display);
 }
@@ -106,31 +108,48 @@
   margin-bottom: 30px;
   max-width: 500px;
   font-family: var(--font-sanchez);
+  font-size: 16px;
+  /* max-width: 105px; */
+}
+
+.pcd-experience-tag span {
+  font-family: var(--font-red-hat-display);
+  font-size: 18px;
+  color: var(--color-white);
+  font-weight: 600;
 }
 
 .pcd-info-block {
   display: flex;
-  align-items: flex-start;
+  /* align-items: flex-start; */
   gap: 15px;
   margin-bottom: 20px;
   text-align: left;
+  margin-bottom: 60px;
+  align-items: center;
 }
 
 .pcd-info-block h4 {
-  font-family: var(--font-red-hat-display);
+  font-family: var(--font-lexend);
+  font-size: 19px;
 }
 
 .pcd-info-block p {
   font-family: var(--font-sanchez);
+  font-size: 15px;
+  margin-top: 20px;
+  line-height: 26px;
 }
+
 .pcd-icon img {
   height: 50px;
   width: 50px;
   object-fit: contain;
 }
-  .footer-parent-container {
-    margin-top: 30px;
-  }
+
+.footer-parent-container {
+  margin-top: 30px;
+}
 
 .bg-white {
   height: 200px;
@@ -138,14 +157,16 @@
 
 
 /* ===== Tablet View ===== */
- @media (min-width: 768px) and (max-width: 1024px) {
-.pcd-section {
+@media (min-width: 768px) and (max-width: 1024px) {
+  .pcd-section {
     height: auto;
   }
+
   .pcd-container {
     flex-direction: column;
     gap: 40px;
   }
+
   .pcd-section {
     height: auto;
   }
@@ -162,36 +183,63 @@
   .pcd-info-block {
     text-align: left;
   }
- .pcd-image-wrapper{
-    flex: 1;
-  }
-  .pcd-experience-tag-bg {
-    height: 160px;
-    width: 40px;
-    right: 10px;
+
+  .pcd-image-wrapper {
+    width: 100%;
   }
 
-  .pcd-experience-tag {
-    height: 160px;
-    font-size: 12px;
-    line-height: 16px;
-    padding: 6px 8px;
-    top: 30%;
-    right: -10px;
+  .pcd-content {
+    width: 100%;
   }
+
   .footer-parent-container {
     position: absolute;
     z-index: 1;
     left: 0;
     margin-top: 25px;
   }
-} 
+
+  .pcd-info-block {
+    align-items: center;
+    margin-bottom: 0px;
+  }
+}
 
 /* ===== Mobile View ===== */
- @media (max-width: 768px) {
+@media (max-width: 768px) {
+  .pcd-image-wrapper {
+    width: 100%;
+  }
+
+  .pcd-content {
+    width: 100%;
+  }
+
+  /* .pcd-experience-tag-bg {
+    height: 230px;
+    width: 60px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    transform: translateX(50%);
+    border-bottom-left-radius: 15px;
+  } */
+
+  /* .pcd-experience-tag {
+    top: 40%;
+    right: -15px;
+  } */
+
+  /* 
+  .pcd-experience-tag {
+    height: 230px;
+  } */
+
   .pcd-section {
     height: auto;
   }
+
   .pcd-title {
     font-size: 22px;
   }
@@ -205,28 +253,49 @@
     align-items: flex-start;
     gap: 10px;
   }
+
   .pcd-image-wrapper {
     width: 100%;
-    height: auto;
   }
-  .pcd-image-wrapper{
-    flex: 1;
+
+  .pcd-experience-tag {
+    writing-mode: rl-tb;
+    height: 50px;
+    top: 5%;
+    width: 260px;
+    right: -4%;
   }
-  .pcd-image-wrapper img {
-    height: auto;
+
+  .pcd-experience-tag-bg {
+    writing-mode: rl-tb;
+    height: 50px;
+    top: 0%;
+    left: -41%;
+    width: 259px;
+    /* right: 47%; */
+
   }
+
+
+
   .tag-container img {
     width: 60px;
     height: 20px;
     object-fit: contain;
   }
+
   .footer-parent-container {
     margin-top: 25px;
     position: absolute;
     z-index: 1;
     left: 0;
   }
+
   .pentogone {
     height: auto;
   }
-} 
+
+  .pcd-info-block {
+    margin-bottom: 0px;
+  }
+}

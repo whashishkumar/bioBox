@@ -68,6 +68,31 @@ const poppins = localFont({
   ],
   variable: '--font-poppins',
 });
+const lexend = localFont({
+  src: [
+    {
+      path: './../../public/fonts/Lexend-VariableFont_wght.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-lexend',
+});
+const roboto = localFont({
+  src: [
+    {
+      path: './../../public/fonts/Roboto-VariableFont_wdth,wght.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: './../../public/fonts/Roboto-VariableFont_wdth,wght.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--froboto',
+});
 
 export default function RootLayout({ children }) {
   return (
@@ -86,7 +111,7 @@ export default function RootLayout({ children }) {
       />
       <link rel="icon" href="/favicon.ico" />
       <body
-        className={`${geistSans.variable} ${redHatDisplay.variable} ${sanchez.variable} ${poppins.variable} `}
+        className={`${geistSans.variable} ${redHatDisplay.variable} ${sanchez.variable} ${poppins.variable} ${lexend.variable}  ${roboto.variable} `}
       >
         <Provider store={store}>{children}</Provider>
       </body>

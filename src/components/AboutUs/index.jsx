@@ -1,5 +1,4 @@
-
-import './style.css'
+import './style.css';
 const aboutUs = {
   image: '/images/doctor.png',
   leftFeatures: [
@@ -26,21 +25,26 @@ const aboutUs = {
     'Affordable Pricing',
     'Third-Party Manufacturing',
   ],
-  note:
-    'While we believe we are more than just numbers, the depth of our laboratories is pretty impressive.',
+  note: 'While we believe we are more than just numbers, the depth of our laboratories is pretty impressive.',
 };
-
 
 export default function AboutUs() {
   return (
     <section className="sub-container about-section padding-y-axis">
-      <div className="about-container padding">
+      <div className="about-container padding ">
         <div className="about-left">
-         <div className="container-image-sec">
-  <img src="/images/about02.png" alt="Doctor" className="about-image-quality" />
-  <img src="/images/about01.png" alt="Doctor" className="about-image-bg" />
-</div>
-
+          <div className="container-image-sec">
+            <img
+              src="/images/about02.png"
+              alt="Doctor"
+              className="about-image-quality"
+            />
+            <img
+              src="/images/about01.png"
+              alt="Doctor"
+              className="about-image-bg"
+            />
+          </div>
         </div>
 
         <div className="about-right">
@@ -55,7 +59,7 @@ export default function AboutUs() {
             ))}
           </div>
           <div className="about-note">
-            <img src={'/images/aboutbg.png'}/>
+            <img src={'/images/aboutbg.png'} />
             <p>{aboutUs.note}</p>
           </div>
         </div>

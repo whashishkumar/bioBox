@@ -1,24 +1,25 @@
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 :root {
-  --color-primary: #05A0E2;  
-  --color-background-secondary :#0d3b82;
-  --color-text: #111827;   
+  --color-primary: #05A0E2;
+  --color-background-secondary: #0d3b82;
+  --color-text: #111827;
   --color-white: #ffffff;
-  --color-gray:#828599;
-  --color-gray-light:#E9E9F0;
-  --color-light-white:#ccefff;
-  --color-black:#000000;
- --color-category :#fcf9f9;
- --text-color-text : #494949;
- --text-color-category :#232323;
+  --color-gray: #828599;
+  --color-gray-light: #E9E9F0;
+  --color-light-white: #ccefff;
+  --color-black: #000000;
+  --color-category: #fcf9f9;
+  --text-color-text: #494949;
+  --text-color-category: #232323;
 }
 
-body, html {
+body,
+html {
   height: 100%;
   font-family: sans-serif;
 }
@@ -27,6 +28,7 @@ body, html {
   max-width: 1920px;
   margin: 0 auto;
 }
+
 .hero-sub-container {
   max-width: 1800px;
   margin: 0 auto;
@@ -46,7 +48,7 @@ body, html {
 }
 
 .padding-y-axis {
-  padding: 60px 0;
+  padding: 40px 0;
 }
 
 .margin-top-none {
@@ -55,9 +57,10 @@ body, html {
 
 
 
-.radius-none{
+.radius-none {
   /* border-radius: 0 !important; */
 }
+
 .banner-image {
   /* height: 650px !important; */
 }
@@ -67,9 +70,9 @@ body, html {
 }
 
 .loader {
-display: flex;
-justify-content: center;
-align-items: center;
-height: 100vh;
-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
 }

@@ -6,16 +6,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
 .width-left-col {
-  width: 30%;
+  width: 25%;
 }
 
 .width-right-col {
-  width: 60%;
+  width: 70%;
 }
 
 .align-text {
@@ -24,7 +24,7 @@
 
 .flex {
   display: flex;
-  gap: 5px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
@@ -41,6 +41,7 @@
   font-weight: 700;
   font-family: var(--font-red-hat-display);
   transition: background-color 0.3s ease;
+  /* width: 139px; */
 }
 
 .btn:hover {
@@ -69,7 +70,7 @@
 
 .product-container-box {
   border: 1px solid #D5D5D5;
-  background: #f3fdff;
+  background: #EEFBFF;
   width: 300px;
   display: flex;
   justify-content: center;
@@ -90,7 +91,7 @@
   font-size: 16px;
   margin-bottom: 10px;
   font-family: var(--font-red-hat-display);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 23px;
 }
 

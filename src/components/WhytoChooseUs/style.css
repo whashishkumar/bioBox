@@ -82,19 +82,26 @@
   line-height: 24px;
 }
 
+.chose-us-width {
+  max-width: 1017px;
+  margin: 0 auto;
+}
+
 @media (min-width: 768px) and (max-width: 1024px) {
   .mvv-title {
     font-size: 42px;
   }
-    .mvv-subtitle {
+
+  .mvv-subtitle {
     font-size: 14px;
   }
 }
 
 @media (max-width: 767px) {
-    .mvv-title {
+  .mvv-title {
     font-size: 42px;
   }
+
   .mvv-subtitle {
     font-size: 14px;
   }
