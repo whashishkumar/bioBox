@@ -181,6 +181,7 @@
   }
   .about-desc {
     text-align: center;
+    font-size: 14px;
   }
   .bullet-wrapper {
     flex-direction: column;
@@ -189,6 +190,12 @@
   .bullet-item {
     width: 100%;
     justify-content: flex-start;
+  }
+  .bullet-text {
+    font-size: 14px;
+  }
+  .about-note p {
+    font-size: 14px;
   }
   .about-note {
     align-items: center;

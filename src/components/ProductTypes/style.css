@@ -41,7 +41,6 @@
 }
 
 .product-card-title {
-
   background-color: var(--color-primary);
   border-radius: 5px;
   position: absolute;
@@ -63,6 +62,7 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   .product-card-container {
     gap: 40px 20px;
+    margin-top: 30px;
   }
   .product-image-wrapper {
     width: auto;
@@ -76,6 +76,7 @@
 /* Mobile */
 @media (max-width: 768px) {
   .product-card-container {
+    margin-top: 30px;
     gap: 30px 15px;
   }
   .product-image-wrapper {

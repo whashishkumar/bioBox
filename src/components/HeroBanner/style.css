@@ -29,7 +29,7 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .parent-container {
-     /* top: 0%; */
+     top: 0%;
     height: 500px;
     border-radius: 25px;
     background: url('/images/Banner.png');
@@ -59,6 +59,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center 25px;
+    top: 0%;
   }
 
   .bg {

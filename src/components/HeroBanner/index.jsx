@@ -6,10 +6,10 @@ export default function HeroBanner({className}) {
   return (
  <div className={`bg ${className}`}>
      <div className={`parent-container hero-sub-container ${className}`}>
-      <div className='ban-cont'>
+      {/* <div className=''> */}
         <div className='header-container'>
        < Header/>
-      </div>
+      {/* </div> */}
     </div>
     </div>
  </div>

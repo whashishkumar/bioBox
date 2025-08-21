@@ -13,7 +13,7 @@ const headerObject = {
 export default function StayConnected() {
   return (
     <div className="hero-sub-container">
-      <div className="sub-container padding-y-axis">
+      <div className="sub-container  padding">
         <p className="tag-line">We'd love to hear from you</p>
         <PageHeadingTitle
           heading={headerObject.heading}

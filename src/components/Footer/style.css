@@ -164,6 +164,13 @@
   .footer-map {
     width: 100%;
   }
+    .footer-bottom {
+
+    font-size: 14px;
+  }
+    .footer-categories a { 
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -192,5 +199,9 @@
 
   .footer-bottom {
     padding: 30px 0;
+    font-size: 14px;
+  }
+  .footer-categories a { 
+    font-size: 14px;
   }
 }

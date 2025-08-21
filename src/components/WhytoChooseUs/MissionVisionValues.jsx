@@ -3,7 +3,7 @@ import "./style.css";
 const MissionVisionValues = () => {
   return (
     <div className="mvv-main-container sub-container margin">
-      <div className="mvv-card-container">
+      <div className="mvv-card-container padding">
         <div className="mvv-card-box">
           <div className="mvv-icon-wrapper">
             <img src={"/images/mission.png"} alt="mission" />
