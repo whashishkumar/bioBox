@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import { PiEyeBold } from "react-icons/pi";
 import { IoIosCheckbox } from "react-icons/io";
-import Image from "next/image"; // ✅ import Next.js Image
+import Image from "next/image"; 
 
 export default function BioBoxPharma() {
   const bioData = {
@@ -92,7 +92,7 @@ export default function BioBoxPharma() {
   return (
     <div className="hero-sub-container parent-container-bio-box">
       {/* =================== Bio Section =================== */}
-      <div className="sub-container bio-flex padding padding-top margin-top">
+      <div className="sub-container bio-flex  padding padding-top margin-top">
         <div className="left-col content-container-box">
           <p className="welcome-text">{bioData.welcomeText}</p>
           <h2 className="heading-title">{bioData.heading}</h2>
@@ -101,7 +101,7 @@ export default function BioBoxPharma() {
             dangerouslySetInnerHTML={{ __html: bioData.description }}
           ></p>
           {coreValues.map((value, index) => (
-            <div className="bio-flex core-value" key={index}>
+            <div className="bio-flex tab-view core-value" key={index}>
               <div className="eye-icon">{value.icon}</div>
               <div>
                 <h3 className="value-heading">{value.title}</h3>
@@ -174,7 +174,7 @@ export default function BioBoxPharma() {
         <div className="left-col content-container-box text-alignment">
           <h2 className="heading-title title-color">{uniqueData.heading}</h2>
           {uniqueData.points.map((point, index) => (
-            <div className="bio-flex core-value margin-none" key={index}>
+            <div className=" core-value margin-none" key={index}>
               <div className="check-box">
                 <IoIosCheckbox />
               </div>

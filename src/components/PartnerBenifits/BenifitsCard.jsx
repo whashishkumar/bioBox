@@ -40,13 +40,13 @@ const giftCards = [
 export default function BenifitsCard() {
   return (
     <div className="benifits-card-container">
-      <div className="sub-container ">
+      <div className="sub-container padding">
         <PageHeadingTitle
           heading={headerObject.heading}
           subheading={headerObject.subHeading}
-          className="text-color"
+          className="text-color "
         />
-        <div className="cards-wrapper padding">
+        <div className="cards-wrapper ">
           {giftCards.map((card, index) => (
             <div className="gift-card col-flex" key={index}>
               <Image
