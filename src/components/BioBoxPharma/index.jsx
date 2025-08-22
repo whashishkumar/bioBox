@@ -1,43 +1,43 @@
-import React from "react";
-import "./style.css";
-import { PiEyeBold } from "react-icons/pi";
-import { IoIosCheckbox } from "react-icons/io";
-import Image from "next/image"; 
+import React from 'react';
+import './style.css';
+import { PiEyeBold } from 'react-icons/pi';
+import { IoIosCheckbox } from 'react-icons/io';
+import Image from 'next/image';
 
 export default function BioBoxPharma() {
   const bioData = {
-    welcomeText: "Welcome",
-    heading: "BioBox Pharma",
+    welcomeText: 'Welcome',
+    heading: 'BioBox Pharma',
     description: `<strong>Biobox Pharma</strong> is a leading <strong>pharmaceutical manufacturing company</strong>  dedicated to quality, innovation, and compliance. We specialize in producing high-quality medicines and healthcare products, with a <strong>strong focus on gynecology, cardiology, neurology, and dermatology.</strong> Our mission is to enhance lives globally through <strong> advanced and reliable pharmaceutical solutions.</strong>`,
     image: {
-      src: "/images/demo.avif",
-      alt: "banner-image",
+      src: '/images/Welcome-img-1.jpg',
+      alt: 'banner-image',
       height: 230,
       width: 300,
     },
     imageSrc: {
-      src: "/images/demo.avif",
-      alt: "banner-image",
+      src: '/images/Welcome-img-2.jpg',
+      alt: 'banner-image',
       height: 300,
       width: 219,
     },
   };
 
   const bioDataCeo = {
-    welcomeText: "Meet Our CEO",
-    heading: "Mr. Gulshan Rawat",
+    welcomeText: 'Meet Our CEO',
+    heading: 'Mr. Gulshan Rawat',
     description: `BioBox, an ISO 9001-certified company, is led by Mr. Gulshan Rawat (Managing Director), who brings over 24 years of expertise in the pharmaceutical industry.  Under his guidance, we have emerged as a prominent player in this highly competitive sector, driven by a commitment to quality and excellence in delivering the best products to our clients.`,
     subDescription:
-      "As a , our diverse product portfolio spans key therapeutic areas, including anti-infectives, nutritional supplements, gastrointestinal health, pain management,cardiovascular & diabetes care, dermatology, urology , and the central nervous system (CNS). ",
+      'As a , our diverse product portfolio spans key therapeutic areas, including anti-infectives, nutritional supplements, gastrointestinal health, pain management,cardiovascular & diabetes care, dermatology, urology , and the central nervous system (CNS). ',
     image: {
-      src: "/images/demo.avif",
-      alt: "banner-image",
+      src: '/images/demo.avif',
+      alt: 'banner-image',
       height: 230,
       width: 300,
     },
     imageSrc: {
-      src: "/images/demo.avif",
-      alt: "banner-image",
+      src: '/images/demo.avif',
+      alt: 'banner-image',
       height: 300,
       width: 219,
     },
@@ -46,47 +46,59 @@ export default function BioBoxPharma() {
   const coreValues = [
     {
       icon: <PiEyeBold />,
-      title: "Our Core Value",
+      title: 'Our Core Value',
       description:
-        "Integrity, Innovation, Quality, and Commitment to Healthcare Excellence",
+        'Integrity, Innovation, Quality, and Commitment to Healthcare Excellence',
     },
     {
       icon: <PiEyeBold />,
-      title: "Our Mission",
+      title: 'Our Mission',
       description:
-        "To deliver advanced pharmaceutical solutions with a focus on global healthcare improvement.",
+        'To deliver advanced pharmaceutical solutions with a focus on global healthcare improvement.',
     },
   ];
 
   const uniqueData = {
-    heading: "Why We Are Unique",
+    heading: 'Why We Are Unique',
     points: [
       {
-        title: "Certified Quality Assurance",
+        title: 'Certified Quality Assurance',
         description:
-          "We are an ISO 9001-certified company, committed to delivering superior pharmaceutical products that meet global standards.",
+          'We are an ISO 9001-certified company, committed to delivering superior pharmaceutical products that meet global standards.',
       },
       {
-        title: "Expert Leadership",
+        title: 'Expert Leadership',
         description:
-          "Guided by Mr. Gulshan Rawat, a seasoned industry professional with over 24 years of experience.",
+          'Guided by Mr. Gulshan Rawat, a seasoned industry professional with over 24 years of experience.',
       },
       {
-        title: "Comprehensive Product Range",
+        title: 'Comprehensive Product Range',
         description:
-          "Offering a diverse portfolio across key therapeutic areas, including anti-infectives, cardiovascular, CNS, and more.",
+          'Offering a diverse portfolio across key therapeutic areas, including anti-infectives, cardiovascular, CNS, and more.',
       },
       {
-        title: "Advanced Manufacturing Facilities",
+        title: 'Advanced Manufacturing Facilities',
         description:
-          "Equipped with cutting-edge technology and stringent quality controls at our Himachal Pradesh facilities.",
+          'Equipped with cutting-edge technology and stringent quality controls at our Himachal Pradesh facilities.',
       },
       {
-        title: "Reliable Distribution & Support",
+        title: 'Reliable Distribution & Support',
         description:
-          "Supported by a strong network of trusted distributors and healthcare professionals, ensuring seamless supply and customer satisfaction.",
+          'Supported by a strong network of trusted distributors and healthcare professionals, ensuring seamless supply and customer satisfaction.',
       },
     ],
+    image: {
+      src: '/images/Why-We-Are-Unique-1.jpg',
+      alt: 'banner-image',
+      height: 230,
+      width: 300,
+    },
+    imageSrc: {
+      src: '/images/Why-We-Are-Unique-2.jpg',
+      alt: 'banner-image',
+      height: 300,
+      width: 219,
+    },
   };
 
   return (
@@ -153,16 +165,16 @@ export default function BioBoxPharma() {
           <div className="image-wrapper">
             <Image
               className="hero-bg-image"
-              src={bioData.image.src}
-              alt={bioData.image.alt}
-              width={bioData.image.width}
-              height={bioData.image.height}
+              src={bioDataCeo.image.src}
+              alt={bioDataCeo.image.alt}
+              width={bioDataCeo.image.width}
+              height={bioDataCeo.image.height}
             />
             <Image
-              src={bioData.imageSrc.src}
-              alt={bioData.imageSrc.alt}
-              width={bioData.imageSrc.width}
-              height={bioData.imageSrc.height}
+              src={bioDataCeo.imageSrc.src}
+              alt={bioDataCeo.imageSrc.alt}
+              width={bioDataCeo.imageSrc.width}
+              height={bioDataCeo.imageSrc.height}
               className="flatten-img-ceo"
             />
           </div>
@@ -189,16 +201,16 @@ export default function BioBoxPharma() {
           <div className="image-wrapper">
             <Image
               className="hero-bg-image"
-              src={bioData.image.src}
-              alt={bioData.image.alt}
-              width={bioData.image.width}
-              height={bioData.image.height}
+              src={uniqueData.image.src}
+              alt={uniqueData.image.alt}
+              width={uniqueData.image.width}
+              height={uniqueData.image.height}
             />
             <Image
-              src={bioData.imageSrc.src}
-              alt={bioData.imageSrc.alt}
-              width={bioData.imageSrc.width}
-              height={bioData.imageSrc.height}
+              src={uniqueData.imageSrc.src}
+              alt={uniqueData.imageSrc.alt}
+              width={uniqueData.imageSrc.width}
+              height={uniqueData.imageSrc.height}
               className="unique-image-wrapper"
             />
           </div>
@@ -207,6 +219,6 @@ export default function BioBoxPharma() {
           </div>
         </div>
       </div>
-    </div>   
+    </div>
   );
 }

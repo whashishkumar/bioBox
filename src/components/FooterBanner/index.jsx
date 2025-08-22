@@ -25,10 +25,7 @@ export default function PCDSection() {
             </div>
           </div>
           <div className="pcd-content">
-            <h2 className="pcd-title">
-              PCD Business <br />
-              Opportunity
-            </h2>
+            <h2 className="pcd-title">PCD Business Opportunity</h2>
             <p className="pcd-description">
               Partner with Biobox Pharma and unlock growth opportunities with
               our PCD Pharma Franchise. Get exclusive monopoly rights, premium

@@ -1,6 +1,6 @@
 .parent-container {
   height: 750px;
-  background: url('/images/bannerNob.jpg');
+  background-image: url('/images/bannerNob.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;

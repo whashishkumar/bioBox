@@ -1,7 +1,7 @@
-import React from "react";
-import "./style.css";
-import { FaShoppingBasket } from "react-icons/fa";
-import { IoLocationSharp } from "react-icons/io5";
+import React from 'react';
+import './style.css';
+import { FaShoppingBasket } from 'react-icons/fa';
+import { IoLocationSharp } from 'react-icons/io5';
 
 export default function ContactUsAddress() {
   return (
@@ -11,10 +11,10 @@ export default function ContactUsAddress() {
           <iframe
             className="contact-us__map"
             title="Registered Address"
-            src="https://maps.google.com/maps?q=zirakpur&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            src="https://maps.google.com/maps?q=pabhat&t=&z=13&ie=UTF8&iwloc=&output=embed"
             width="100%"
             height="100%"
-            style={{ border: 0, borderRadius: "12px" }}
+            style={{ border: 0, borderRadius: '12px' }}
             allowFullScreen=""
             loading="lazy"
           ></iframe>
@@ -41,7 +41,7 @@ export default function ContactUsAddress() {
             src="https://maps.google.com/maps?q=zirakpur&t=&z=13&ie=UTF8&iwloc=&output=embed"
             width="100%"
             height="100%"
-            style={{ border: 0, borderRadius: "12px" }}
+            style={{ border: 0, borderRadius: '12px' }}
             allowFullScreen=""
             loading="lazy"
           ></iframe>

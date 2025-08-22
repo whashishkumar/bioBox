@@ -1,4 +1,4 @@
-import "./style.css";
+import './style.css';
 
 const MissionVisionValues = () => {
   return (
@@ -6,7 +6,7 @@ const MissionVisionValues = () => {
       <div className="mvv-card-container padding">
         <div className="mvv-card-box">
           <div className="mvv-icon-wrapper">
-            <img src={"/images/mission.png"} alt="mission" />
+            <img src={'/images/mission.png'} alt="mission" />
           </div>
           <div className="mvv-card">
             <div className="mvv-card-content">
@@ -18,13 +18,12 @@ const MissionVisionValues = () => {
             </div>
           </div>
           <div className="mvv-image-bg">
-            <img src={"/images/Vector.png"} alt="mission" />
+            <img src={'/images/Vector.png'} alt="mission" />
           </div>
         </div>
-
-        <div className="mvv-card-box">
+        <div className="mvv-card-box card-bottom-space">
           <div className="mvv-icon-wrapper">
-            <img src={"/images/wvalues.png"} alt="vision" />
+            <img src={'/images/wvalues.png'} alt="vision" />
           </div>
           <div className="mvv-card">
             <div className="mvv-card-content">
@@ -36,13 +35,12 @@ const MissionVisionValues = () => {
             </div>
           </div>
           <div className="mvv-image-bg">
-            <img src={"/images/vision.png"} alt="vision" />
+            <img src={'/images/vision.png'} alt="vision" />
           </div>
         </div>
-
         <div className="mvv-card-box">
           <div className="mvv-icon-wrapper">
-            <img src={"/images/values.png"} alt="values" />
+            <img src={'/images/values.png'} alt="values" />
           </div>
           <div className="mvv-card">
             <div className="mvv-card-content">
@@ -54,7 +52,7 @@ const MissionVisionValues = () => {
             </div>
           </div>
           <div className="mvv-image-bg">
-            <img src={"/images/value.png"} alt="values" />
+            <img src={'/images/value.png'} alt="values" />
           </div>
         </div>
       </div>

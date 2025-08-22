@@ -18,6 +18,11 @@
   position: relative;
 }
 
+.card-bottom-space {
+  margin-bottom: 15px;
+}
+
+
 .mvv-card {
   display: flex;
   flex-direction: column;

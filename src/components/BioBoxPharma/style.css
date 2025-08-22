@@ -35,7 +35,7 @@
   top: 23%;
   height: 300px;
   width: 219px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .hero-bg-image {
@@ -178,7 +178,7 @@
 }
 
 .image-wrapper .unique-image-wrapper {
-  object-fit: cover;
+  object-fit: contain;
   width: 500px;
   position: absolute;
   top: 50%;

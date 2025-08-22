@@ -16,6 +16,7 @@
   --color-category: #fcf9f9;
   --text-color-text: #494949;
   --text-color-category: #232323;
+  --color-primary-alpha: rgba(11, 173, 246, 0.45);
 }
 
 body,
@@ -55,20 +56,6 @@ html {
   margin-top: 0px;
 }
 
-
-
-.radius-none {
-  /* border-radius: 0 !important; */
-}
-
-.banner-image {
-  /* height: 650px !important; */
-}
-
-.bg-height {
-  /* height: 450px !important; */
-}
-
 .loader {
   display: flex;
   justify-content: center;
@@ -76,3 +63,9 @@ html {
   height: 100vh;
   width: 100vw;
 }
+
+.bg-height {
+  /* background-color: var(--color-primary) !important; */
+}
+
+.banner-imag {}
