@@ -17,7 +17,10 @@ const Choose = lazyImport(() => import('@/components/WhytoChooseUs'));
 export default function LandingPage() {
   return (
     <>
-      <HeroBanner />
+      <HeroBanner
+        // backgroundImage="/images/inner-banner-aboutUs.jpg"
+        clasName="parent-container"
+      />
       <ProductCategories />
       <AboutUs />
       <ProductTypes />

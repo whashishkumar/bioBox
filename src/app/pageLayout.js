@@ -3,10 +3,21 @@ import React from 'react';
 import './globals.css';
 import HeroBanner from '@/components/HeroBanner';
 
-export default function PageLayout({ children }) {
+export default function PageLayout({
+  children,
+  bannerImage,
+  className,
+  title,
+  linearGradient,
+}) {
   return (
     <div>
-      <HeroBanner className={'banner-imag  bg-height'} />
+      <HeroBanner
+        backgroundImage={bannerImage}
+        className={className}
+        title={title}
+        linearGradient={linearGradient}
+      />
       {children}
       <Footer className={'radius-none'} />
     </div>

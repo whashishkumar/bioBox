@@ -17,14 +17,22 @@
   position: relative;
 }
 
-.header-container {
-  /* padding-top: 50px; */
-}
-
 .bg {
   background: var(--color-primary);
   padding: 0 15px;
   height: 650px;
+}
+
+.banner-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 25%;
+  font-family: var(--font-red-hat-display);
+  color: var(--color-white);
+  font-size: 40px;
+  font-weight: 700;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {

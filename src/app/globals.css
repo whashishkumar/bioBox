@@ -64,8 +64,12 @@ html {
   width: 100vw;
 }
 
-.bg-height {
-  /* background-color: var(--color-primary) !important; */
+.bg.banner-dimesions {
+  height: 350px !important;
 }
 
-.banner-imag {}
+.bg .banner-dimesions,
+.parent-container .hero-sub-container,
+.hero-sub-container .banner-c-wrapper-container {
+  height: 400px !important;
+}

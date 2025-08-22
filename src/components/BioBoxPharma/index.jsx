@@ -30,7 +30,7 @@ export default function BioBoxPharma() {
     subDescription:
       'As a , our diverse product portfolio spans key therapeutic areas, including anti-infectives, nutritional supplements, gastrointestinal health, pain management,cardiovascular & diabetes care, dermatology, urology , and the central nervous system (CNS). ',
     image: {
-      src: '/images/demo.avif',
+      src: '/images/CEO.jpg',
       alt: 'banner-image',
       height: 230,
       width: 300,
@@ -170,13 +170,13 @@ export default function BioBoxPharma() {
               width={bioDataCeo.image.width}
               height={bioDataCeo.image.height}
             />
-            <Image
+            {/* <Image
               src={bioDataCeo.imageSrc.src}
               alt={bioDataCeo.imageSrc.alt}
               width={bioDataCeo.imageSrc.width}
               height={bioDataCeo.imageSrc.height}
               className="flatten-img-ceo"
-            />
+            /> */}
           </div>
         </div>
       </div>
