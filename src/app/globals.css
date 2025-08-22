@@ -73,3 +73,10 @@ html {
 .hero-sub-container .banner-c-wrapper-container {
   height: 400px !important;
 }
+
+/* .bg .banner-dimesions,
+.parent-container .hero-sub-container,
+.hero-sub-container .banner-c-wrapper-container::after {
+  background: rgba(0, 0, 0, 25%);
+  backdrop-filter: blur(10px);
+} */

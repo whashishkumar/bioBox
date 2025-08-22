@@ -14,11 +14,18 @@ const ProductCategories = lazyImport(() =>
 const ProductTypes = lazyImport(() => import('@/components/ProductTypes'));
 const Choose = lazyImport(() => import('@/components/WhytoChooseUs'));
 
+const bannerImages = [
+  '/images/bannerNob.jpg',
+  '/images/Welcome-img-1.jpg',
+  '/images/Welcome-img-2.jpg',
+];
+
 export default function LandingPage() {
   return (
     <>
       <HeroBanner
-        // backgroundImage="/images/inner-banner-aboutUs.jpg"
+        // backgroundImage="/images/bannerNob.jpg"
+        backgroundImage={bannerImages}
         clasName="parent-container"
       />
       <ProductCategories />

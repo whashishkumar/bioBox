@@ -15,9 +15,9 @@ export default function ContactUsPage() {
       bannerImage="/images/inner-Banner-for-contact-us.jpg"
       className={'banner-dimesions banner-c-wrapper-container'}
       title={'Contact Us'}
-      linearGradient={
-        'linear-gradient(rgb(210 206 206 / 40%), rgb(0 0 0 /45%))'
-      }
+      // linearGradient={
+      //   'linear-gradient(rgb(210 206 206 / 40%), rgb(0 0 0 /45%))'
+      // }
     >
       <>
         <ContactUsAddress />

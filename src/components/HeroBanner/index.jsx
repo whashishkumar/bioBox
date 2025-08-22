@@ -1,22 +1,57 @@
-import React from 'react';
+'use client';
+import React, { useState, useEffect } from 'react';
 import './style.css';
 import Header from '../Header';
 
 export default function HeroBanner(props) {
-  const { className, backgroundImage, title, linearGradient } = props;
+  const { className, backgroundImage, title, interval = 9000 } = props;
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const isArray = Array.isArray(backgroundImage);
+
+  useEffect(() => {
+    if (isArray && backgroundImage.length > 1) {
+      const slider = setInterval(() => {
+        setCurrentIndex((prev) => (prev + 1) % backgroundImage.length);
+      }, interval);
+      return () => clearInterval(slider);
+    }
+  }, [isArray, backgroundImage, interval]);
 
   return (
     <div className={`bg ${className}`}>
-      <div
-        className={`parent-container hero-sub-container ${className}`}
-        style={{
-          backgroundImage: `${linearGradient}, url(${backgroundImage})`,
-        }}
-      >
+      <div className="slider-wrapper hero-sub-container">
+        <div
+          className="slider"
+          style={{
+            transform: `translateX(-${currentIndex * 100}%)`,
+          }}
+        >
+          {isArray ? (
+            backgroundImage.map((img, index) => (
+              <div
+                key={index}
+                className="slide"
+                style={{
+                  backgroundImage: `url(${img})`,
+                }}
+              ></div>
+            ))
+          ) : (
+            <div
+              className="slide"
+              style={{
+                backgroundImage: `url(${backgroundImage})`,
+              }}
+            ></div>
+          )}
+        </div>
+      </div>
+
+      <div className="overlay-content">
         <div className="header-container">
           <Header />
         </div>
-        <h1 className="banner-title">{title ? title : null}</h1>
+        <h1 className="banner-title">{title || null}</h1>
       </div>
     </div>
   );

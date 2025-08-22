@@ -1,10 +1,10 @@
-"use client"; // only if using Next.js App Router
+'use client'; // only if using Next.js App Router
 
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/autoplay";
+import React from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay';
 
 export default function Carousel({ children, slidesPerView = 4 }) {
   const items = React.Children.toArray(children);
@@ -13,14 +13,14 @@ export default function Carousel({ children, slidesPerView = 4 }) {
     <Swiper
       spaceBetween={30}
       slidesPerView={slidesPerView}
-      speed={1000}
+      speed={3000}
       loop={true}
       modules={[Autoplay]}
       autoplay={{
         delay: 2500,
-        disableOnInteraction: false, 
+        disableOnInteraction: false,
       }}
-          breakpoints={{
+      breakpoints={{
         0: {
           slidesPerView: 1,
           spaceBetween: 10,
@@ -34,12 +34,14 @@ export default function Carousel({ children, slidesPerView = 4 }) {
           spaceBetween: 20,
         },
         1280: {
-          slidesPerView: slidesPerView, 
+          slidesPerView: slidesPerView,
         },
       }}
     >
       {items.map((child, index) => (
-        <SwiperSlide key={index} className="padding">{child}</SwiperSlide>
+        <SwiperSlide key={index} className="padding">
+          {child}
+        </SwiperSlide>
       ))}
     </Swiper>
   );
