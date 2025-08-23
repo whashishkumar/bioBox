@@ -18,9 +18,6 @@ export default function AboutUs() {
       bannerImage="/images/inner-banner-aboutUs.jpg"
       className={'banner-dimesions banner-c-wrapper-container'}
       title={'About Us'}
-      // linearGradient={
-      //   'linear-gradient(rgb(210 206 206 / 40%), rgb(0 0 0 /45%))'
-      // }
     >
       <BioBoxPharma />
       <PartnerBenifits />
