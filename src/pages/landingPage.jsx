@@ -1,6 +1,9 @@
+'use client';
 import AboutUs from '@/components/AboutUs';
+import { fetchLandingPageBannerData } from '@/store/features/landingPage/landingPageSlice';
 import { lazyImport } from '@/utils/lazyImport';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 const FooterBanner = lazyImport(() => import('@/components/FooterBanner'));
 const HeroBanner = lazyImport(() => import('@/components/HeroBanner'));
@@ -21,13 +24,22 @@ const bannerImages = [
 ];
 
 export default function LandingPage() {
+  const dispatch = useDispatch();
+  const { bannerData, loading, error } = useSelector(
+    (state) => state.landingPage
+  );
+
+  const { images = [] } = bannerData || {};
+
+  useEffect(() => {
+    if (!loading) {
+      dispatch(fetchLandingPageBannerData());
+    }
+  }, []);
+
   return (
     <>
-      <HeroBanner
-        // backgroundImage="/images/bannerNob.jpg"
-        backgroundImage={bannerImages}
-        clasName="parent-container"
-      />
+      <HeroBanner backgroundImage={images} clasName="parent-container" />
       <ProductCategories />
       <AboutUs />
       <ProductTypes />

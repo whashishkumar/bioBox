@@ -1,40 +1,34 @@
 import api from '@/services/api';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-
-// ✅ Async thunk for fetching categories
-export const fetchCategories = createAsyncThunk(
-  'category/fetchCategories',
+export const fetchProductCategories = createAsyncThunk(
+  'productCategory/fetchProductCategories',
   async () => {
-    const response = await api.get('/products/3');
+    const response = await api.get('/v1/product-categories');
     return response.data;
   }
 );
 
 const initialState = {
-  categories: [],
+  categories: null,
   loading: false,
   error: null,
 };
 
 const categorySlice = createSlice({
-  name: 'category',
+  name: 'productCategory',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    // Fetch Categories
     builder
-      .addCase(fetchCategories.pending, (state) => {
+      .addCase(fetchProductCategories.pending, (state) => {
         state.loading = true;
       })
-      .addCase(fetchCategories.fulfilled, (state, action) => {
+      .addCase(fetchProductCategories.fulfilled, (state, action) => {
         state.loading = false;
-        // state.categories = action.payload;
-        if (Array.isArray(action.payload)) {
-          state.categories.push(...action.payload);
-        } else {
-          state.categories.push(action.payload);
-        }
+        state.categories = action.payload;
       })
-      .addCase(fetchCategories.rejected, (state, action) => {
+      .addCase(fetchProductCategories.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       });

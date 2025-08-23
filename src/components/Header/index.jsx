@@ -1,21 +1,29 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaPhoneAlt, FaBars, FaTimes } from 'react-icons/fa';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import './style.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchLandingPageMenuData } from '@/store/features/landingPage/landingPageSlice';
+import { Loader } from '@/utils/lazyImport';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const dispatch = useDispatch();
 
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About us', path: '/about-us' },
-    { name: 'Our Products', path: '/products' },
-    { name: 'Our Services', path: '/services' },
-    { name: 'Contact Us', path: '/contact-us' },
-  ];
+  const { menuItems, loading } = useSelector((state) => state.landingPage);
+  const {
+    menus = [],
+    logo = '/images/logo.png',
+    contact = {},
+  } = menuItems || {};
+  const navBarLinks = menus?.flatMap((menu) => menu.items) || [];
+
+  useEffect(() => {
+    dispatch(fetchLandingPageMenuData());
+  }, [dispatch]);
 
   const handleLinkClick = () => {
     setMenuOpen(false);
@@ -25,7 +33,7 @@ export default function Header() {
     <nav className="navbar sub-container">
       <Link href="/">
         <div className="logo">
-          <img src="/images/logo.png" alt="BioBox Logo" className="logoImg" />
+          <img src={logo} alt="BioBox Logo" className="logoImg" />
         </div>
       </Link>
       <div className="nav-bar-col-2">
@@ -34,28 +42,29 @@ export default function Header() {
         </div>
         <div className={`navLinks ${menuOpen ? 'open' : ''}`}>
           <ul>
-            {navLinks.map((link) => (
-              <Link href={link.path} key={link.name} onClick={handleLinkClick}>
-                <li
-                  className={`link ${pathname === link.path ? 'active' : ''}`}
-                >
-                  {link.name}
-                  {(link.name === 'Our Products' ||
-                    link.name === 'Our Services') && (
-                    <span className="dropdownArrow">▼</span>
-                  )}
-                </li>
-              </Link>
-            ))}
+            {navBarLinks &&
+              navBarLinks?.map((link) => (
+                <Link href={link.url} key={link.id} onClick={handleLinkClick}>
+                  <li
+                    className={`link ${pathname === link.url ? 'active' : ''}`}
+                  >
+                    {link.title}
+                    {(link.title === 'Our Products' ||
+                      link.title === 'Our Services') && (
+                      <span className="dropdownArrow">▼</span>
+                    )}
+                  </li>
+                </Link>
+              ))}
             <li className="callButton mobileCallButton">
               <FaPhoneAlt />
-              <span>82638 85578</span>
+              <span>{contact?.phone}</span>
             </li>
           </ul>
         </div>
         <div className="callButton">
           <FaPhoneAlt />
-          <span>82638 85578</span>
+          <span>{contact?.phone}</span>
         </div>
       </div>
     </nav>

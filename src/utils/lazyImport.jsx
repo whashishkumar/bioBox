@@ -1,19 +1,16 @@
-
-import dynamic from "next/dynamic";
-import { DotLoader } from "react-spinners";
-import '../app/globals.css'
+import dynamic from 'next/dynamic';
+import { DotLoader } from 'react-spinners';
+import '../app/globals.css';
 
 export const Loader = () => {
-  return(
+  return (
     <div className="loader">
-      <DotLoader
-      color="var(--color-primary)"
-      />
+      <DotLoader color="var(--color-primary)" />
     </div>
-  )
-}
+  );
+};
 export function lazyImport(factory) {
   return dynamic(factory, {
-    loading: () => <Loader/>,    }
-  );
+    loading: () => <Loader />,
+  });
 }

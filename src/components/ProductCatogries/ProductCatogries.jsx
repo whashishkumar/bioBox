@@ -1,10 +1,10 @@
 'use client';
 import { useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PageHeadingTitle from '../PageHeadingTitle';
 import CategoryCard from './CategoryCard';
 import './style.css';
-// import { fetchCategories } from '@/store/features/productCategory/categorySlice';
+import { fetchProductCategories } from '@/store/features/productCategory/categorySlice';
 
 export const categoriesItems = [
   {
@@ -83,12 +83,16 @@ const headingObject = {
 };
 
 const ProductCategories = () => {
-  // const dispatch = useDispatch();
-  // const { categories } = useSelector((state) => state?.categories || []);
+  const dispatch = useDispatch();
+  // const { categories, loading, error } = useSelector(
+  //   (state) => state.productCategories
+  // );
 
-  // useEffect(() => {
-  //   dispatch(fetchCategories());
-  // }, []);
+  // console.log(categories, 'categories');
+
+  useEffect(() => {
+    dispatch(fetchProductCategories());
+  }, []);
 
   return (
     <div className="root-container">

@@ -2,9 +2,8 @@
 import { Geist } from 'next/font/google';
 import './globals.css';
 import localFont from 'next/font/local';
-import { Provider } from 'react-redux';
-import store from '@/store/store';
 import Head from 'next/head';
+import ReduxProvider from '@/store/store';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -94,7 +93,7 @@ const roboto = localFont({
   variable: '--froboto',
 });
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, ...rest }) {
   return (
     <html lang="en">
       <Head>
@@ -113,7 +112,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${redHatDisplay.variable} ${sanchez.variable} ${poppins.variable} ${lexend.variable}  ${roboto.variable} `}
       >
-        <Provider store={store}>{children}</Provider>
+        <ReduxProvider>{children}</ReduxProvider>
       </body>
     </html>
   );

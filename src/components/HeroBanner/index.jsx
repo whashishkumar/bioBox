@@ -1,10 +1,11 @@
 'use client';
+
 import React, { useState, useEffect } from 'react';
 import './style.css';
 import Header from '../Header';
 
 export default function HeroBanner(props) {
-  const { className, backgroundImage, title, interval = 9000 } = props;
+  const { className, backgroundImage, title, interval = 10000 } = props;
   const [currentIndex, setCurrentIndex] = useState(0);
   const isArray = Array.isArray(backgroundImage);
 
@@ -19,9 +20,9 @@ export default function HeroBanner(props) {
 
   return (
     <div className={`bg ${className}`}>
-      <div className="slider-wrapper hero-sub-container">
+      <div className={`slider-wrapper hero-sub-container ${className}`}>
         <div
-          className="slider"
+          className={`slider ${className}`}
           style={{
             transform: `translateX(-${currentIndex * 100}%)`,
           }}
