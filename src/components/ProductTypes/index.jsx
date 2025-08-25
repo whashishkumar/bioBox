@@ -7,7 +7,7 @@ const headerObject = {
   subHeading:
     'Our Products Reflect Our Promise of Purity.Crafted with Care, Backed by Science. Trusted by Professionals, Preferred by Patients.',
 };
-export const categories = [
+const categories = [
   {
     title: 'Suspensions',
     image: '/images/type1.jpg',

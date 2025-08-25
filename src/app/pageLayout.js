@@ -9,6 +9,7 @@ export default function PageLayout({
   className,
   title,
   linearGradient,
+  subtitle,
 }) {
   return (
     <div>
@@ -17,6 +18,7 @@ export default function PageLayout({
         className={className}
         title={title}
         linearGradient={linearGradient}
+        subtitle={subtitle}
       />
       {children}
       <Footer className={'radius-none'} />

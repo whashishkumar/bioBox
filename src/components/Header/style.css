@@ -69,7 +69,7 @@
   left: 0;
   height: 2px;
   width: 100%;
-  background: var(--color-primary);
+  color: var(--color-primary);
   border-radius: 2px;
 }
 
@@ -103,6 +103,75 @@
   font-size: 22px;
   cursor: pointer;
 }
+
+.nav-item {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 999;
+}
+
+.nav-item:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  text-decoration: none;
+  font-size: 15px;
+  color: var(--color-text);
+  cursor: pointer;
+  font-weight: 400;
+  font-family: var(--font-sanchez);
+  line-height: 32px;
+}
+
+.dropdown-item {
+  padding: 5px 15px;
+  text-decoration: none;
+  color: var(--color-text);
+  cursor: pointer;
+  font-weight: 400;
+  font-family: var(--font-sanchez);
+  text-transform: capitalize;
+  overflow-y: scroll;
+}
+
+.dropdown-item:hover {
+  color: var(--color-primary);
+}
+
+.nav-item {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--color-white);
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.nav-item:hover .dropdown-menu,
+.nav-item:focus-within .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .navLinks {

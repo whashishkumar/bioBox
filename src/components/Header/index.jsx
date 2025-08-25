@@ -6,14 +6,14 @@ import { usePathname } from 'next/navigation';
 import './style.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchLandingPageMenuData } from '@/store/features/landingPage/landingPageSlice';
-import { Loader } from '@/utils/lazyImport';
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const dispatch = useDispatch();
+  const [hoveredMenu, setHoveredMenu] = useState(null);
 
-  const { menuItems, loading } = useSelector((state) => state.landingPage);
+  const { menuItems } = useSelector((state) => state.landingPage);
   const {
     menus = [],
     logo = '/images/logo.png',
@@ -29,6 +29,22 @@ export default function Header() {
     setMenuOpen(false);
   };
 
+  const ourProductSubmenu = [
+    { id: 'p1', title: 'Critical Care Range', url: '/critical-care-range' },
+    { id: 'p2', title: 'Derma Care', url: '/derma-care' },
+    { id: 'p3', title: 'Diabetic', url: '/diabetic' },
+    { id: 'p4', title: 'ENT Range', url: '/ent-range' },
+  ];
+
+  const ourServicesSubmenu = [
+    { id: 'p1', title: 'sercice 1', url: '/sercice 1' },
+    { id: 'p2', title: 'sercice 2', url: '/sercice 2' },
+    { id: 'p3', title: 'sercice 3', url: '/sercice 3' },
+    { id: 'p4', title: 'sercice 4', url: '/sercice 4' },
+  ];
+
+  const extractpath = pathname.replace(/^\//, '');
+
   return (
     <nav className="navbar sub-container">
       <Link href="/">
@@ -43,18 +59,65 @@ export default function Header() {
         <div className={`navLinks ${menuOpen ? 'open' : ''}`}>
           <ul>
             {navBarLinks &&
-              navBarLinks?.map((link) => (
-                <Link href={link.url} key={link.id} onClick={handleLinkClick}>
-                  <li
-                    className={`link ${pathname === link.url ? 'active' : ''}`}
+              navBarLinks.map((link) => (
+                <li
+                  key={link.id}
+                  className="nav-item"
+                  onMouseEnter={() => setHoveredMenu(link.title)}
+                  onMouseLeave={() => setHoveredMenu(null)}
+                >
+                  <Link
+                    className={`link ${
+                      extractpath === link.url ? 'active' : ''
+                    }`}
+                    href={link.url}
+                    onClick={handleLinkClick}
                   >
                     {link.title}
                     {(link.title === 'Our Products' ||
                       link.title === 'Our Services') && (
                       <span className="dropdownArrow">▼</span>
                     )}
-                  </li>
-                </Link>
+                  </Link>
+
+                  {hoveredMenu === 'Our Products' &&
+                    link.title === 'Our Products' && (
+                      <div
+                        className="dropdown-menu"
+                        onMouseEnter={() => setHoveredMenu('Our Products')}
+                        onMouseLeave={() => setHoveredMenu(null)}
+                      >
+                        {ourProductSubmenu.map((item) => (
+                          <Link
+                            href={item.url}
+                            key={item.id}
+                            className="dropdown-item"
+                          >
+                            {item.title}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+
+                  {hoveredMenu === 'Our Services' &&
+                    link.title === 'Our Services' && (
+                      <div
+                        className="dropdown-menu"
+                        onMouseEnter={() => setHoveredMenu('Our Services')}
+                        onMouseLeave={() => setHoveredMenu(null)}
+                      >
+                        {ourServicesSubmenu.map((item) => (
+                          <Link
+                            href={item.url}
+                            key={item.id}
+                            className="dropdown-item"
+                          >
+                            {item.title}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                </li>
               ))}
             <li className="callButton mobileCallButton">
               <FaPhoneAlt />

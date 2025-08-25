@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import './style.css';
 import PageHeadingTitle from '../PageHeadingTitle';
-import ProductCard from './ProductCard';
 
 const headerObject = {
   heading: 'Our Products',
@@ -23,7 +22,7 @@ export default function ProductGallery() {
   const [activeCategory, setActiveCategory] = useState(categories[0]);
   return (
     <>
-      <div className="product-container">
+      <div className="product-container-banner">
         <div className="width-left-col">
           <PageHeadingTitle
             heading={headerObject.heading}
@@ -43,9 +42,6 @@ export default function ProductGallery() {
             </div>
           ))}
         </div>
-      </div>
-      <div>
-        <ProductCard />
       </div>
     </>
   );
