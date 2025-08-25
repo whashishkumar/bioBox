@@ -1,7 +1,7 @@
 'use client';
 import PageLayout from '@/app/pageLayout';
 import ProductCard from '@/ui/ProductCard';
-
+import './style.css';
 export const products = [
   {
     id: 1,
@@ -362,14 +362,16 @@ export default function AllProductCategoryPage({ category }) {
     <PageLayout
       bannerImage="/images/contactUs-banner.jpg"
       className="banner-dimesions banner-c-wrapper-container"
-      title={category.replace(/-/g, ' ').toUpperCase()}
+      title={category.replace(/-/g, ' ')}
       subtitle={`Explore our ${category.replace(/-/g, ' ')} products.`}
     >
-      <ProductCard
-        products={filteredProducts}
-        showCarousel={false}
-        itemsPerPage={8}
-      />
+      <div className="all-product-category padding ">
+        <ProductCard
+          products={filteredProducts}
+          showCarousel={false}
+          itemsPerPage={8}
+        />
+      </div>
     </PageLayout>
   );
 }

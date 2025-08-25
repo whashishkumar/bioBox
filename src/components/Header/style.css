@@ -29,7 +29,7 @@
   gap: 40px;
   align-items: center;
   margin: 0;
-  padding: 0;
+  /* padding: 0; */
 }
 
 .navLinks ul a {
@@ -43,14 +43,17 @@
   line-height: 32px;
 }
 
-.link {
-  /* font-size: 15px;
+.btn-as-link {
+  background: transparent;
+  border: 0;
+  outline: none;
+  text-decoration: none;
+  font-size: 15px;
   color: var(--color-text);
   cursor: pointer;
-  position: relative;
   font-weight: 400;
   font-family: var(--font-sanchez);
-  line-height: 32px; */
+  line-height: 32px;
 }
 
 .link:hover {
@@ -185,10 +188,6 @@
     margin-top: 0;
   }
 
-  .navLinks ul {
-    gap: 15px;
-  }
-
   .link {
     font-size: 12px;
   }
@@ -215,6 +214,8 @@
     margin-top: 0;
   }
 
+
+
   .navLinks {
     position: absolute;
     top: 100%;
@@ -227,7 +228,6 @@
     overflow: hidden;
     transition: all 0.3s ease-in-out;
     padding: 0 40px;
-    /* z-index: 1000; */
   }
 
   .navLinks ul {
@@ -235,6 +235,7 @@
     padding: 30px 0;
     align-items: flex-start;
     width: 100%;
+    gap: 25px;
   }
 
   .navLinks.open {

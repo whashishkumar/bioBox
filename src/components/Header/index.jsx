@@ -2,16 +2,19 @@
 import { useEffect, useState } from 'react';
 import { FaPhoneAlt, FaBars, FaTimes } from 'react-icons/fa';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import './style.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchLandingPageMenuData } from '@/store/features/landingPage/landingPageSlice';
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
   const dispatch = useDispatch();
-  const [hoveredMenu, setHoveredMenu] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [activeLink, setActiveLink] = useState(pathname); // track clicked link
 
   const { menuItems } = useSelector((state) => state.landingPage);
   const {
@@ -23,10 +26,15 @@ export default function Header() {
 
   useEffect(() => {
     dispatch(fetchLandingPageMenuData());
+    const handleResize = () => setIsMobile(window.innerWidth <= 1024);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [dispatch]);
 
-  const handleLinkClick = () => {
+  const handleLinkClick = (linkUrl) => {
     setMenuOpen(false);
+    setActiveLink(linkUrl);
   };
 
   const ourProductSubmenu = [
@@ -41,13 +49,36 @@ export default function Header() {
   ];
 
   const ourServicesSubmenu = [
-    { id: 'p1', title: 'sercice 1', url: '/sercice 1' },
-    { id: 'p2', title: 'sercice 2', url: '/sercice 2' },
-    { id: 'p3', title: 'sercice 3', url: '/sercice 3' },
-    { id: 'p4', title: 'sercice 4', url: '/sercice 4' },
+    { id: 's1', title: 'Service 1', url: '/service-1' },
+    { id: 's2', title: 'Service 2', url: '/service-2' },
+    { id: 's3', title: 'Service 3', url: '/service-3' },
+    { id: 's4', title: 'Service 4', url: '/service-4' },
   ];
 
-  const extractpath = pathname.replace(/^\//, '');
+  const toggleDropdownMobile = (menuTitle, linkUrl) => {
+    if (activeDropdown === menuTitle) {
+      router.push(linkUrl);
+      setActiveDropdown(null);
+      setActiveLink(linkUrl);
+    } else {
+      setActiveDropdown(menuTitle);
+    }
+  };
+
+  const renderDropdown = (submenu) => (
+    <div className="dropdown-menu mobile-dropdown">
+      {submenu.map((item) => (
+        <Link
+          key={item.id}
+          href={item.url}
+          className={`dropdown-item ${activeLink === item.url ? 'active' : ''}`}
+          onClick={() => handleLinkClick(item.url)}
+        >
+          {item.title}
+        </Link>
+      ))}
+    </div>
+  );
 
   return (
     <nav className="navbar sub-container">
@@ -56,80 +87,74 @@ export default function Header() {
           <img src={logo} alt="BioBox Logo" className="logoImg" />
         </div>
       </Link>
+
       <div className="nav-bar-col-2">
         <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <FaTimes /> : <FaBars />}
         </div>
+
         <div className={`navLinks ${menuOpen ? 'open' : ''}`}>
           <ul>
-            {navBarLinks &&
-              navBarLinks.map((link) => (
+            {navBarLinks.map((link) => {
+              const linkUrl = link.url.startsWith('/')
+                ? link.url
+                : `/${link.url}`;
+              const hasDropdown =
+                link.title === 'Our Products' || link.title === 'Our Services';
+              const submenu =
+                link.title === 'Our Products'
+                  ? ourProductSubmenu
+                  : ourServicesSubmenu;
+              const isActive =
+                activeLink === linkUrl || (!activeLink && pathname === linkUrl);
+
+              return (
                 <li
                   key={link.id}
                   className="nav-item"
-                  onMouseEnter={() => setHoveredMenu(link.title)}
-                  onMouseLeave={() => setHoveredMenu(null)}
+                  onMouseEnter={
+                    !isMobile && hasDropdown
+                      ? () => setActiveDropdown(link.title)
+                      : undefined
+                  }
+                  onMouseLeave={
+                    !isMobile && hasDropdown
+                      ? () => setActiveDropdown(null)
+                      : undefined
+                  }
                 >
-                  <Link
-                    className={`link ${
-                      extractpath === link.url ? 'active' : ''
-                    }`}
-                    href={link.url}
-                    onClick={handleLinkClick}
-                  >
-                    {link.title}
-                    {(link.title === 'Our Products' ||
-                      link.title === 'Our Services') && (
+                  {hasDropdown && isMobile ? (
+                    <button
+                      className={`link btn-as-link ${isActive ? 'active' : ''}`}
+                      onClick={() => toggleDropdownMobile(link.title, linkUrl)}
+                    >
+                      {link.title}
                       <span className="dropdownArrow">▼</span>
-                    )}
-                  </Link>
+                    </button>
+                  ) : (
+                    <Link
+                      href={linkUrl}
+                      className={`link ${isActive ? 'active' : ''}`}
+                      onClick={() => handleLinkClick(linkUrl)}
+                    >
+                      {link.title}
+                      {hasDropdown && <span className="dropdownArrow">▼</span>}
+                    </Link>
+                  )}
 
-                  {hoveredMenu === 'Our Products' &&
-                    link.title === 'Our Products' && (
-                      <div
-                        className="dropdown-menu"
-                        onMouseEnter={() => setHoveredMenu('Our Products')}
-                        onMouseLeave={() => setHoveredMenu(null)}
-                      >
-                        {ourProductSubmenu.map((item) => (
-                          <Link
-                            href={item.url}
-                            key={item.id}
-                            className="dropdown-item"
-                            prefetch={false}
-                          >
-                            {item.title}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-
-                  {hoveredMenu === 'Our Services' &&
-                    link.title === 'Our Services' && (
-                      <div
-                        className="dropdown-menu"
-                        onMouseEnter={() => setHoveredMenu('Our Services')}
-                        onMouseLeave={() => setHoveredMenu(null)}
-                      >
-                        {ourServicesSubmenu.map((item) => (
-                          <Link
-                            href={item.url}
-                            key={item.id}
-                            className="dropdown-item"
-                          >
-                            {item.title}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
+                  {activeDropdown === link.title &&
+                    hasDropdown &&
+                    renderDropdown(submenu)}
                 </li>
-              ))}
+              );
+            })}
             <li className="callButton mobileCallButton">
               <FaPhoneAlt />
               <span>{contact?.phone}</span>
             </li>
           </ul>
         </div>
+
         <div className="callButton">
           <FaPhoneAlt />
           <span>{contact?.phone}</span>

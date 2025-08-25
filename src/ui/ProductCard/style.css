@@ -40,21 +40,21 @@
 .pagination {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 60px;
   gap: 10px;
 }
 
 .pagination button {
   padding: 8px 12px;
-  border: 1px solid #ccc;
-  background: #fff;
+  border: 0;
+  background: var(--color-white);
   cursor: pointer;
   border-radius: 4px;
 }
 
 .pagination button.active {
-  background: #007bff;
-  color: #fff;
+  background: var(--color-primary);
+  color: var(--color-white);
 }
 
 .pagination button:disabled {
@@ -64,8 +64,6 @@
 
 
 @media (min-width: 768px) and (max-width: 1024px) {
-
-
   .product-container-box {
     width: 100%;
     height: auto;

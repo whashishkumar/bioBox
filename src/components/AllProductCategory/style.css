@@ -1,0 +1,16 @@
+.all-product-category {
+  margin-top: 92px;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .all-product-category {
+    margin-top: 50px;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .all-product-category {
+    margin-top: 50px;
+  }
+}

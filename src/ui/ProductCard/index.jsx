@@ -30,7 +30,7 @@ export default function ProductCard({
 
   return (
     <div className={`sub-container ${className}`}>
-      <div className="box-container margin margin-top-none">
+      <div className="our-product-box-container margin margin-top-none">
         {showCarousel ? (
           <>
             {products.length > slidesPerView ? (

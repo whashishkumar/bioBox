@@ -1,5 +1,7 @@
 import PageLayout from '@/app/pageLayout';
 import AllPRoducts from '@/components/AllProducts';
+import ExplorePharmaProducts from '@/components/ExploreProductBanner';
+import PartnerBenifits from '@/components/PartnerBenifits';
 import React from 'react';
 
 export default function OurProductsPage() {
@@ -14,6 +16,8 @@ export default function OurProductsPage() {
         }
       >
         <AllPRoducts />
+        <ExplorePharmaProducts />
+        <PartnerBenifits />
       </PageLayout>
     </>
   );

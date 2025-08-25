@@ -1,0 +1,60 @@
+.content-container {
+  position: relative;
+  z-index: 1;
+  height: 400px;
+  background-color: #f9f9f9;
+}
+
+.content-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/images/pcdbg.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  z-index: -1;
+  background-attachment: fixed;
+}
+
+.explore-pharma {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--color-text);
+  padding: 20px;
+  height: 400px;
+}
+
+.explore-pharma h2 {
+  margin-bottom: 10px;
+  font-family: var(--font-red-hat-display);
+  text-transform: uppercase;
+  font-size: 20px;
+  font-weight: normal;
+  text-transform: capitalize;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.explore-pharma p {
+  font-family: var(--font-sanchez);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-style: normal;
+  text-decoration: none;
+  line-height: 2em;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
+}
+
+.btn-top-margin {
+  margin-top: 40px;
+}

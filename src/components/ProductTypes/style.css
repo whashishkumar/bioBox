@@ -16,6 +16,7 @@
   background: url('/images/pbg.png') center/cover no-repeat;
   opacity: 0.3;
   z-index: -1;
+  background-attachment: fixed;
 }
 
 .product-card-container {
