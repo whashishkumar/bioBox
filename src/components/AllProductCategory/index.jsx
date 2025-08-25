@@ -1,5 +1,5 @@
-import React from 'react';
-import './style.css';
+'use client';
+import PageLayout from '@/app/pageLayout';
 import ProductCard from '@/ui/ProductCard';
 
 export const products = [
@@ -355,10 +355,21 @@ export const products = [
   },
 ];
 
-export default function AllPRoducts() {
+export default function AllProductCategoryPage({ category }) {
+  const filteredProducts = products.filter((p) => p.category === category);
+
   return (
-    <div className="all-products-container padding">
-      <ProductCard products={products} showCarousel={false} />
-    </div>
+    <PageLayout
+      bannerImage="/images/contactUs-banner.jpg"
+      className="banner-dimesions banner-c-wrapper-container"
+      title={category.replace(/-/g, ' ').toUpperCase()}
+      subtitle={`Explore our ${category.replace(/-/g, ' ')} products.`}
+    >
+      <ProductCard
+        products={filteredProducts}
+        showCarousel={false}
+        itemsPerPage={8}
+      />
+    </PageLayout>
   );
 }

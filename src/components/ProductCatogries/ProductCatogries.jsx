@@ -84,11 +84,6 @@ const headingObject = {
 
 const ProductCategories = () => {
   const dispatch = useDispatch();
-  // const { categories, loading, error } = useSelector(
-  //   (state) => state.productCategories
-  // );
-
-  // console.log(categories, 'categories');
 
   useEffect(() => {
     dispatch(fetchProductCategories());

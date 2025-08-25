@@ -10,7 +10,6 @@ export default function ProductCategoryCard({ image, title }) {
         <div className="product-card-title">
           <p className="title-text-product"> {title}</p>
           <div className="shape shape-left"></div>
-
           <div className="shape shape-right"></div>
         </div>
       </div>

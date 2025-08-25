@@ -30,10 +30,14 @@ export default function Header() {
   };
 
   const ourProductSubmenu = [
-    { id: 'p1', title: 'Critical Care Range', url: '/critical-care-range' },
-    { id: 'p2', title: 'Derma Care', url: '/derma-care' },
-    { id: 'p3', title: 'Diabetic', url: '/diabetic' },
-    { id: 'p4', title: 'ENT Range', url: '/ent-range' },
+    {
+      id: 'p1',
+      title: 'Critical Care Range',
+      url: '/our-products/critical-care-range',
+    },
+    { id: 'p2', title: 'Derma Care', url: '/our-products/derma-care' },
+    { id: 'p3', title: 'Diabetic', url: '/our-products/diabetic' },
+    { id: 'p4', title: 'ENT Range', url: '/our-products/ent-range' },
   ];
 
   const ourServicesSubmenu = [
@@ -92,6 +96,7 @@ export default function Header() {
                             href={item.url}
                             key={item.id}
                             className="dropdown-item"
+                            prefetch={false}
                           >
                             {item.title}
                           </Link>
