@@ -2,7 +2,15 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['biobox.whdev.in'], // allow external image domain
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'biobox.whdev.in',
+        port: '',
+        pathname: '/storage/**', // allow all images under /storage
+      },
+    ],
+    unoptimized: process.env.NEXT_PUBLIC_DISABLE_IMAGE_OPTIMIZATION === 'true', // optional toggle
   },
   env: {
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
