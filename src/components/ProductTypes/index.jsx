@@ -1,56 +1,30 @@
-import React from 'react';
+'use client';
+import React, { useEffect } from 'react';
 import ProductCategoryCard from './ProductCategoryCard';
 import PageHeadingTitle from '../PageHeadingTitle';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { fetchProductType } from '@/store/features/productTypes/productTypeSlice';
 
 const headerObject = {
   heading: 'Product Types',
   subHeading:
-    'Our Products Reflect Our Promise of Purity.Crafted with Care, Backed by Science. Trusted by Professionals, Preferred by Patients.',
+    'Our Products Reflect Our Promise of Purity. Crafted with Care, Backed by Science. Trusted by Professionals, Preferred by Patients.',
 };
-const categories = [
-  {
-    title: 'Suspensions',
-    image: '/images/type1.jpg',
-    icon: '/icons/icon.jpg',
-  },
-  {
-    title: 'Tablets',
-    image: '/images/type2.jpg',
-    icon: '/icons/icon.jpg',
-  },
-  {
-    title: 'Sachets',
-    image: '/images/type3.png',
-    icon: '/icons/icon.jpg',
-  },
-  {
-    title: 'Softgels',
-    image: '/images/type4.jpg',
-    icon: '/icons/icon.jpg',
-  },
-  {
-    title: 'Skincare Products',
-    image: '/images/type5.jpg',
-    icon: '/icons/icon.jpg',
-  },
-  {
-    title: 'Eye Drops',
-    image: '/images/type6.jpg',
-    icon: '/icons/icon.jpg',
-  },
-  {
-    title: 'Syrups',
-    image: '/images/type8.jpg',
-    icon: '/icons/icon.jpg',
-  },
-  {
-    title: 'Capsules',
-    image: '/images/type7.jpg',
-    icon: '/icons/icon.jpg',
-  },
-];
 
 export default function ProductTypes() {
+  const dispatch = useDispatch();
+
+  const productData = useSelector(
+    (state) => state?.productType?.productType || { data: [] },
+    shallowEqual
+  );
+
+  const { data = [] } = productData;
+
+  useEffect(() => {
+    dispatch(fetchProductType());
+  }, [dispatch]);
+
   return (
     <div className="product-type-root padding">
       <div className="sub-container">
@@ -60,9 +34,13 @@ export default function ProductTypes() {
           className="product-heading"
         />
         <div className="product-card-container">
-          {categories.map((cat, index) => (
-            <ProductCategoryCard key={index} {...cat} />
-          ))}
+          {data.length > 0 ? (
+            data.map((cat, index) => (
+              <ProductCategoryCard key={index} {...cat} />
+            ))
+          ) : (
+            <p>No product types found.</p>
+          )}
         </div>
       </div>
     </div>

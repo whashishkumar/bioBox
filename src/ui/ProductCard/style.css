@@ -31,9 +31,9 @@
 
 .product-grid {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 45px;
+  gap: 30px 10px;
   flex-wrap: wrap;
 }
 
@@ -61,6 +61,98 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+/* ////// */
+.custom-card {
+  background: var(--color-white);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.custom-card:hover {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+
+.custom-card-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+
+.custom-card-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.custom-card-tag {
+  max-width: 70px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  text-transform: capitalize;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-family: var(--font-red-hat-display);
+}
+
+.custom-card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text);
+  text-transform: capitalize;
+  margin: 0;
+  font-family: var(--font-sanchez);
+}
+
+.custom-card-description {
+  font-size: 14px;
+  color: var(--color-text);
+  text-transform: capitalize;
+  line-height: 1.4;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: var(--font-sanchez);
+}
+
+.custom-card-pack {
+  font-size: 14px;
+  color: var(--color-text);
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.custom-card-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #f65a38;
+  margin: 0;
+  font-family: var(--font-sanchez);
+}
+
+.custom-card-btn {
+  margin-top: 12px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-family: var(--font-sanchez);
+}
+
+
 
 
 @media (min-width: 768px) and (max-width: 1024px) {

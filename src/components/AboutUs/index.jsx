@@ -1,5 +1,10 @@
+'use client';
+import { useDispatch, useSelector } from 'react-redux';
 import './style.css';
-const aboutUs = {
+import { useEffect } from 'react';
+import { fetchAboutUsData } from '@/store/features/aboutUs/aboutUsPageSlice';
+
+const aboutUsa = {
   image: '/images/doctor.png',
   leftFeatures: [
     {
@@ -29,29 +34,40 @@ const aboutUs = {
 };
 
 export default function AboutUs() {
+  const dispatch = useDispatch();
+  const { data = {} } = useSelector((state) => state?.aboutUs?.aboutUs || {});
+  const {
+    description = '',
+    heading = '',
+    feature = [],
+    main_image,
+    icon_image,
+  } = data;
+  console.log(data);
+
+  useEffect(() => {
+    dispatch(fetchAboutUsData());
+  }, []);
+
   return (
     <section className="sub-container about-section padding-y-axis">
       <div className="about-container padding ">
         <div className="about-left">
           <div className="container-image-sec">
             <img
-              src="/images/about02.png"
+              src={icon_image}
               alt="Doctor"
               className="about-image-quality"
             />
-            <img
-              src="/images/about01.png"
-              alt="Doctor"
-              className="about-image-bg"
-            />
+            <img src={main_image} alt="Doctor" className="about-image-bg" />
           </div>
         </div>
 
         <div className="about-right">
-          <h2 className="about-title">{aboutUs.mainTitle}</h2>
-          <p className="about-desc">{aboutUs.description}</p>
+          <h2 className="about-title"> {heading}</h2>
+          <p className="about-desc">{description}</p>
           <div className="bullet-wrapper">
-            {aboutUs.bulletPoints.map((point, idx) => (
+            {feature?.map((point, idx) => (
               <div key={idx} className="bullet-item">
                 <span className="check-icon">✔</span>
                 <span className="bullet-text">{point}</span>
@@ -60,7 +76,7 @@ export default function AboutUs() {
           </div>
           <div className="about-note">
             <img src={'/images/aboutbg.png'} />
-            <p>{aboutUs.note}</p>
+            <p>{aboutUsa.note}</p>
           </div>
         </div>
       </div>

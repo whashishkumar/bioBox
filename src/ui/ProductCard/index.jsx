@@ -4,6 +4,7 @@ import './style.css';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import Carousel from '@/components/Crousal';
+import Image from 'next/image';
 
 export default function ProductCard({
   products = [],
@@ -11,6 +12,7 @@ export default function ProductCard({
   slidesPerView = 4,
   className = '',
   itemsPerPage = 12,
+  onProductClick = () => {},
 }) {
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -22,9 +24,23 @@ export default function ProductCard({
   );
 
   const Card = ({ product }) => (
-    <div className="product-container-box">
-      <img src={product.image} alt={product.name} />
-      <p className="title-text">{product.name}</p>
+    <div className="custom-card">
+      <div className="custom-card-image">
+        <img src={product.image} alt={product.name} />
+      </div>
+      <div className="custom-card-content">
+        <span className="custom-card-tag">Tablets</span>
+        <h3 className="custom-card-title">{product.name}</h3>
+        <p className="custom-card-description">{'product.description'}</p>
+        <p className="custom-card-pack">{'product.pack'}</p>
+        <p className="custom-card-price">₹ {'100'}</p>
+        <button
+          className="custom-card-btn"
+          onClick={() => onProductClick(product)}
+        >
+          Send Enquiry
+        </button>
+      </div>
     </div>
   );
 

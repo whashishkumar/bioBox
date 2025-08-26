@@ -6,6 +6,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import './style.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchLandingPageMenuData } from '@/store/features/landingPage/landingPageSlice';
+import Image from 'next/image';
 
 export default function Header() {
   const pathname = usePathname();
@@ -36,17 +37,6 @@ export default function Header() {
     setMenuOpen(false);
     setActiveLink(linkUrl);
   };
-
-  const ourProductSubmenu = [
-    {
-      id: 'p1',
-      title: 'Critical Care Range',
-      url: '/our-products/critical-care-range',
-    },
-    { id: 'p2', title: 'Derma Care', url: '/our-products/derma-care' },
-    { id: 'p3', title: 'Diabetic', url: '/our-products/diabetic' },
-    { id: 'p4', title: 'ENT Range', url: '/our-products/ent-range' },
-  ];
 
   const ourServicesSubmenu = [
     { id: 's1', title: 'Service 1', url: '/service-1' },
@@ -84,7 +74,13 @@ export default function Header() {
     <nav className="navbar sub-container">
       <Link href="/">
         <div className="logo">
-          <img src={logo} alt="BioBox Logo" className="logoImg" />
+          <Image
+            src={logo}
+            alt="BioBox Logo"
+            className="logoImg"
+            height={89}
+            width={193}
+          />
         </div>
       </Link>
 
@@ -99,12 +95,8 @@ export default function Header() {
               const linkUrl = link.url.startsWith('/')
                 ? link.url
                 : `/${link.url}`;
-              const hasDropdown =
-                link.title === 'Our Products' || link.title === 'Our Services';
-              const submenu =
-                link.title === 'Our Products'
-                  ? ourProductSubmenu
-                  : ourServicesSubmenu;
+              const hasDropdown = link.title === 'Our Services';
+              const submenu = ourServicesSubmenu;
               const isActive =
                 activeLink === linkUrl || (!activeLink && pathname === linkUrl);
 

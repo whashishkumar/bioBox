@@ -84,6 +84,7 @@ const headingObject = {
 
 const ProductCategories = () => {
   const dispatch = useDispatch();
+  const { categories } = useSelector((state) => state?.categories);
 
   useEffect(() => {
     dispatch(fetchProductCategories());
@@ -97,7 +98,7 @@ const ProductCategories = () => {
           subheading={headingObject.subHeading}
         />
         <div className="sub-container grid">
-          {categoriesItems.map((cat, index) => (
+          {categories?.data?.map((cat, index) => (
             <CategoryCard key={index} {...cat} />
           ))}
         </div>

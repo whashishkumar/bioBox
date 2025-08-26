@@ -21,7 +21,7 @@ export default function PageLayout({
         subtitle={subtitle}
       />
       {children}
-      <Footer className={'radius-none'} />
+      <Footer className={'sub-container'} />
     </div>
   );
 }

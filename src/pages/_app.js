@@ -1,3 +1,4 @@
+'use client';
 import ReduxProvider from '@/store/ReduxProvider';
 import '@/app/globals.css';
 

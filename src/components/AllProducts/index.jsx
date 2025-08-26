@@ -1,6 +1,10 @@
-import React from 'react';
+'use client';
+import React, { useState } from 'react';
 import './style.css';
 import ProductCard from '@/ui/ProductCard';
+import { useRouter } from 'next/navigation';
+import Sidebar from './Sidebar';
+import ProductSection from './ProductListing';
 
 export const products = [
   {
@@ -355,10 +359,162 @@ export const products = [
   },
 ];
 
-export default function AllPRoducts() {
+const ourProductSubmenu = [
+  {
+    id: 'p1',
+    title: 'Critical Care Range',
+    category: 'critical-care-range',
+    products: [
+      {
+        id: 'm1',
+        name: 'Medicine A',
+        description: 'Used for critical care treatment',
+        type: 'Injection',
+        brands: [
+          {
+            id: 'b1',
+            brandName: 'Brand Alpha',
+            price: 1200,
+            packaging: 'Vial',
+          },
+          {
+            id: 'b2',
+            brandName: 'Brand Beta',
+            price: 1500,
+            packaging: 'Vial',
+          },
+        ],
+      },
+      {
+        id: 'm2',
+        name: 'Medicine B',
+        description: 'Another critical care medicine',
+        type: 'Tablet',
+        brands: [
+          {
+            id: 'b3',
+            brandName: 'Brand Gamma',
+            price: 500,
+            packaging: 'Strip of 10',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'p2',
+    title: 'Derma Care',
+    category: 'derma-care',
+    products: [
+      {
+        id: 'm3',
+        name: 'Cream X',
+        description: 'For skin treatment',
+        type: 'Cream',
+        brands: [
+          {
+            id: 'b4',
+            brandName: 'Brand SkinPro',
+            price: 250,
+            packaging: 'Tube 30g',
+          },
+          {
+            id: 'b5',
+            brandName: 'Brand DermaPlus',
+            price: 300,
+            packaging: 'Tube 50g',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'p3',
+    title: 'Diabetic',
+    category: 'diabetic',
+    products: [
+      {
+        id: 'm4',
+        name: 'Insulin X',
+        description: 'Insulin injection for diabetes',
+        type: 'Injection',
+        brands: [
+          {
+            id: 'b6',
+            brandName: 'Brand GlucoFix',
+            price: 900,
+            packaging: 'Vial',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'p4',
+    title: 'ENT Range',
+    category: 'ent-range',
+    products: [
+      {
+        id: 'm5',
+        name: 'Ear Drops Y',
+        description: 'For ear infections',
+        type: 'Drop',
+        brands: [
+          {
+            id: 'b7',
+            brandName: 'Brand EarCare',
+            price: 150,
+            packaging: 'Bottle 10ml',
+          },
+        ],
+      },
+    ],
+  },
+];
+
+const categories = [
+  'Critical Care',
+  'Derma Care',
+  'Gynae Care',
+  'Dental Care',
+  'ENT',
+  'Pediatric',
+  'Ayurvedic',
+];
+
+export default function AllProducts() {
+  const [selectedCategory, setSelectedCategory] = useState(
+    'critical-care-range'
+  );
+  const [activeCategory, setActiveCategory] = useState(categories[0]);
+  const router = useRouter();
+  const filteredProducts = products.filter(
+    (product) => product.category === selectedCategory
+  );
+
+  const handleSingleProduct = (product) => {
+    console.log(product, 'product');
+    router.push(`/our-products/${product.id}`);
+  };
+
   return (
-    <div className="all-products-container padding">
-      <ProductCard products={products} showCarousel={false} />
+    <div className="all-products-container padding  sub-container">
+      <div className="product-card-parent-container">
+        <div className="col-1 navbar-fix ">
+          <Sidebar
+            categories={ourProductSubmenu}
+            selectedCategory={selectedCategory}
+            onSelectCategory={setSelectedCategory}
+          />
+        </div>
+        <ProductSection
+          activeCategory={activeCategory}
+          categories={categories}
+          setActiveCategory={setActiveCategory}
+          filteredProducts={filteredProducts}
+          onProductClick={handleSingleProduct}
+        />
+      </div>
     </div>
   );
 }
