@@ -15,7 +15,6 @@ export default function ProductCard({
   onProductClick = () => {},
 }) {
   const [currentPage, setCurrentPage] = useState(1);
-
   const totalPages = Math.ceil(products.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const paginatedProducts = products.slice(
@@ -31,7 +30,11 @@ export default function ProductCard({
       <div className="custom-card-content">
         <span className="custom-card-tag">Tablets</span>
         <h3 className="custom-card-title">{product.name}</h3>
-        <p className="custom-card-description">{'product.description'}</p>
+        <p className="custom-card-description">
+          {
+            'This is the complete product description. It gives full details about the product, its benefits, usage, and specifications.'
+          }
+        </p>
         <p className="custom-card-pack">{'product.pack'}</p>
         <p className="custom-card-price">₹ {'100'}</p>
         <button

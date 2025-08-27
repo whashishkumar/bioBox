@@ -1,11 +1,10 @@
-import NotFound from '@/components/NotFound'
-import React from 'react'
-
+import NotFound from '@/components/NotFound';
+import React from 'react';
 
 export default function Error() {
   return (
     <div>
-        <NotFound/>
+      <NotFound />
     </div>
-  )
+  );
 }

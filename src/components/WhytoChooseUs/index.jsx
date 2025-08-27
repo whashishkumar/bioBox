@@ -1,22 +1,39 @@
-import React from 'react';
+'use client';
+import React, { useEffect } from 'react';
 import PageHeadingTitle from '../PageHeadingTitle';
 import MissionVisionValues from './MissionVisionValues';
-
-const headerObject = {
-  heading: 'Why Choose Us',
-  subHeading:
-    'Choose BioBox Pharma for high-quality, affordable, and innovative pharmaceutical products manufactured in WHO-GMP-certified facilities. We offer monopoly-based PCD franchise opportunities.',
-};
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchLandingPageChooseUsData } from '@/store/features/whyToChooseus/whyToChooseUsSlice';
+import { Loader } from '@/utils/lazyImport';
+import GlobalStateHandler from '../GlobalStateHandler/GlobalStateHandler';
 export default function Choose() {
+  const dispatch = useDispatch();
+  const { data, loading, error } = useSelector((state) => state.chooseUs || {});
+  const chooseData = data?.data || {};
+  const { name, description, mission, value, vision } = chooseData;
+
+  useEffect(() => {
+    dispatch(fetchLandingPageChooseUsData());
+  }, [dispatch]);
+
+  const isEmpty = !name && !description && !mission && !value && !vision;
   return (
-    // margin
-    <div className="padding">
-      <PageHeadingTitle
-        heading={headerObject.heading}
-        subheading={headerObject.subHeading}
-        className={'chose-us-width'}
+    <>
+      <GlobalStateHandler
+        loading={loading}
+        error={error}
+        empty={isEmpty}
+        loaderComponent={Loader}
       />
-      <MissionVisionValues />
-    </div>
+
+      <div className="padding">
+        <PageHeadingTitle
+          heading={name}
+          subheading={description}
+          className="chose-us-width"
+        />
+        <MissionVisionValues mission={mission} value={value} vision={vision} />
+      </div>
+    </>
   );
 }

@@ -6,6 +6,7 @@
   display: flex;
   justify-content: space-between;
   gap: 50px;
+  flex-wrap: wrap;
 }
 
 .margin-top {
@@ -194,6 +195,12 @@
 
   .bio-flex {
     gap: 30px;
+    justify-content: flex-start;
+  }
+
+  .left-col {
+    padding-top: 60px;
+
   }
 
   .left-col {

@@ -63,7 +63,9 @@ export default function ContactUsForm() {
       <h2 className="title">Send Us A Message</h2>
       <form className="contact-form" onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name" className="contact-us-lable">
+            Name
+          </label>
           <input
             id="name"
             type="text"
@@ -76,7 +78,9 @@ export default function ContactUsForm() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="email">Email id</label>
+          <label htmlFor="email" className="contact-us-lable">
+            Email id
+          </label>
           <input
             id="email"
             type="email"
@@ -89,7 +93,9 @@ export default function ContactUsForm() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="phone">Phone No</label>
+          <label htmlFor="phone" className="contact-us-lable">
+            Phone No
+          </label>
           <input
             id="phone"
             type="tel"
@@ -102,7 +108,9 @@ export default function ContactUsForm() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="city">City</label>
+          <label htmlFor="city" className="contact-us-lable">
+            City
+          </label>
           <input
             id="city"
             type="text"
@@ -115,7 +123,9 @@ export default function ContactUsForm() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="state">State</label>
+          <label htmlFor="state" className="contact-us-lable">
+            State
+          </label>
           <input
             id="state"
             type="text"
@@ -128,7 +138,7 @@ export default function ContactUsForm() {
         </div>
 
         <div className="form-group">
-          <label htmlFor="message">
+          <label htmlFor="message" className="contact-us-lable">
             PCD Pharma Franchise/Bulk Order Inquiry
           </label>
           <textarea

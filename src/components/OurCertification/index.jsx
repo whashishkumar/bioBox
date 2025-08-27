@@ -1,24 +1,57 @@
-import React from 'react'
-import PageHeadingTitle from '../PageHeadingTitle'
-import './style.css'
+'use client';
+import React, { useEffect } from 'react';
+import PageHeadingTitle from '../PageHeadingTitle';
+import './style.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchLandingPageOurCertifacationData } from '@/store/features/ourCertifacation/ourCertifacation';
+import Image from 'next/image';
+import GlobalStateHandler from '../GlobalStateHandler/GlobalStateHandler';
+import { Loader } from '@/utils/lazyImport';
 
-
-const headerObject = {
-  heading:'Our Certification',
-  subHeading:'Our Product Manufactured At International Standard, Plant Have All Certification Required To Match International Standard'
-}
 export default function OurCertification() {
+  const dispatch = useDispatch();
+  const { data, loading, error } = useSelector(
+    (state) => state.ourCertifacation || {}
+  );
+  const ourCetrifacation = data?.data || {};
+  const { name, description, images } = ourCetrifacation;
+
+  useEffect(() => {
+    dispatch(fetchLandingPageOurCertifacationData());
+  }, []);
+
+  const isEmpty = !name && !description && !images;
+
   return (
-    <div className='our-certifacation'>
-      <PageHeadingTitle heading={headerObject.heading} subheading={headerObject.subHeading} className='title-heading'/>
-       <div className='certifacation-icon-conatainer sub-container'>
-        <img src={'/images/iso.png'} alt='who' className='certifacation-icon'/>
-         <img src={'/images/makeInIndia.png'} alt='who' className='makeIn-India-icon' />
-        <img src={'/images/who.png'} alt='who' className='certifacation-icon'/>
-        <img src={'/images/gpl.png'} alt='who' className='certifacation-icon'/>
-        <img src={'/images/quality.png'} alt='who' className='certifacation-icon'/>
-        <img src={'/images/fassi.png'} alt='who' className='certifacation-icon'/>
-       </div>
-    </div>
-  )
+    <>
+      <GlobalStateHandler
+        loading={loading}
+        error={error}
+        empty={isEmpty}
+        loaderComponent={Loader}
+      />
+      <div className="our-certifacation">
+        <PageHeadingTitle
+          heading={name}
+          subheading={description}
+          className="title-heading"
+        />
+        <div className="certifacation-icon-conatainer sub-container">
+          {images?.map((image) => {
+            return (
+              <>
+                <Image
+                  src={image}
+                  height={140}
+                  width={140}
+                  alt="log"
+                  className="certifacation-icon"
+                />
+              </>
+            );
+          })}
+        </div>
+      </div>
+    </>
+  );
 }

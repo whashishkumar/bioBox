@@ -9,6 +9,7 @@ export const Loader = () => {
     </div>
   );
 };
+
 export function lazyImport(factory) {
   return dynamic(factory, {
     loading: () => <Loader />,

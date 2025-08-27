@@ -75,6 +75,7 @@
   .gift-card {
     flex: 1 1 100%;
     height: auto;
+    max-width: 100%;
   }
 
   .gift-card img {
@@ -115,6 +116,7 @@
     width: 100%;
     height: auto;
     text-align: center;
+    max-width: 100%;
     max-width: 100%;
   }
 

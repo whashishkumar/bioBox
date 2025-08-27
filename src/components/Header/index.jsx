@@ -15,7 +15,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [activeLink, setActiveLink] = useState(pathname); // track clicked link
+  const [activeLink, setActiveLink] = useState(pathname);
 
   const { menuItems } = useSelector((state) => state.landingPage);
   const {

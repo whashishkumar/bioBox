@@ -18,7 +18,6 @@
   cursor: not-allowed;
 }
 
-/* Variants */
 .ui-btn.primary {
   background-color: var(--color-primary);
   color: white;
@@ -48,7 +47,6 @@
   color: white;
 }
 
-/* Sizes */
 .ui-btn.sm {
   padding: 6px 12px;
   font-size: 0.875rem;
@@ -62,9 +60,9 @@
 .ui-btn.lg {
   padding: 14px 28px;
   font-size: 1.125rem;
+  font-family: var(--font-sanchez);
 }
 
-/* Icon */
 .ui-btn-icon {
   display: inline-flex;
 }

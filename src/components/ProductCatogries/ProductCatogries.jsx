@@ -5,6 +5,8 @@ import PageHeadingTitle from '../PageHeadingTitle';
 import CategoryCard from './CategoryCard';
 import './style.css';
 import { fetchProductCategories } from '@/store/features/productCategory/categorySlice';
+import GlobalStateHandler from '../GlobalStateHandler/GlobalStateHandler';
+import { Loader } from '@/utils/lazyImport';
 
 export const categoriesItems = [
   {
@@ -76,34 +78,36 @@ export const categoriesItems = [
   },
 ];
 
-const headingObject = {
-  heading: 'Product Categories',
-  subHeading:
-    'From everyday health concerns to complex therapeutic needs, our product categories are designed to deliver trust and results.Covering General, Cardiac, Diabetic, Gynae, Ortho & more – we ensure complete care under one trusted name.',
-};
-
 const ProductCategories = () => {
   const dispatch = useDispatch();
-  const { categories } = useSelector((state) => state?.categories);
+  const { categories, loading, error } = useSelector((state) => state) || {};
+  const { data, heading, description } = categories?.categories || {};
+
+  const isEmpty = !data || !heading || !description;
 
   useEffect(() => {
     dispatch(fetchProductCategories());
   }, []);
 
   return (
-    <div className="root-container">
-      <div className="section padding-top-category">
-        <PageHeadingTitle
-          heading={headingObject.heading}
-          subheading={headingObject.subHeading}
-        />
-        <div className="sub-container grid">
-          {categories?.data?.map((cat, index) => (
-            <CategoryCard key={index} {...cat} />
-          ))}
+    <>
+      <GlobalStateHandler
+        loading={loading}
+        error={error}
+        loaderComponent={Loader}
+        isEmpty={isEmpty}
+      />
+      <div className="root-container">
+        <div className="section padding-top-category">
+          <PageHeadingTitle heading={heading} subheading={description} />
+          <div className="sub-container grid">
+            {data?.map((cat, index) => (
+              <CategoryCard key={index} {...cat} />
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

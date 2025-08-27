@@ -18,6 +18,11 @@
   position: relative;
 }
 
+.mvv-card-box-space {
+  bottom: 10%;
+  z-index: 1;
+}
+
 .card-bottom-space {
   margin-bottom: 15px;
 }
@@ -53,7 +58,7 @@
 
 .mvv-image-bg {
   position: absolute;
-  bottom: -12%;
+  bottom: -17%;
   left: 50%;
   transform: translate(-50%, 0);
   z-index: -1;
@@ -91,6 +96,8 @@
   max-width: 1017px;
   margin: 0 auto;
 }
+
+
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .mvv-title {
