@@ -74,13 +74,15 @@ export default function Header() {
     <nav className="navbar sub-container">
       <Link href="/">
         <div className="logo">
-          <Image
-            src={logo}
-            alt="BioBox Logo"
-            className="logoImg"
-            height={89}
-            width={193}
-          />
+          {logo ? (
+            <Image
+              src={logo}
+              alt="BioBox Logo"
+              className="logoImg"
+              height={89}
+              width={193}
+            />
+          ) : null}
         </div>
       </Link>
 

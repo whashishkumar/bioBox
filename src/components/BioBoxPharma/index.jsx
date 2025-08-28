@@ -105,7 +105,7 @@ export default function BioBoxPharma() {
     <div className="hero-sub-container parent-container-bio-box">
       {/* =================== Bio Section =================== */}
       <div className="sub-container bio-flex  padding padding-top margin-top">
-        <div className="left-col content-container-box">
+        <div className="left-col content-container-box ">
           <p className="welcome-text">{bioData.welcomeText}</p>
           <h2 className="heading-title">{bioData.heading}</h2>
           <p
@@ -124,20 +124,24 @@ export default function BioBoxPharma() {
         </div>
         <div className="right-col">
           <div className="image-wrapper">
-            <Image
-              className="hero-bg-image"
-              src={bioData.image.src}
-              alt={bioData.image.alt}
-              width={bioData.image.width}
-              height={bioData.image.height}
-            />
-            <Image
-              src={bioData.imageSrc.src}
-              alt={bioData.imageSrc.alt}
-              width={bioData.imageSrc.width}
-              height={bioData.imageSrc.height}
-              className="overlay-img"
-            />
+            {bioData.image.src ? (
+              <Image
+                className="hero-bg-image"
+                src={bioData.image.src}
+                alt={bioData.image.alt || 'Product'}
+                width={bioData.image.width}
+                height={bioData.image.height}
+              />
+            ) : null}
+            {bioData.imageSrc.src ? (
+              <Image
+                src={bioData.imageSrc.src}
+                alt={bioData.imageSrc.alt || 'Product'}
+                width={bioData.imageSrc.width}
+                height={bioData.imageSrc.height}
+                className="overlay-img"
+              />
+            ) : null}
           </div>
 
           <div className="about-btn-container">
@@ -163,13 +167,15 @@ export default function BioBoxPharma() {
         </div>
         <div className="right-col change-order width">
           <div className="image-wrapper">
-            <Image
-              className="hero-bg-image"
-              src={bioDataCeo.image.src}
-              alt={bioDataCeo.image.alt}
-              width={bioDataCeo.image.width}
-              height={bioDataCeo.image.height}
-            />
+            {bioDataCeo.image.src ? (
+              <Image
+                className="hero-bg-image"
+                src={bioDataCeo.image.src}
+                alt={bioDataCeo.image.alt || 'Product'}
+                width={bioDataCeo.image.width}
+                height={bioDataCeo.image.height}
+              />
+            ) : null}
             {/* <Image
               src={bioDataCeo.imageSrc.src}
               alt={bioDataCeo.imageSrc.alt}
@@ -199,20 +205,24 @@ export default function BioBoxPharma() {
         </div>
         <div className="right-col">
           <div className="image-wrapper">
-            <Image
-              className="hero-bg-image"
-              src={uniqueData.image.src}
-              alt={uniqueData.image.alt}
-              width={uniqueData.image.width}
-              height={uniqueData.image.height}
-            />
-            <Image
-              src={uniqueData.imageSrc.src}
-              alt={uniqueData.imageSrc.alt}
-              width={uniqueData.imageSrc.width}
-              height={uniqueData.imageSrc.height}
-              className="unique-image-wrapper"
-            />
+            {uniqueData.image.src ? (
+              <Image
+                className="hero-bg-image"
+                src={uniqueData.image.src}
+                alt={uniqueData.image.alt || 'Product'}
+                width={uniqueData.image.width}
+                height={uniqueData.image.height}
+              />
+            ) : null}
+            {uniqueData.imageSrc.src ? (
+              <Image
+                src={uniqueData.imageSrc.src}
+                alt={uniqueData.imageSrc.alt || 'Product'}
+                width={uniqueData.imageSrc.width}
+                height={uniqueData.imageSrc.height}
+                className="unique-image-wrapper"
+              />
+            ) : null}
           </div>
           <div className="about-btn-container">
             <button className="more-about-btn">More About</button>

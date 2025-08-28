@@ -1,7 +1,15 @@
 'use client';
 import React from 'react';
+import { useRouter } from 'next/navigation';
 
 const Sidebar = ({ categories, selectedCategory, onSelectCategory }) => {
+  const router = useRouter();
+
+  const handleOnSelectCategory = (item) => {
+    const { category } = item;
+    onSelectCategory(category);
+    router.push(`/our-products/${category}`);
+  };
   return (
     <nav className="submenu-container">
       <h3 className="catogery-title">Categories</h3>
@@ -11,7 +19,7 @@ const Sidebar = ({ categories, selectedCategory, onSelectCategory }) => {
             selectedCategory === item.category ? 'active' : ''
           }`}
           key={item.id}
-          onClick={() => onSelectCategory(item.category)}
+          onClick={() => handleOnSelectCategory(item)}
         >
           {item.title}
         </button>

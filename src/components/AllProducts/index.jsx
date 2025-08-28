@@ -482,20 +482,21 @@ const categories = [
   'Ayurvedic',
 ];
 
-export default function AllProducts() {
-  const [selectedCategory, setSelectedCategory] = useState(
-    'critical-care-range'
-  );
+export default function AllProducts({ category }) {
+  const [selectedCategory, setSelectedCategory] = useState(category);
   const [activeCategory, setActiveCategory] = useState(categories[0]);
   const router = useRouter();
+
   const filteredProducts = products.filter(
     (product) => product.category === selectedCategory
   );
 
   const handleSingleProduct = (product) => {
-    console.log(product, 'product');
-    router.push(`/our-products/${product.id}`);
+    router.push(`/our-products/${product.category}/${product.id}`);
   };
+
+  const productsList =
+    filteredProducts.length > 0 ? filteredProducts : products;
 
   return (
     <div className="all-products-container padding  sub-container">
@@ -511,7 +512,7 @@ export default function AllProducts() {
           activeCategory={activeCategory}
           categories={categories}
           setActiveCategory={setActiveCategory}
-          filteredProducts={filteredProducts}
+          filteredProducts={productsList}
           onProductClick={handleSingleProduct}
         />
       </div>

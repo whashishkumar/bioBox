@@ -37,17 +37,17 @@ export default function OurCertification() {
           className="title-heading"
         />
         <div className="certifacation-icon-conatainer sub-container">
-          {images?.map((image) => {
+          {images?.map((image, index) => {
+            if (!image) return null;
             return (
-              <>
-                <Image
-                  src={image}
-                  height={140}
-                  width={140}
-                  alt="log"
-                  className="certifacation-icon"
-                />
-              </>
+              <Image
+                key={index}
+                src={image}
+                height={140}
+                width={140}
+                alt="log"
+                className="certifacation-icon"
+              />
             );
           })}
         </div>

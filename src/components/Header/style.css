@@ -31,7 +31,6 @@
   gap: 40px;
   align-items: center;
   margin: 0;
-  /* padding: 0; */
 }
 
 .navLinks ul a {
@@ -179,6 +178,8 @@
 
 
 @media (min-width: 768px) and (max-width: 1024px) {
+
+
   .navLinks {
     gap: 15px;
   }
@@ -202,11 +203,23 @@
   .mobileCallButton {
     display: none;
   }
+
 }
 
 @media (max-width: 768px) {
   .hamburger {
     display: block;
+  }
+
+  .logoImg {
+    height: 89px;
+    width: 120px;
+  }
+
+  .logoImg img {
+    /* height: 10%; */
+    /* width: 10%; */
+    object-fit: contain;
   }
 
   .navbar {

@@ -43,7 +43,6 @@ export default function AboutUs() {
     main_image,
     icon_image,
   } = data;
-  console.log(data);
 
   useEffect(() => {
     dispatch(fetchAboutUsData());

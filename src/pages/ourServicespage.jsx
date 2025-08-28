@@ -1,23 +1,18 @@
 import PageLayout from '@/app/pageLayout';
-import AllPRoducts from '@/components/AllProducts';
-import ExplorePharmaProducts from '@/components/ExploreProductBanner';
-import PartnerBenifits from '@/components/PartnerBenifits';
 import React from 'react';
 
-export default function OurProductsPage({ category }) {
+export default function OurServicesPage() {
   return (
     <>
       <PageLayout
         bannerImage="/images/contactUs-banner.jpg"
         className={'banner-dimesions banner-c-wrapper-container'}
-        title={'Our  Products'}
+        title={'Our Services'}
         subtitle={
           'We specialize in producing 1,500 premium-quality Products and healthcare solutions.'
         }
       >
-        <AllPRoducts category={category} />
-        <ExplorePharmaProducts />
-        <PartnerBenifits />
+        <p>OurServicesPage</p>
       </PageLayout>
     </>
   );

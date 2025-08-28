@@ -49,14 +49,16 @@ export default function BenifitsCard() {
         <div className="cards-wrapper ">
           {giftCards.map((card, index) => (
             <div className="gift-card col-flex" key={index}>
-              <Image
-                src={card.img}
-                alt={card.title}
-                width={230}
-                height={230}
-                className="card-img"
-                loading="lazy"
-              />
+              {card.img ? (
+                <Image
+                  src={card.img}
+                  alt={card.title || 'title'}
+                  width={230}
+                  height={230}
+                  className="card-img"
+                  loading="lazy"
+                />
+              ) : null}
               <div className="content-box">
                 <h3 className="card-heading">{card.title}</h3>
                 <p className="card-description">{card.description}</p>

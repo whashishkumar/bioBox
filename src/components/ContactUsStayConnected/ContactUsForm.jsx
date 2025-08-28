@@ -44,7 +44,6 @@ export default function ContactUsForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      console.log('Form Data Submitted:', formData);
       setSubmitted(true);
       setFormData({
         name: '',

@@ -15,7 +15,7 @@
     border-radius: 10px;
     padding: 20px 15px;
     position: sticky;
-    top: 0;
+    top: 3%;
     z-index: 1;
     max-height: 550px;
   }
@@ -69,12 +69,32 @@
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-    margin-bottom: 30px;
     position: sticky;
     top: 0;
     z-index: 100;
     background-color: var(--color-white);
-    padding: 20px 0;
+    padding: 40px 0;
+    overflow: hidden;
+  }
+
+  .category-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--color-white);
+    padding: 15px 0;
+  }
+
+  .scroll-btn {
+    background-color: transparent;
+    outline: none;
+    border: 0;
+    font-size: 20px;
+    color: var(--color-black);
   }
 
   .btn-product-list {
@@ -88,6 +108,8 @@
     color: var(--color-black);
     font-weight: 500;
     font-family: var(--font-red-hat-display);
+    flex: 0 0 auto;
+    width: 110px;
   }
 
   .btn-product-list:hover {
@@ -125,6 +147,16 @@
     display: none;
   }
 
+  .btn-product-list.active {
+    background: var(--color-primary);
+    color: var(--color-white);
+  }
+
+  .mobile-view-sub-menu {
+    display: none;
+  }
+
+
   @media (min-width: 768px) and (max-width: 1024px) {
     .all-products-container {
       margin-top: 50px;
@@ -140,7 +172,49 @@
   }
 
   @media (max-width: 768px) {
+    .banner-title {
+      width: 100%;
+      top: 45%;
+    }
+
     .all-products-container {
       margin-top: 50px;
+    }
+
+    .product-card-parent-container {
+      flex-direction: column;
+    }
+
+    .col-1 {
+      width: 100%;
+      order: 1;
+    }
+
+    .col-2 {
+      width: 100%;
+    }
+
+    .col-2 .custom-card {
+      width: 100%;
+    }
+
+    .col-2 .flex-product {
+      flex-wrap: unset;
+      padding: 0;
+      margin: 0 15px;
+    }
+
+    .category-container .btn-product-list {
+      font-size: 10px;
+      padding: 8px 6px;
+    }
+
+    .mobile-view-sub-menu {
+      display: inline-flex;
+      width: 100%;
+    }
+
+    .desk-top-view-sub-menu {
+      display: none;
     }
   }

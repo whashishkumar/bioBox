@@ -1,60 +1,98 @@
+'use client';
 import Image from 'next/image';
 import './style.css';
 import Footer from '../Footer';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchPdcBusinessOppurnity } from '@/store/features/pcdBusinessOpportunity/pcdBusinessOpportunitySlice';
+import GlobalStateHandler from '../GlobalStateHandler/GlobalStateHandler';
+import { Loader } from '@/utils/lazyImport';
 
 export default function PCDSection() {
+  const dispatch = useDispatch();
+  const { pdcOppurnity, loading, error } =
+    useSelector((state) => state?.pdcOppurnity) || {};
+
+  const { data } = pdcOppurnity || {};
+
+  const {
+    heading,
+    description,
+    image,
+    experience,
+    patient_title,
+    patient_description,
+    patient_icon,
+    quality_title,
+    quality_description,
+    quality_icon,
+  } = data || {};
+
+  const isEmpty =
+    !heading ||
+    !description ||
+    !image ||
+    !experience ||
+    !patient_title ||
+    !patient_description ||
+    !patient_icon ||
+    !quality_title ||
+    !quality_description ||
+    !quality_icon;
+
+  useEffect(() => {
+    dispatch(fetchPdcBusinessOppurnity());
+  }, []);
+
   return (
     <>
+      <GlobalStateHandler
+        loading={loading}
+        error={error}
+        empty={isEmpty}
+        loaderComponent={Loader}
+      />
       <section className="pcd-section">
         <div className="pcd-container padding  sub-container">
           <div className="pcd-image-wrapper">
-            <Image
-              src="/images/footerimg.png"
-              alt="Medical Equipment"
-              width={600}
-              height={500}
-              className="pcd-image"
-            />
+            {image ? (
+              <Image
+                src={image}
+                alt="Medical Equipment"
+                width={600}
+                height={500}
+                className="pcd-image"
+              />
+            ) : null}
             <div className="tag-container">
               <p className="pentogone"></p>
               <img src="/icons/mski1.png" alt="icon" />
             </div>
             <div className="pcd-experience-tag-bg"> </div>
             <div className="pcd-experience-tag">
-              <span>24+ Years Of Experience</span>
+              <span>{experience}</span>
             </div>
           </div>
           <div className="pcd-content">
-            <h2 className="pcd-title">PCD Business Opportunity</h2>
-            <p className="pcd-description">
-              Partner with Biobox Pharma and unlock growth opportunities with
-              our PCD Pharma Franchise. Get exclusive monopoly rights, premium
-              quality products, and unmatched support to help you build a
-              successful pharma business.
-            </p>
+            <h2 className="pcd-title">{heading}</h2>
+            <p className="pcd-description">{description}</p>
             <div className="pcd-info-block">
               <div className="pcd-icon">
                 {' '}
-                <img src={'/icons/pcd2.png'} alt="pcd-icon" />{' '}
+                <img src={patient_icon} alt="pcd-icon" />{' '}
               </div>
               <div>
-                <h4>Patient Centered Care</h4>
-                <p>
-                  We work day and night to solve the problems that can help them
-                  move forward for those who is seeking answers!
-                </p>
+                <h4>{patient_title}</h4>
+                <p>{patient_description}</p>
               </div>
             </div>
             <div className="pcd-info-block">
               <div className="pcd-icon">
-                <img src={'/icons/pcd1.png'} alt="pcd-icon" />
+                <img src={quality_icon} alt="pcd-icon" />
               </div>
               <div>
-                <h4>Quality Improvement </h4>
-                <p>
-                  Our team typically processes High Quality Standard Product
-                  Innovation
-                </p>
+                <h4>{quality_title}</h4>
+                <p>{quality_description}</p>
               </div>
             </div>
           </div>

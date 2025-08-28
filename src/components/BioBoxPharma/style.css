@@ -5,13 +5,13 @@
 .bio-flex {
   display: flex;
   justify-content: space-between;
-  gap: 50px;
-  flex-wrap: wrap;
+  /* gap: 50px; */
+  /* flex-wrap: wrap; */
 }
 
-.margin-top {
-  /* margin-top: 50px; */
-}
+/* .margin-top {
+  margin-top: 50px;
+} */
 
 .left-col {
   width: 40%;
@@ -194,8 +194,12 @@
   }
 
   .bio-flex {
-    gap: 30px;
-    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .core-value div {
+    text-align: left;
   }
 
   .left-col {
@@ -205,6 +209,12 @@
 
   .left-col {
     width: 100%;
+    padding: 0;
+  }
+
+  .tab-view {
+    flex-direction: row;
+    justify-content: flex-start;
   }
 
   .right-col {
@@ -243,9 +253,6 @@
     margin-top: 20px;
   }
 
-  .margin-top {
-    /* margin-top: 250px !important; */
-  }
 }
 
 @media (max-width: 768px) {

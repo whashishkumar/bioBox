@@ -1,7 +1,7 @@
 .bg {
   position: relative;
   background: var(--color-primary);
-  padding: 0 15px;
+  padding: 0 12px;
   height: 650px;
 }
 

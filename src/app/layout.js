@@ -4,6 +4,7 @@ import './globals.css';
 import localFont from 'next/font/local';
 import Head from 'next/head';
 import ReduxProvider from '@/store/ReduxProvider';
+
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],

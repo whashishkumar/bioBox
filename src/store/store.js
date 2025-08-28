@@ -5,6 +5,8 @@ import aboutUsReducer from './features/aboutUs/aboutUsPageSlice';
 import productTypeReducer from './features/productTypes/productTypeSlice';
 import whyChooseUsReducer from './features/whyToChooseus/whyToChooseUsSlice';
 import ourCertifacationReduceer from './features/ourCertifacation/ourCertifacation';
+import pdcBusinessOppurnityReducer from './features/pcdBusinessOpportunity/pcdBusinessOpportunitySlice';
+import foterReducer from './features/footer/footerSlice';
 
 const store = configureStore({
   reducer: {
@@ -14,6 +16,8 @@ const store = configureStore({
     productType: productTypeReducer,
     chooseUs: whyChooseUsReducer,
     ourCertifacation: ourCertifacationReduceer,
+    pdcOppurnity: pdcBusinessOppurnityReducer,
+    footerInfo: foterReducer,
   },
 });
 

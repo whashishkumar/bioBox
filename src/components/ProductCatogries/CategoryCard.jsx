@@ -10,14 +10,26 @@ export default function CategoryCard({ title, image, icon_image }) {
   return (
     <div className="card">
       <div className="image-wrapper-category">
-        <Image src={imageUrl} alt={title} width={220} height={220} />
-        <div className="icon-wrapper">
+        {imageUrl ? (
           <Image
-            src={iconImageUrl}
-            alt={`${title} icon`}
-            width={40}
-            height={40}
+            src={imageUrl}
+            alt={title}
+            width={220}
+            height={220}
+            unoptimized
           />
+        ) : null}
+
+        <div className="icon-wrapper">
+          {iconImageUrl ? (
+            <Image
+              src={iconImageUrl}
+              alt={`${title} icon` || 'icon'}
+              width={40}
+              height={40}
+              unoptimized
+            />
+          ) : null}
         </div>
       </div>
       <h3 className="card-title">{title}</h3>
