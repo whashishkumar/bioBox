@@ -1,12 +1,13 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
-import ProductCard from '@/ui/ProductCard';
 import { useRouter } from 'next/navigation';
 import Sidebar from './Sidebar';
 import ProductSection from './ProductListing';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchOurProducts } from '@/store/features/ourProducts/ourProductsSlice';
 
-export const products = [
+export const productsd = [
   {
     id: 1,
     name: 'Tazobox-4.5',
@@ -486,8 +487,15 @@ export default function AllProducts({ category }) {
   const [selectedCategory, setSelectedCategory] = useState(category);
   const [activeCategory, setActiveCategory] = useState(categories[0]);
   const router = useRouter();
+  const dispatch = useDispatch();
 
-  const filteredProducts = products.filter(
+  const ourProductsState = useSelector((state) => state?.allProducts) || {};
+  const { loading, products } = ourProductsState;
+  // const { products } = ourProductsState | {};
+
+  console.log(products, 'ourProducts');
+
+  const filteredProducts = productsd.filter(
     (product) => product.category === selectedCategory
   );
 
@@ -496,7 +504,11 @@ export default function AllProducts({ category }) {
   };
 
   const productsList =
-    filteredProducts.length > 0 ? filteredProducts : products;
+    filteredProducts.length > 0 ? filteredProducts : productsd;
+
+  useEffect(() => {
+    dispatch(fetchOurProducts());
+  }, []);
 
   return (
     <div className="all-products-container padding  sub-container">

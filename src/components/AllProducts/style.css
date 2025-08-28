@@ -212,6 +212,7 @@
     .mobile-view-sub-menu {
       display: inline-flex;
       width: 100%;
+      z-index: -1;
     }
 
     .desk-top-view-sub-menu {
