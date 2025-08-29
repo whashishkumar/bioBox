@@ -17,7 +17,7 @@
     position: sticky;
     top: 3%;
     z-index: 1;
-    max-height: 550px;
+    max-height: 750px;
   }
 
   .col-2 {
@@ -51,17 +51,16 @@
     line-height: 20px;
     cursor: pointer;
     padding: 7px 10px;
+    text-transform: capitalize;
   }
 
   .category-item:hover {
-    background-color: var(--color-primary);
+    color: var(--color-primary);
     border-radius: 10px;
-    color: var(--color-white);
   }
 
   .category-item.active {
-    background-color: var(--color-primary);
-    color: var(--color-white);
+    color: var(--color-primary);
     border-radius: 7px;
   }
 
@@ -109,7 +108,7 @@
     font-weight: 500;
     font-family: var(--font-red-hat-display);
     flex: 0 0 auto;
-    width: 110px;
+
   }
 
   .btn-product-list:hover {

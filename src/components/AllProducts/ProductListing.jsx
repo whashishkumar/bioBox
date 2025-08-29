@@ -1,9 +1,10 @@
 'use client';
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import ProductCard from '@/ui/ProductCard';
-import { useRef, useState, useEffect } from 'react';
-import { FaArrowAltCircleLeft } from 'react-icons/fa';
-import { FaArrowAltCircleRight } from 'react-icons/fa';
+import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from 'react-icons/fa';
+import { fetchProductByTypes } from '@/store/features/ourProducts/ourProductsSlice';
+import { useDispatch } from 'react-redux';
+import { useRouter, useParams } from 'next/navigation';
 
 const ProductSection = ({
   activeCategory,
@@ -12,9 +13,12 @@ const ProductSection = ({
   filteredProducts,
   onProductClick,
 }) => {
+  const router = useRouter();
+  const dispatch = useDispatch();
   const containerRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(4);
+  const { slug } = useParams();
 
   useEffect(() => {
     const updateItemsPerView = () => {
@@ -47,8 +51,11 @@ const ProductSection = ({
     currentIndex,
     currentIndex + itemsPerView
   );
+
   const handleCategory = (cat) => {
-    setActiveCategory(cat);
+    setActiveCategory(cat.slug);
+    dispatch(fetchProductByTypes(cat.slug));
+    router.push(`/type/${cat.slug}`);
   };
 
   return (
@@ -56,30 +63,30 @@ const ProductSection = ({
       <div className="flex-product navbar-fix desk-top-view-sub-menu">
         {categories.map((cat) => (
           <div
-            key={cat}
-            className={`btn-product-list ${
-              activeCategory === cat ? 'active' : ''
-            }`}
+            key={cat.id}
+            className={`btn-product-list ${slug === cat.slug ? 'active' : ''}`}
             onClick={() => handleCategory(cat)}
           >
-            {cat}
+            {cat.name}
           </div>
         ))}
       </div>
+
+      {/* Mobile Categories */}
       <div className="category-container mobile-view-sub-menu">
         <button className="scroll-btn left" onClick={handlePrev}>
           <FaArrowAltCircleLeft />
         </button>
-        <div className="flex-product navbar-fix">
+        <div className="flex-product navbar-fix" ref={containerRef}>
           {visibleCategories.map((cat) => (
             <div
-              key={cat}
+              key={cat.id}
               className={`btn-product-list ${
-                activeCategory === cat ? 'active' : ''
+                activeCategory === cat.id ? 'active' : ''
               }`}
-              onClick={() => setActiveCategory(cat)}
+              onClick={() => handleCategory(cat)}
             >
-              {cat}
+              {cat.name}
             </div>
           ))}
         </div>
@@ -88,6 +95,7 @@ const ProductSection = ({
         </button>
       </div>
 
+      {/* Products */}
       <div className="product-list">
         <ProductCard
           products={filteredProducts}

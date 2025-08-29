@@ -78,6 +78,9 @@
   font-family: var(--font-sanchez);
 }
 
+.breadcrumbs-wrapper {
+  padding: 20px 0;
+}
 
 @media (max-width: 1024px) {
   .slider-wrapper {
@@ -100,7 +103,7 @@
   .slider-wrapper {
     height: 550px;
     border-radius: 30px;
-    top: 2%;
+    top: 3%;
   }
 
   .overlay-content {
@@ -140,7 +143,7 @@
   .slider-wrapper {
     height: 400px;
     border-radius: 20px;
-    top: 0;
+    top: 3%;
   }
 
   .overlay-content {

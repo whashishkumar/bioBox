@@ -5,8 +5,13 @@ import { useRouter } from 'next/navigation';
 import Sidebar from './Sidebar';
 import ProductSection from './ProductListing';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchOurProducts } from '@/store/features/ourProducts/ourProductsSlice';
+import {
+  fetchOurProducts,
+  fetchProductByTypes,
+  fetchProductCategories,
+} from '@/store/features/ourProducts/ourProductsSlice';
 import GlobalStateHandler from '../GlobalStateHandler/GlobalStateHandler';
+import { fetchProductType } from '@/store/features/productTypes/productTypeSlice';
 
 // export const productsd = [
 //   {
@@ -245,9 +250,12 @@ export default function AllProducts({ category }) {
   const [selectedCategory, setSelectedCategory] = useState(category);
   const { ourProducts } = useSelector((state) => state?.allProducts) || {};
   const { products, loading, error } = ourProducts || [];
+  const { productCategories, productTypes } =
+    useSelector((state) => state?.allProducts) || {};
+  const productCategoriesList = productCategories?.data || [];
+  const productType = productTypes?.data || [];
+  const productListBySelectedType = productTypes?.data || [];
 
-  const categorylist =
-    products?.map((cat) => cat.composition).filter(Boolean) || [];
   const isEmpty = !products;
   const filteredProducts = products?.filter(
     (product) => product?.composition === selectedCategory
@@ -256,18 +264,18 @@ export default function AllProducts({ category }) {
   const productsList =
     filteredProducts?.length > 0 ? filteredProducts : products;
 
-  const [activeCategory, setActiveCategory] = useState(categories[0]);
+  const [activeCategory, setActiveCategory] = useState('');
 
   const handleSingleProduct = (product) => {
-    const compositionSlug = product?.composition
-      ? product.composition.trim().toLowerCase().replace(/\s+/g, '-')
-      : '';
-    router.push(`/our-products/${compositionSlug}/${product.id}`);
+    router.push(`/our-products/${selectedCategory}/${product.slug}`);
   };
 
   useEffect(() => {
     dispatch(fetchOurProducts());
-  }, []);
+    dispatch(fetchProductCategories());
+    dispatch(fetchProductType());
+    dispatch(fetchProductByTypes(productType));
+  }, [dispatch]);
 
   return (
     <>
@@ -281,14 +289,14 @@ export default function AllProducts({ category }) {
         <div className="product-card-parent-container">
           <div className="col-1 navbar-fix ">
             <Sidebar
-              categories={categorylist}
+              categories={productCategoriesList}
               selectedCategory={selectedCategory}
               onSelectCategory={setSelectedCategory}
             />
           </div>
           <ProductSection
             activeCategory={activeCategory}
-            categories={categories}
+            categories={productType}
             setActiveCategory={setActiveCategory}
             filteredProducts={productsList}
             onProductClick={handleSingleProduct}

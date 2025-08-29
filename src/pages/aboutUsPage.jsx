@@ -4,6 +4,7 @@ import { lazyImport } from '@/utils/lazyImport';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchOurProducts } from '@/store/features/ourProducts/ourProductsSlice';
 import { useRouter } from 'next/navigation';
+import Breadcrumbs from '@/ui/Breadcrumbs/Breadcrumbs';
 
 const PageLayout = lazyImport(() => import('@/app/pageLayout'));
 const ProductCard = lazyImport(() => import('@/ui/ProductCard'));
@@ -58,7 +59,7 @@ export default function AboutUs() {
     const compositionSlug = product?.composition
       ? product.composition.trim().toLowerCase().replace(/\s+/g, '-')
       : '';
-    router.push(`/our-products/${compositionSlug}/${product.id}`);
+    router.push(`/our-products/${compositionSlug}/${product.slug}`);
   };
 
   useEffect(() => {

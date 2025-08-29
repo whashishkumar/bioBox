@@ -1,0 +1,68 @@
+.breadcrumb {
+  pointer-events: auto;
+  position: relative;
+  z-index: 10;
+}
+
+nav[aria-label="breadcrumb"],
+nav[aria-label="breadcrumb"] * {
+  pointer-events: auto;
+  position: relative;
+  z-index: 10;
+  margin-left: 5px;
+}
+
+nav[aria-label="breadcrumb"] {
+  display: block;
+  width: 100%;
+  font-family: var(--font-red-hat-display);
+}
+
+nav[aria-label="breadcrumb"] ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+nav[aria-label="breadcrumb"] li {
+  display: flex;
+  align-items: center;
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+nav[aria-label="breadcrumb"] li a {
+  text-decoration: none;
+  color: var(--color-white);
+}
+
+
+
+nav[aria-label="breadcrumb"] li a:hover {
+  color: var(--color-background-secondary);
+}
+
+nav[aria-label="breadcrumb"] li span {
+  display: inline-block;
+}
+
+nav[aria-label="breadcrumb"] li span.font-semibold {
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+nav[aria-label="breadcrumb"] li span.separator {
+  color: #9ca3af;
+  margin: 0 4px;
+}
+
+@media (max-width: 640px) {
+  nav[aria-label="breadcrumb"] {
+    font-size: 12px;
+  }
+}

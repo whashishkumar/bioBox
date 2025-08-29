@@ -55,20 +55,20 @@ export default function Header() {
     }
   };
 
-  const renderDropdown = (submenu) => (
-    <div className="dropdown-menu mobile-dropdown">
-      {submenu.map((item) => (
-        <Link
-          key={item.id}
-          href={item.url}
-          className={`dropdown-item ${activeLink === item.url ? 'active' : ''}`}
-          onClick={() => handleLinkClick(item.url)}
-        >
-          {item.title}
-        </Link>
-      ))}
-    </div>
-  );
+  // const renderDropdown = (submenu) => (
+  //   <div className="dropdown-menu mobile-dropdown">
+  //     {submenu.map((item) => (
+  //       <Link
+  //         key={item.id}
+  //         href={item.url}
+  //         className={`dropdown-item ${activeLink === item.url ? 'active' : ''}`}
+  //         onClick={() => handleLinkClick(item.url)}
+  //       >
+  //         {item.title}
+  //       </Link>
+  //     ))}
+  //   </div>
+  // );
 
   return (
     <nav className="navbar sub-container">
@@ -123,7 +123,7 @@ export default function Header() {
                       onClick={() => toggleDropdownMobile(link.title, linkUrl)}
                     >
                       {link.title}
-                      <span className="dropdownArrow">▼</span>
+                      {/* <span className="dropdownArrow">▼</span> */}
                     </button>
                   ) : (
                     <Link
@@ -132,13 +132,13 @@ export default function Header() {
                       onClick={() => handleLinkClick(linkUrl)}
                     >
                       {link.title}
-                      {hasDropdown && <span className="dropdownArrow">▼</span>}
+                      {/* {hasDropdown && <span className="dropdownArrow">▼</span>} */}
                     </Link>
                   )}
 
-                  {activeDropdown === link.title &&
+                  {/* {activeDropdown === link.title &&
                     hasDropdown &&
-                    renderDropdown(submenu)}
+                    renderDropdown(submenu)} */}
                 </li>
               );
             })}

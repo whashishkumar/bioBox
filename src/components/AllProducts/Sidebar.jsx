@@ -6,23 +6,22 @@ const Sidebar = ({ categories, selectedCategory, onSelectCategory }) => {
   const router = useRouter();
 
   const handleOnSelectCategory = (category) => {
-    const categorySlug = category.replace(/\s+/g, '');
-    onSelectCategory(categorySlug);
-    router.push(`/our-products/${categorySlug}`);
+    onSelectCategory(category.slug);
+    router.push(`/our-products/${category.slug}`);
   };
 
   return (
     <nav className="submenu-container">
       <h3 className="catogery-title">Categories</h3>
-      {categories.map((category, id) => (
+      {categories?.map((category) => (
         <button
           className={`category-item ${
-            selectedCategory === category ? 'active' : ''
+            selectedCategory === category.title ? 'active' : ''
           }`}
-          key={id}
+          key={category.id}
           onClick={() => handleOnSelectCategory(category)}
         >
-          {category}
+          {category.title}
         </button>
       ))}
     </nav>

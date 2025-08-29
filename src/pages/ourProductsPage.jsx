@@ -4,6 +4,7 @@ import AllPRoducts from '@/components/AllProducts';
 import ExplorePharmaProducts from '@/components/ExploreProductBanner';
 import PartnerBenifits from '@/components/PartnerBenifits';
 import { fetchOurProducts } from '@/store/features/ourProducts/ourProductsSlice';
+import Breadcrumbs from '@/ui/Breadcrumbs/Breadcrumbs';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -25,10 +26,12 @@ export default function OurProductsPage({ category }) {
         bannerImage={imageUrl}
         className={'banner-dimesions banner-c-wrapper-container'}
         title={seo_title}
-        categoryTitle={category}
+        // categoryTitle={category}
         subtitle={seo_description}
+        breadCrumbs={<Breadcrumbs />}
       >
         <AllPRoducts category={category} />
+
         <ExplorePharmaProducts />
         <PartnerBenifits />
       </PageLayout>

@@ -46,10 +46,11 @@ export default function OurProducts() {
   const { ourProducts } = useSelector((state) => state?.allProducts) || {};
   const { products } = ourProducts || {};
   const handleProductClick = (product) => {
+    console.log(product, 'log');
     const compositionSlug = product?.composition
       ? product.composition.trim().toLowerCase().replace(/\s+/g, '-')
       : '';
-    router.push(`/our-products/${compositionSlug}/${product.id}`);
+    router.push(`/our-products/${compositionSlug}/${product.slug}`);
   };
   useEffect(() => {
     dispatch(fetchOurProducts());
