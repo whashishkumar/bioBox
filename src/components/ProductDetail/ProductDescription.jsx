@@ -1,10 +1,9 @@
 'use client';
-import React from 'react';
 import { useRouter } from 'next/navigation';
+import React from 'react';
 
 export default function ProductDescription() {
   const router = useRouter();
-
   return (
     <div className="product-detail-container">
       <div className="product-image-section">

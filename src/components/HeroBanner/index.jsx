@@ -11,6 +11,7 @@ export default function HeroBanner(props) {
     title,
     interval = 10000,
     subtitle,
+    categoryTitle,
   } = props;
   const [currentIndex, setCurrentIndex] = useState(0);
   const isArray = Array.isArray(backgroundImage);
@@ -60,6 +61,7 @@ export default function HeroBanner(props) {
         </div>
         <div className="banner-title">
           <h1>{title || null}</h1>
+          <p>{categoryTitle || null}</p>
           <p>{subtitle || null}</p>
         </div>
       </div>

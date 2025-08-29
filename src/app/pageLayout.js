@@ -10,6 +10,7 @@ export default function PageLayout({
   title,
   linearGradient,
   subtitle,
+  categoryTitle,
 }) {
   return (
     <div>
@@ -19,6 +20,7 @@ export default function PageLayout({
         title={title}
         linearGradient={linearGradient}
         subtitle={subtitle}
+        categoryTitle={categoryTitle}
       />
       {children}
       <Footer className={'sub-container'} />

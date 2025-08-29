@@ -81,7 +81,7 @@
 .custom-card-image img {
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  object-fit: contain;
   padding: 16px;
 }
 
@@ -93,7 +93,8 @@
 }
 
 .custom-card-tag {
-  max-width: 70px;
+  max-width: 102px;
+
   background: var(--color-primary);
   color: var(--color-white);
   text-transform: capitalize;
@@ -102,15 +103,19 @@
   padding: 4px 10px;
   border-radius: 20px;
   font-family: var(--font-red-hat-display);
+  text-align: center;
 }
 
 .custom-card-title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--color-text);
   text-transform: capitalize;
   margin: 0;
   font-family: var(--font-sanchez);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .custom-card-description {

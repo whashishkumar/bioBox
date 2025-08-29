@@ -1,4 +1,5 @@
 import api from '@/services/api';
+
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const fetchOurProducts = createAsyncThunk(
@@ -9,8 +10,19 @@ export const fetchOurProducts = createAsyncThunk(
   }
 );
 
+export const fetchSingleProduct = createAsyncThunk(
+  'landingPage/fetchSingleProduct',
+  async ({ id, category }) => {
+    console.log(id, category, 'payload');
+
+    const response = await api.get('/v1/');
+    return response.data;
+  }
+);
+
 const initialState = {
-  allProducts: {},
+  ourProducts: {},
+  singleProduct: null,
   loading: false,
   error: null,
 };
@@ -26,9 +38,22 @@ const ourProductsSlice = createSlice({
       })
       .addCase(fetchOurProducts.fulfilled, (state, action) => {
         state.loading = false;
-        state.products = action.payload;
+        state.ourProducts = action.payload;
       })
       .addCase(fetchOurProducts.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      });
+    // Fetch Single Product
+    builder
+      .addCase(fetchSingleProduct.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchSingleProduct.fulfilled, (state, action) => {
+        state.loading = false;
+        state.singleProduct = action.payload;
+      })
+      .addCase(fetchSingleProduct.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       });

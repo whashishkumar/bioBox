@@ -5,23 +5,24 @@ import { useRouter } from 'next/navigation';
 const Sidebar = ({ categories, selectedCategory, onSelectCategory }) => {
   const router = useRouter();
 
-  const handleOnSelectCategory = (item) => {
-    const { category } = item;
-    onSelectCategory(category);
-    router.push(`/our-products/${category}`);
+  const handleOnSelectCategory = (category) => {
+    const categorySlug = category.replace(/\s+/g, '');
+    onSelectCategory(categorySlug);
+    router.push(`/our-products/${categorySlug}`);
   };
+
   return (
     <nav className="submenu-container">
       <h3 className="catogery-title">Categories</h3>
-      {categories.map((item) => (
+      {categories.map((category, id) => (
         <button
           className={`category-item ${
-            selectedCategory === item.category ? 'active' : ''
+            selectedCategory === category ? 'active' : ''
           }`}
-          key={item.id}
-          onClick={() => handleOnSelectCategory(item)}
+          key={id}
+          onClick={() => handleOnSelectCategory(category)}
         >
-          {item.title}
+          {category}
         </button>
       ))}
     </nav>

@@ -1,13 +1,14 @@
-.product-tag-root{
+.product-tag-root {
   /* background-color: #ddd; */
 }
 
-.product-tag-box{
+.product-tag-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 .heading {
   font-size: 22px;
   font-weight: 700;
@@ -15,6 +16,10 @@
   margin-bottom: 16px;
   font-family: var(--font-red-hat-display);
   text-align: center;
+
+}
+
+.revolution-text {
   text-transform: uppercase;
 }
 
