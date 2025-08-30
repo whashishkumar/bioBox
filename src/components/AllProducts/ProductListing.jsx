@@ -18,7 +18,8 @@ const ProductSection = ({
   const containerRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(4);
-  const { slug } = useParams();
+  const params = useParams();
+  const slug = params?.slug;
 
   useEffect(() => {
     const updateItemsPerView = () => {
@@ -53,9 +54,9 @@ const ProductSection = ({
   );
 
   const handleCategory = (cat) => {
-    setActiveCategory(cat.slug);
+    setActiveCategory(cat?.slug);
     dispatch(fetchProductByTypes(cat.slug));
-    router.push(`/type/${cat.slug}`);
+    router.push(`/type/${cat?.slug}`);
   };
 
   return (
