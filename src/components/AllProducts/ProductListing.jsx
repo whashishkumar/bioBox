@@ -12,6 +12,10 @@ const ProductSection = ({
   setActiveCategory,
   filteredProducts,
   onProductClick,
+  currentPage,
+  setCurrentPage,
+  totalPages,
+  noDataFound,
 }) => {
   const router = useRouter();
   const dispatch = useDispatch();
@@ -68,7 +72,7 @@ const ProductSection = ({
             className={`btn-product-list ${slug === cat.slug ? 'active' : ''}`}
             onClick={() => handleCategory(cat)}
           >
-            {cat.name}
+            {cat.title}
           </div>
         ))}
       </div>
@@ -87,7 +91,7 @@ const ProductSection = ({
               }`}
               onClick={() => handleCategory(cat)}
             >
-              {cat.name}
+              {cat.title}
             </div>
           ))}
         </div>
@@ -98,12 +102,19 @@ const ProductSection = ({
 
       {/* Products */}
       <div className="product-list">
-        <ProductCard
-          products={filteredProducts}
-          showCarousel={false}
-          itemsPerPage={9}
-          onProductClick={onProductClick}
-        />
+        {noDataFound ? (
+          <p className="product-info-message">No data found</p>
+        ) : (
+          <ProductCard
+            products={filteredProducts}
+            showCarousel={false}
+            itemsPerPage={9}
+            onProductClick={onProductClick}
+            currentPage={currentPage}
+            onPageChange={setCurrentPage}
+            totalPages={totalPages}
+          />
+        )}
       </div>
     </div>
   );

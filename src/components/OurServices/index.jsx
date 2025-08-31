@@ -9,7 +9,7 @@ export default function OurServices() {
     <section className="our-services-root-container padding">
       <div className="our-services-col">
         <Image
-          src="/images/demo.avif"
+          src="/images/ourService01.webp"
           alt="Pharma Franchise Information"
           width={550}
           height={400}
@@ -29,7 +29,7 @@ export default function OurServices() {
 
       <div className="our-services-col">
         <Image
-          src="/images/demo.avif"
+          src="/images/ourService02.webp"
           alt="Enquiry Form for Pharma Franchise"
           width={550}
           height={400}

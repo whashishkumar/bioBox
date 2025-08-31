@@ -1,7 +1,14 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './style.css';
 import PageHeadingTitle from '../PageHeadingTitle';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  fetchOurProducts,
+  fetchProductByTypes,
+} from '@/store/features/ourProducts/ourProductsSlice';
+import { useRouter } from 'next/navigation';
+import ProductCard from '@/ui/ProductCard';
 
 const headerObject = {
   heading: 'Our Products',
@@ -19,7 +26,37 @@ const categories = [
 ];
 
 export default function ProductGallery() {
-  const [activeCategory, setActiveCategory] = useState(categories[0]);
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const [activeCategory, setActiveCategory] = useState('');
+  const { ourProducts } = useSelector((state) => state?.allProducts) || {};
+  const { products } = ourProducts || {};
+
+  const handleProductClick = (product) => {
+    console.log(product, 'our-products');
+
+    const compositionSlug = product?.type
+      ? product.type.trim().toLowerCase().replace(/\s+/g, '-')
+      : '';
+    router.push(`/our-products/${compositionSlug}/${product?.slug}`);
+  };
+
+  const { productsByType, productTypes } =
+    useSelector((state) => state?.allProducts) || {};
+  const { message } = productsByType || {};
+  const productBaseType = productsByType?.data || [];
+  const typeOfProducts = productTypes?.data;
+
+  const renderProductByType = (cat) => {
+    setActiveCategory(cat?.slug);
+    dispatch(fetchProductByTypes(cat?.slug));
+  };
+
+  useEffect(() => {
+    dispatch(fetchOurProducts());
+    dispatch(fetchProductByTypes(activeCategory));
+  }, [dispatch, activeCategory]);
+
   return (
     <>
       <div className="product-container-banner">
@@ -30,18 +67,42 @@ export default function ProductGallery() {
             className="align-text"
           />
         </div>
-
         <div className="tabs flex width-right-col">
-          {categories.map((cat) => (
+          {typeOfProducts?.map((cat) => (
             <div
-              key={cat}
-              className={`btn ${activeCategory === cat ? 'active' : ''}`}
-              onClick={() => setActiveCategory(cat)}
+              key={cat?.id}
+              className={`btn ${activeCategory === cat?.slug ? 'active' : ''}`}
+              onClick={() => renderProductByType(cat)}
             >
-              {cat}
+              {cat.title}
             </div>
           ))}
         </div>
+        {/* {products.length > 0 || productBaseType.length > 0 ? (
+          <ProductCard
+            products={activeCategory === '' ? products : productBaseType}
+            showCarousel={true}
+            slidesPerView={4}
+            onProductClick={handleProductClick}
+          />
+        ) : (
+          <p className="product-info-message"> {message}</p>
+        )} */}
+
+        {(
+          activeCategory === ''
+            ? products?.length > 0
+            : productBaseType?.length > 0
+        ) ? (
+          <ProductCard
+            products={activeCategory === '' ? products : productBaseType}
+            showCarousel={true}
+            slidesPerView={4}
+            onProductClick={handleProductClick}
+          />
+        ) : (
+          <p className="product-info-message">{message}</p>
+        )}
       </div>
     </>
   );

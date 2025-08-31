@@ -12,8 +12,6 @@ export default function ProductDetail({ id, category }) {
   const { ourProducts } = useSelector((state) => state?.allProducts) || {};
   const { singleProduct } = ourProducts || [];
 
-  console.log(singleProduct, 'singleProduct');
-
   useEffect(() => {
     dispatch(fetchSingleProduct({ id, category }));
   }, []);

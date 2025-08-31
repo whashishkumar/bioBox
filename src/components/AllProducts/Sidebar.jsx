@@ -16,7 +16,7 @@ const Sidebar = ({ categories, selectedCategory, onSelectCategory }) => {
       {categories?.map((category) => (
         <button
           className={`category-item ${
-            selectedCategory === category.title ? 'active' : ''
+            selectedCategory === category.slug ? 'active' : ''
           }`}
           key={category.id}
           onClick={() => handleOnSelectCategory(category)}

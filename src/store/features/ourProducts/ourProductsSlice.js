@@ -1,15 +1,15 @@
-import ProductCategories from '@/components/ProductCatogries/ProductCatogries';
 import api from '@/services/api';
 
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const fetchOurProducts = createAsyncThunk(
   'landingPage/fetchOurProducts',
-  async () => {
-    const response = await api.get('/v1/products');
+  async (payload) => {
+    const response = await api.get(`/v1/products?page=${payload}`);
     return response.data;
   }
 );
+//
 
 export const fetchSingleProduct = createAsyncThunk(
   'landingPage/fetchSingleProduct',

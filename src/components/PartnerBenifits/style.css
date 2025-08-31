@@ -41,14 +41,14 @@
 .gift-card img {
   width: 230px;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .content-box {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 30px;
+  padding: 30px;
   gap: 15px;
 }
 

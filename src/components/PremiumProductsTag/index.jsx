@@ -1,21 +1,17 @@
 import React from 'react';
 import './style.css';
 
-export default function PremiumProductTag() {
+export default function PremiumProductTag({
+  section_heading,
+  section_sub_heading,
+  section_description,
+}) {
   return (
     <div className="product-tag-root padding">
       <div className="sub-container product-tag-box padding-y-axis">
-        <h2 className="heading">
-          {' '}
-          Innovating Healthcare with Over 2500 Premium Products.
-        </h2>
-        <h3 className="heading revolution-text">Revolutionizing Healthcare</h3>
-        <p className="subtext">
-          At Biobox Pharma, we are redefining healthcare through cutting-edge
-          innovation and unwavering excellence. Our commitment to advanced
-          research and quality ensures superior solutions for a healthier
-          future.
-        </p>
+        <h2 className="heading">{section_heading}</h2>
+        <h3 className="heading revolution-text">{section_sub_heading}</h3>
+        <p className="subtext">{section_description}</p>
       </div>
     </div>
   );

@@ -11,21 +11,30 @@ export default function ProductCard({
   showCarousel = true,
   slidesPerView = 4,
   className = '',
-  itemsPerPage = 12,
+  itemsPerPage = 10,
   onProductClick = () => {},
+  totalPages = 1,
+  currentPage = 1,
+  onPageChange = () => {},
 }) {
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = Math.ceil(products.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const paginatedProducts = products.slice(
-    startIndex,
-    startIndex + itemsPerPage
-  );
+  // const totalPages = Math.ceil(products.length / itemsPerPage);
+  // const startIndex = (currentPage - 1) * itemsPerPage;
+  // const paginatedProducts = products.slice(
+  //   startIndex,
+  //   startIndex + itemsPerPage
+  // );
+  // const totalPages = Math.ceil(products.length / itemsPerPage);
+  // const startIndex = (currentPage - 1) * itemsPerPage;
+  // const paginatedProducts = products.slice(
+  //   startIndex,
+  //   startIndex + itemsPerPage
+  // );
 
   const Card = ({ product, onProductClick }) => {
     const baseUrl = process.env.NEXT_PUBLIC_IMAGE_URL;
     const imagePath = process.env.NEXT_PUBLIC_IMAGE_PATH;
     const imageUrl = `${baseUrl}${imagePath}/${product.image}`;
+
     return (
       <div className="custom-card">
         <div className="custom-card-image">
@@ -35,8 +44,8 @@ export default function ProductCard({
           <span className="custom-card-tag">{product.type}</span>
           <h3 className="custom-card-title">{product.title}</h3>
           <p className="custom-card-description">
-            This is the complete product description. It gives full details
-            about the product, its benefits, usage, and specifications.
+            {product.description ||
+              'This is the complete product description. It gives full details about the product, its benefits, usage, and specifications.'}
           </p>
           <p className="custom-card-pack">{product.pack}</p>
           <p className="custom-card-price">
@@ -83,7 +92,7 @@ export default function ProductCard({
         ) : (
           <>
             <div className="product-grid">
-              {paginatedProducts.map((p) => (
+              {products.map((p) => (
                 <Card key={p.id} product={p} onProductClick={onProductClick} />
               ))}
             </div>
@@ -92,22 +101,38 @@ export default function ProductCard({
               <div className="pagination">
                 <button
                   disabled={currentPage === 1}
-                  onClick={() => setCurrentPage((prev) => prev - 1)}
+                  onClick={() => onPageChange(currentPage - 1)}
                 >
                   Prev
                 </button>
-                {Array.from({ length: totalPages }).map((_, index) => (
-                  <button
-                    key={index}
-                    className={currentPage === index + 1 ? 'active' : ''}
-                    onClick={() => setCurrentPage(index + 1)}
-                  >
-                    {index + 1}
-                  </button>
-                ))}
+
+                {(() => {
+                  const maxVisible = 4;
+                  let start = Math.max(1, currentPage - 2);
+                  let end = start + maxVisible - 1;
+
+                  if (end > totalPages) {
+                    end = totalPages;
+                    start = Math.max(1, end - maxVisible + 1);
+                  }
+
+                  return Array.from({ length: end - start + 1 }, (_, i) => {
+                    const pageNumber = start + i;
+                    return (
+                      <button
+                        key={pageNumber}
+                        className={currentPage === pageNumber ? 'active' : ''}
+                        onClick={() => onPageChange(pageNumber)}
+                      >
+                        {pageNumber}
+                      </button>
+                    );
+                  });
+                })()}
+
                 <button
                   disabled={currentPage === totalPages}
-                  onClick={() => setCurrentPage((prev) => prev + 1)}
+                  onClick={() => onPageChange(currentPage + 1)}
                 >
                   Next
                 </button>

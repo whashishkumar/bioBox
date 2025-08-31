@@ -247,44 +247,59 @@ const categories = [
 export default function AllProducts({ category }) {
   const router = useRouter();
   const dispatch = useDispatch();
+
   const [selectedCategory, setSelectedCategory] = useState(category);
+  const [noDataFound, setNoDataFound] = useState(false);
+
   const { ourProducts } = useSelector((state) => state?.allProducts) || {};
-  const { products, loading, error } = ourProducts || [];
-  const { productCategories, productTypes } =
+  const { products, loading, error, total } = ourProducts || [];
+  const [currentPage, setCurrentPage] = useState(1);
+  const { productCategories, productTypes, productsByType } =
     useSelector((state) => state?.allProducts) || {};
   const productCategoriesList = productCategories?.data || [];
   const productType = productTypes?.data || [];
-  const productListBySelectedType = productTypes?.data || [];
+  const { message } = productsByType || {};
+  const productListBySelectedType = productsByType?.data || [];
+
+  console.log(productListBySelectedType, products, 'productsByType');
 
   const isEmpty = !products;
-  const filteredProducts = products?.filter(
-    (product) => product?.composition === selectedCategory
-  );
-
-  const productsList =
-    filteredProducts?.length > 0 ? filteredProducts : products;
 
   const [activeCategory, setActiveCategory] = useState('');
 
+  const filteredProducts =
+    productListBySelectedType?.length === 0
+      ? products
+      : productListBySelectedType;
+
   const handleSingleProduct = (product) => {
-    router.push(`/our-products/${selectedCategory}/${product.slug}`);
+    console.log(product, 'product');
+
+    if (selectedCategory) {
+      router.push(`/our-products/${selectedCategory}/${product.slug}`);
+    } else {
+      router.push(
+        `/our-products/${product.title.replace(/\s+/g, '')}/${product.slug}`
+      );
+    }
+    // router.push(`/our-products/${selectedCategory}/${product.slug}`);
+  };
+
+  const handleSetPage = (currentPageNo) => {
+    setCurrentPage(currentPageNo);
+    dispatch(fetchOurProducts(currentPageNo));
   };
 
   useEffect(() => {
-    dispatch(fetchOurProducts());
+    dispatch(fetchOurProducts(currentPage));
     dispatch(fetchProductCategories());
     dispatch(fetchProductType());
     dispatch(fetchProductByTypes(productType));
-  }, [dispatch]);
+  }, [dispatch, currentPage]);
 
   return (
     <>
-      <GlobalStateHandler
-        loading={loading}
-        error={error}
-        empty={isEmpty}
-        // loaderComponent={Loader}
-      />
+      <GlobalStateHandler loading={loading} error={error} empty={isEmpty} />
       <div className="all-products-container padding  sub-container">
         <div className="product-card-parent-container">
           <div className="col-1 navbar-fix ">
@@ -298,8 +313,12 @@ export default function AllProducts({ category }) {
             activeCategory={activeCategory}
             categories={productType}
             setActiveCategory={setActiveCategory}
-            filteredProducts={productsList}
+            filteredProducts={filteredProducts}
             onProductClick={handleSingleProduct}
+            currentPage={currentPage}
+            setCurrentPage={handleSetPage}
+            totalPages={total}
+            noDataFound={noDataFound}
           />
         </div>
       </div>

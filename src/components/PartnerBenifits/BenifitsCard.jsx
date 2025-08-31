@@ -1,8 +1,11 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import PageHeadingTitle from '../PageHeadingTitle';
 import './style.css';
 import Image from 'next/image';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchPartnerBenifitsInfo } from '@/store/features/partnerBenifits/partnerBenifitsSlice';
+import GlobalStateHandler from '../GlobalStateHandler/GlobalStateHandler';
 
 const headerObject = {
   heading: 'Benefits of Partner with Us',
@@ -38,35 +41,59 @@ const giftCards = [
 ];
 
 export default function BenifitsCard() {
+  const dispatch = useDispatch();
+
+  const { partnerBenifitsInfo, loading, error } =
+    useSelector((state) => state?.partnerBenifitsInfo) || {};
+
+  const { section_heading, section_sub_heading, benefits } =
+    partnerBenifitsInfo || {};
+  const baseUrl = process.env.NEXT_PUBLIC_IMAGE_URL;
+  const imagePath = process.env.NEXT_PUBLIC_IMAGE_PATH;
+
+  const isEmpty = !partnerBenifitsInfo;
+
+  useEffect(() => {
+    dispatch(fetchPartnerBenifitsInfo());
+  }, []);
+
   return (
-    <div className="benifits-card-container">
-      <div className="sub-container padding">
-        <PageHeadingTitle
-          heading={headerObject.heading}
-          subheading={headerObject.subHeading}
-          className="text-color "
-        />
-        <div className="cards-wrapper ">
-          {giftCards.map((card, index) => (
-            <div className="gift-card col-flex" key={index}>
-              {card.img ? (
-                <Image
-                  src={card.img}
-                  alt={card.title || 'title'}
-                  width={230}
-                  height={230}
-                  className="card-img"
-                  loading="lazy"
-                />
-              ) : null}
-              <div className="content-box">
-                <h3 className="card-heading">{card.title}</h3>
-                <p className="card-description">{card.description}</p>
-              </div>
-            </div>
-          ))}
+    <>
+      <GlobalStateHandler loading={loading} error={error} isEmpty={isEmpty} />
+      <div className="benifits-card-container">
+        <div className="sub-container padding">
+          <PageHeadingTitle
+            heading={section_heading}
+            subheading={section_sub_heading}
+            className="text-color "
+          />
+          <div className="cards-wrapper ">
+            {benefits?.map((card, index) => {
+              const imageUrl = card.image
+                ? `${baseUrl}${imagePath}/${card.image}`
+                : null;
+              return (
+                <div className="gift-card col-flex" key={index}>
+                  {imageUrl && (
+                    <Image
+                      src={imageUrl}
+                      alt={card.title || 'title'}
+                      width={230}
+                      height={230}
+                      className="card-img"
+                      loading="lazy"
+                    />
+                  )}
+                  <div className="content-box">
+                    <h3 className="card-heading">{card.title}</h3>
+                    <p className="card-description">{card.description}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

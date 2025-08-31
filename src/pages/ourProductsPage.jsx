@@ -26,7 +26,7 @@ export default function OurProductsPage({ category }) {
         bannerImage={imageUrl}
         className={'banner-dimesions banner-c-wrapper-container'}
         title={seo_title}
-        // categoryTitle={category}
+        categoryTitle={category}
         subtitle={seo_description}
         breadCrumbs={<Breadcrumbs />}
       >

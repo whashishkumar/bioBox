@@ -8,6 +8,7 @@ import ourCertifacationReduceer from './features/ourCertifacation/ourCertifacati
 import pdcBusinessOppurnityReducer from './features/pcdBusinessOpportunity/pcdBusinessOpportunitySlice';
 import foterReducer from './features/footer/footerSlice';
 import ourProductsReducer from './features/ourProducts/ourProductsSlice';
+import partnerBenifitsReducer from './features/partnerBenifits/partnerBenifitsSlice';
 
 const store = configureStore({
   reducer: {
@@ -20,6 +21,7 @@ const store = configureStore({
     pdcOppurnity: pdcBusinessOppurnityReducer,
     footerInfo: foterReducer,
     allProducts: ourProductsReducer,
+    partnerBenifitsInfo: partnerBenifitsReducer,
   },
 });
 

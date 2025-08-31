@@ -123,6 +123,7 @@
   text-transform: capitalize;
   border-style: none;
   border-radius: 10px;
+  text-decoration: none;
 }
 
 .more-about-btn:hover {
