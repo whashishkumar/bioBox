@@ -46,10 +46,9 @@
   align-items: center;
   font-size: 16px;
   color: var(--color-black);
-  font-weight: 700;
+  font-weight: 500;
   font-family: var(--font-red-hat-display);
   transition: background-color 0.3s ease;
-
 }
 
 .btn:hover {

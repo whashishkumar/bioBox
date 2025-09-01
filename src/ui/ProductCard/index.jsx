@@ -11,25 +11,11 @@ export default function ProductCard({
   showCarousel = true,
   slidesPerView = 4,
   className = '',
-  itemsPerPage = 10,
   onProductClick = () => {},
   totalPages = 1,
   currentPage = 1,
   onPageChange = () => {},
 }) {
-  // const totalPages = Math.ceil(products.length / itemsPerPage);
-  // const startIndex = (currentPage - 1) * itemsPerPage;
-  // const paginatedProducts = products.slice(
-  //   startIndex,
-  //   startIndex + itemsPerPage
-  // );
-  // const totalPages = Math.ceil(products.length / itemsPerPage);
-  // const startIndex = (currentPage - 1) * itemsPerPage;
-  // const paginatedProducts = products.slice(
-  //   startIndex,
-  //   startIndex + itemsPerPage
-  // );
-
   const Card = ({ product, onProductClick }) => {
     const baseUrl = process.env.NEXT_PUBLIC_IMAGE_URL;
     const imagePath = process.env.NEXT_PUBLIC_IMAGE_PATH;
@@ -38,7 +24,15 @@ export default function ProductCard({
     return (
       <div className="custom-card">
         <div className="custom-card-image">
-          <img src={imageUrl} alt={product.name} />
+          {imageUrl ? (
+            <Image
+              src={imageUrl}
+              alt={'product-image'}
+              height={236}
+              width={298}
+            />
+          ) : null}
+          {/* <img src={imageUrl} alt={product.name} /> */}
         </div>
         <div className="custom-card-content">
           <span className="custom-card-tag">{product.type}</span>
@@ -67,7 +61,7 @@ export default function ProductCard({
       <div className="our-product-box-container margin margin-top-none">
         {showCarousel ? (
           <>
-            {products.length > slidesPerView ? (
+            {products?.length > slidesPerView ? (
               <Carousel SlidesPerView={slidesPerView}>
                 {products.map((p) => (
                   <Card
@@ -79,7 +73,7 @@ export default function ProductCard({
               </Carousel>
             ) : (
               <div className="product-grid">
-                {products.map((p) => (
+                {products?.map((p) => (
                   <Card
                     key={p.id}
                     product={p}
@@ -92,7 +86,7 @@ export default function ProductCard({
         ) : (
           <>
             <div className="product-grid">
-              {products.map((p) => (
+              {products?.map((p) => (
                 <Card key={p.id} product={p} onProductClick={onProductClick} />
               ))}
             </div>

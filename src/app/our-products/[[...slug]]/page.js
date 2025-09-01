@@ -3,8 +3,8 @@ import SingleProductCategory from '@/components/ProductDetail';
 import NotFound from '@/components/NotFound';
 
 export default async function OurProductsSlugPage({ params }) {
-  const slug = params?.slug || [];
-  console.log(slug, 'log single render');
+  const resolvedParams = await params;
+  const slug = resolvedParams?.slug || [];
 
   if (slug.length === 0) {
     return <OurProductsPage />;

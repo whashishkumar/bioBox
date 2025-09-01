@@ -1,6 +1,11 @@
 'use client';
+import { submitEnquiryForm } from '@/store/features/ourServices/ourServicesSlice';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 export default function OurServicesForm() {
+  const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,6 +17,9 @@ export default function OurServicesForm() {
 
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const { formSubmitMessage } = useSelector((state) => state.ourServices) || {};
+
+  console.log(formSubmitMessage, 'formSubmitMessage');
 
   // handle change
   const handleChange = (e) => {
@@ -44,6 +52,7 @@ export default function OurServicesForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
+      dispatch(submitEnquiryForm(formData));
       setSubmitted(true);
       setFormData({
         name: '',
@@ -134,7 +143,7 @@ export default function OurServicesForm() {
         <button type="submit" className="submit-btn">
           Send Message
         </button>
-        {submitted && <p className="success">Message Sent Successfully!</p>}
+        {submitted && <p className="success">{formSubmitMessage}</p>}
       </form>
     </div>
   );

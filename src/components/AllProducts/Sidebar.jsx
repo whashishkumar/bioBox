@@ -2,13 +2,13 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 
-const Sidebar = ({ categories, selectedCategory, onSelectCategory }) => {
+const Sidebar = ({
+  categories,
+  selectedCategory,
+  onSelectCategory,
+  handleCategory,
+}) => {
   const router = useRouter();
-
-  const handleOnSelectCategory = (category) => {
-    onSelectCategory(category.slug);
-    router.push(`/our-products/${category.slug}`);
-  };
 
   return (
     <nav className="submenu-container">
@@ -19,7 +19,7 @@ const Sidebar = ({ categories, selectedCategory, onSelectCategory }) => {
             selectedCategory === category.slug ? 'active' : ''
           }`}
           key={category.id}
-          onClick={() => handleOnSelectCategory(category)}
+          onClick={() => handleCategory(category)}
         >
           {category.title}
         </button>

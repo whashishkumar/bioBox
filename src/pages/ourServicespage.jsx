@@ -1,17 +1,34 @@
+'use client';
 import OurServices from '@/components/OurServices';
 import PageLayout from '@/app/pageLayout';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchLandingPageOurServices } from '@/store/features/ourServices/ourServicesSlice';
 
 export default function OurServicesPage() {
+  const dispatch = useDispatch();
+
+  const { ourServiceBnnerInfo, loading, error } =
+    useSelector((state) => state.ourServices) || {};
+
+  const {
+    heading,
+    image,
+    ['sub-heading']: subHeading,
+  } = ourServiceBnnerInfo?.data || {};
+
+  console.log(ourServiceBnnerInfo, 'ourService');
+
+  useEffect(() => {
+    dispatch(fetchLandingPageOurServices());
+  }, []);
   return (
     <>
       <PageLayout
-        bannerImage="/images/contactUs-banner.jpg"
+        bannerImage={image}
         className={'banner-dimesions banner-c-wrapper-container'}
-        title={'Our Services'}
-        subtitle={
-          'We specialize in producing 1,500 premium-quality Products and healthcare solutions.'
-        }
+        title={heading}
+        subtitle={subHeading}
       >
         <OurServices />
       </PageLayout>

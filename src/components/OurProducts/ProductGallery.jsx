@@ -33,8 +33,6 @@ export default function ProductGallery() {
   const { products } = ourProducts || {};
 
   const handleProductClick = (product) => {
-    console.log(product, 'our-products');
-
     const compositionSlug = product?.type
       ? product.type.trim().toLowerCase().replace(/\s+/g, '-')
       : '';

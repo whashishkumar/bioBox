@@ -173,7 +173,7 @@
   @media (max-width: 768px) {
     .banner-title {
       width: 100%;
-      top: 45%;
+      top: 60%;
     }
 
     .all-products-container {
@@ -211,7 +211,7 @@
     .mobile-view-sub-menu {
       display: inline-flex;
       width: 100%;
-      z-index: -1;
+      /* z-index: -1; */
     }
 
     .desk-top-view-sub-menu {

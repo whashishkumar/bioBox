@@ -9,6 +9,8 @@ import pdcBusinessOppurnityReducer from './features/pcdBusinessOpportunity/pcdBu
 import foterReducer from './features/footer/footerSlice';
 import ourProductsReducer from './features/ourProducts/ourProductsSlice';
 import partnerBenifitsReducer from './features/partnerBenifits/partnerBenifitsSlice';
+import ourServicesReducer from './features/ourServices/ourServicesSlice';
+import contactUsReducer from './features/contactUs/contactusSlice';
 
 const store = configureStore({
   reducer: {
@@ -22,6 +24,8 @@ const store = configureStore({
     footerInfo: foterReducer,
     allProducts: ourProductsReducer,
     partnerBenifitsInfo: partnerBenifitsReducer,
+    ourServices: ourServicesReducer,
+    contactUs: contactUsReducer,
   },
 });
 

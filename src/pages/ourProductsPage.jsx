@@ -16,6 +16,7 @@ export default function OurProductsPage({ category }) {
   const baseUrl = process.env.NEXT_PUBLIC_IMAGE_URL;
   const imagePath = process.env.NEXT_PUBLIC_IMAGE_PATH;
   const imageUrl = `${baseUrl}${imagePath}/${banner_image}`;
+
   useEffect(() => {
     dispatch(fetchOurProducts());
   }, []);

@@ -1,5 +1,8 @@
-import React from 'react';
+'use client';
+import React, { useEffect } from 'react';
 import { lazyImport } from '@/utils/lazyImport';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchContactUsBannerInfo } from '@/store/features/contactUs/contactusSlice';
 
 const PageLayout = lazyImport(() => import('@/app/pageLayout'));
 const ContactUsAddress = lazyImport(() =>
@@ -10,11 +13,20 @@ const StayConnected = lazyImport(() =>
 );
 
 export default function ContactUsPage() {
+  const dispatch = useDispatch();
+  const { contactUs, loading, error } =
+    useSelector((state) => state?.contactUs) || {};
+
+  const { heading, image } = contactUs?.data || {};
+
+  useEffect(() => {
+    dispatch(fetchContactUsBannerInfo());
+  }, []);
   return (
     <PageLayout
-      bannerImage="/images/contactUs-banner.jpg"
+      bannerImage={image}
       className={'banner-dimesions banner-c-wrapper-container'}
-      title={'Contact Us'}
+      title={heading}
     >
       <>
         <ContactUsAddress />

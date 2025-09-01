@@ -14,8 +14,6 @@ export const fetchOurProducts = createAsyncThunk(
 export const fetchSingleProduct = createAsyncThunk(
   'landingPage/fetchSingleProduct',
   async ({ id, category }) => {
-    console.log(id, category, 'payload');
-
     const response = await api.get('/v1/');
     return response.data;
   }
@@ -45,12 +43,24 @@ export const fetchProductByTypes = createAsyncThunk(
   }
 );
 
+export const fetchOurSelectedCategoryProduct = createAsyncThunk(
+  'landingPage/fetchOurSelectedCategoryProduct',
+  async ({ selectedCategory, currentPage }) => {
+    console.log(selectedCategory, currentPage, 'payload');
+    const response = await api.get(
+      `/v1/products/category/${selectedCategory}?page=${currentPage}`
+    );
+    return response.data;
+  }
+);
+
 const initialState = {
   ourProducts: {},
   singleProduct: null,
   productCategories: null,
   productTypes: null,
   productsByType: null,
+  selectedproductCategory: null,
   loading: false,
   error: null,
 };
@@ -121,6 +131,19 @@ const ourProductsSlice = createSlice({
         state.productsByType = action.payload;
       })
       .addCase(fetchProductByTypes.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      });
+    // Fetch product base on Categories
+    builder
+      .addCase(fetchOurSelectedCategoryProduct.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchOurSelectedCategoryProduct.fulfilled, (state, action) => {
+        state.loading = false;
+        state.selectedproductCategory = action.payload;
+      })
+      .addCase(fetchOurSelectedCategoryProduct.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       });

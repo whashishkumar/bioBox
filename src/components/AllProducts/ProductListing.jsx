@@ -15,10 +15,8 @@ const ProductSection = ({
   currentPage,
   setCurrentPage,
   totalPages,
-  noDataFound,
+  handleCategory,
 }) => {
-  const router = useRouter();
-  const dispatch = useDispatch();
   const containerRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(4);
@@ -57,12 +55,6 @@ const ProductSection = ({
     currentIndex + itemsPerView
   );
 
-  const handleCategory = (cat) => {
-    setActiveCategory(cat?.slug);
-    dispatch(fetchProductByTypes(cat.slug));
-    router.push(`/type/${cat?.slug}`);
-  };
-
   return (
     <div className="col-2">
       <div className="flex-product navbar-fix desk-top-view-sub-menu">
@@ -86,9 +78,7 @@ const ProductSection = ({
           {visibleCategories.map((cat) => (
             <div
               key={cat.id}
-              className={`btn-product-list ${
-                activeCategory === cat.id ? 'active' : ''
-              }`}
+              className={`btn-product-list ${slug === cat.id ? 'active' : ''}`}
               onClick={() => handleCategory(cat)}
             >
               {cat.title}
@@ -102,19 +92,15 @@ const ProductSection = ({
 
       {/* Products */}
       <div className="product-list">
-        {noDataFound ? (
-          <p className="product-info-message">No data found</p>
-        ) : (
-          <ProductCard
-            products={filteredProducts}
-            showCarousel={false}
-            itemsPerPage={9}
-            onProductClick={onProductClick}
-            currentPage={currentPage}
-            onPageChange={setCurrentPage}
-            totalPages={totalPages}
-          />
-        )}
+        <ProductCard
+          products={filteredProducts}
+          showCarousel={false}
+          itemsPerPage={9}
+          onProductClick={onProductClick}
+          currentPage={currentPage}
+          onPageChange={setCurrentPage}
+          totalPages={totalPages}
+        />
       </div>
     </div>
   );
