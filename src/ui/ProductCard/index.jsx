@@ -49,7 +49,7 @@ export default function ProductCard({
             className="custom-card-btn"
             onClick={() => onProductClick(product)}
           >
-            Send Enquiry
+            Get Details
           </button>
         </div>
       </div>

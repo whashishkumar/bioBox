@@ -1,15 +1,7 @@
 'use client';
 import React from 'react';
-import { useRouter } from 'next/navigation';
 
-const Sidebar = ({
-  categories,
-  selectedCategory,
-  onSelectCategory,
-  handleCategory,
-}) => {
-  const router = useRouter();
-
+const Sidebar = ({ categories, selectedCategory, handleCategory }) => {
   return (
     <nav className="submenu-container">
       <h3 className="catogery-title">Categories</h3>

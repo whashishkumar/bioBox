@@ -1,6 +1,10 @@
 'use client';
+import { contactUsForm } from '@/store/features/contactUs/contactusSlice';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 export default function ContactUsForm() {
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,6 +16,7 @@ export default function ContactUsForm() {
 
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const { formSubmitMessage } = useSelector((state) => state.contactUs);
 
   // handle change
   const handleChange = (e) => {
@@ -44,6 +49,7 @@ export default function ContactUsForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
+      dispatch(contactUsForm(formData));
       setSubmitted(true);
       setFormData({
         name: '',
@@ -55,6 +61,9 @@ export default function ContactUsForm() {
       });
       setErrors({});
     }
+    setTimeout(() => {
+      setSubmitted(false);
+    }, 3000);
   };
 
   return (
@@ -153,7 +162,7 @@ export default function ContactUsForm() {
         <button type="submit" className="submit-btn">
           Send Message
         </button>
-        {submitted && <p className="success">✅ Message Sent Successfully!</p>}
+        {submitted ? <p className="success">{formSubmitMessage}</p> : null}
       </form>
     </div>
   );

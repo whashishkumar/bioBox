@@ -2,7 +2,9 @@
 import { useState } from 'react';
 import './style.css';
 
-const EnquiryForm = ({ productName = '' }) => {
+const EnquiryForm = ({ productName }) => {
+  // const { productName } = props;
+
   const initialState = {
     name: '',
     email: '',
@@ -74,7 +76,6 @@ const EnquiryForm = ({ productName = '' }) => {
     const validationErrors = validateForm();
 
     if (Object.keys(validationErrors).length === 0) {
-      // console.log('Form submitted:', formData);
       setSubmitted(true);
       // Reset the form but keep product name
       setFormData(initialState);
@@ -130,7 +131,7 @@ const EnquiryForm = ({ productName = '' }) => {
             <input
               type="text"
               name="product"
-              value={formData.product || 'Product name'}
+              value={formData.product}
               readOnly
             />
           </div>

@@ -9,12 +9,11 @@ export const fetchOurProducts = createAsyncThunk(
     return response.data;
   }
 );
-//
 
 export const fetchSingleProduct = createAsyncThunk(
   'landingPage/fetchSingleProduct',
-  async ({ id, category }) => {
-    const response = await api.get('/v1/');
+  async (payload) => {
+    const response = await api.get(`/v1/our-products/${payload}`);
     return response.data;
   }
 );
@@ -37,18 +36,19 @@ export const fetchProductTypes = createAsyncThunk(
 
 export const fetchProductByTypes = createAsyncThunk(
   'landingPage/fetchProductByTypes',
-  async (payload) => {
-    const response = await api.get(`v1/products/type/${payload}`);
+  async ({ type, currentPage }) => {
+    const response = await api.get(
+      `v1/products/type/${type}?page${currentPage}`
+    );
     return response.data;
   }
 );
 
 export const fetchOurSelectedCategoryProduct = createAsyncThunk(
   'landingPage/fetchOurSelectedCategoryProduct',
-  async ({ selectedCategory, currentPage }) => {
-    console.log(selectedCategory, currentPage, 'payload');
+  async ({ category, currentPage }) => {
     const response = await api.get(
-      `/v1/products/category/${selectedCategory}?page=${currentPage}`
+      `/v1/products/category/${category}?page=${currentPage}`
     );
     return response.data;
   }
@@ -88,6 +88,8 @@ const ourProductsSlice = createSlice({
         state.loading = true;
       })
       .addCase(fetchSingleProduct.fulfilled, (state, action) => {
+        console.log(action.payload, 'action');
+
         state.loading = false;
         state.singleProduct = action.payload;
       })
@@ -134,7 +136,7 @@ const ourProductsSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       });
-    // Fetch product base on Categories
+    // Send  product Query
     builder
       .addCase(fetchOurSelectedCategoryProduct.pending, (state) => {
         state.loading = true;

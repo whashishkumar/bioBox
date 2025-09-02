@@ -19,8 +19,6 @@ export default function OurServicesForm() {
   const [submitted, setSubmitted] = useState(false);
   const { formSubmitMessage } = useSelector((state) => state.ourServices) || {};
 
-  console.log(formSubmitMessage, 'formSubmitMessage');
-
   // handle change
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -64,6 +62,9 @@ export default function OurServicesForm() {
       });
       setErrors({});
     }
+    setTimeout(() => {
+      setSubmitted(false);
+    }, 6000);
   };
 
   return (
@@ -143,7 +144,7 @@ export default function OurServicesForm() {
         <button type="submit" className="submit-btn">
           Send Message
         </button>
-        {submitted && <p className="success">{formSubmitMessage}</p>}
+        {submitted ? <p className="success">{formSubmitMessage}</p> : null}
       </form>
     </div>
   );

@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+import React, { useEffect } from 'react';
 import { IoLocationSharp } from 'react-icons/io5';
 import { FaPhone } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
@@ -7,14 +8,24 @@ import { FaTwitter } from 'react-icons/fa6';
 import { FaInstagram } from 'react-icons/fa';
 import { FaPinterest } from 'react-icons/fa';
 import Link from 'next/link';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchContactUsSecondSection } from '@/store/features/contactUs/contactusSlice';
 
 export default function ReachUs() {
+  const dispatch = useDispatch();
+  const { locationSection } = useSelector((state) => state?.contactUs) || {};
+  const { registered_iframe } = locationSection?.data || {};
+
+  useEffect(() => {
+    dispatch(fetchContactUsSecondSection());
+  }, []);
+
   return (
     <div className="registred-address ">
       <iframe
         className="reach-us-map"
         title="BioBox Location"
-        src="https://maps.google.com/maps?q=zirakpur&t=&z=13&ie=UTF8&iwloc=&output=embed"
+        src={registered_iframe}
         width="100%"
         height="100%"
         style={{ border: 0, borderRadius: '12px' }}

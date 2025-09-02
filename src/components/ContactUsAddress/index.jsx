@@ -1,9 +1,28 @@
-import React from 'react';
+'use client';
+import React, { useEffect } from 'react';
 import './style.css';
 import { FaShoppingBasket } from 'react-icons/fa';
 import { IoLocationSharp } from 'react-icons/io5';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchContactUsSecondSection } from '@/store/features/contactUs/contactusSlice';
 
 export default function ContactUsAddress() {
+  const dispatch = useDispatch();
+  const { locationSection } = useSelector((state) => state?.contactUs) || {};
+  const {
+    registered_iframe,
+    registered_heading,
+    registered_address,
+    registered_local_address,
+    admin_iframe,
+    admin_heading,
+    admin_address,
+    admin_local_address,
+  } = locationSection?.data || {};
+
+  useEffect(() => {
+    dispatch(fetchContactUsSecondSection());
+  }, []);
   return (
     <div className="contact-us padding ">
       <div className="contact-us__wrapper sub-container ">
@@ -11,7 +30,7 @@ export default function ContactUsAddress() {
           <iframe
             className="contact-us__map"
             title="Registered Address"
-            src="https://maps.google.com/maps?q=pabhat&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            src={registered_iframe}
             width="100%"
             height="100%"
             style={{ border: 0, borderRadius: '12px' }}
@@ -19,18 +38,17 @@ export default function ContactUsAddress() {
             loading="lazy"
           ></iframe>
           <div className="contact-us__content">
-            <h2 className="contact-us__title">Registered Address</h2>
+            <h2 className="contact-us__title">{registered_heading}</h2>
             <p className="contact-us__icon">
               <FaShoppingBasket />
               <span className="contact-us__location">
-                HB-234, Pabhat, Zirakpur, SAS Nagar Mohali.
+                {' '}
+                {registered_local_address}{' '}
               </span>
             </p>
             <p className="contact-us__icon">
               <IoLocationSharp />
-              <span className="contact-us__location">
-                Zirakpur, Mohali, India
-              </span>
+              <span className="contact-us__location">{registered_address}</span>
             </p>
           </div>
         </div>
@@ -38,7 +56,7 @@ export default function ContactUsAddress() {
           <iframe
             className="contact-us__map"
             title="Admin Address"
-            src="https://maps.google.com/maps?q=zirakpur&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            src={admin_iframe}
             width="100%"
             height="100%"
             style={{ border: 0, borderRadius: '12px' }}
@@ -46,18 +64,17 @@ export default function ContactUsAddress() {
             loading="lazy"
           ></iframe>
           <div className="contact-us__content">
-            <h2 className="contact-us__title">Admin Address</h2>
+            <h2 className="contact-us__title">{admin_heading}</h2>
             <p className="contact-us__icon">
               <FaShoppingBasket />
               <span className="contact-us__location">
-                Office 20, Paras Down Square Mall, Zirakpur, Punjab 140603
+                {' '}
+                {admin_local_address}{' '}
               </span>
             </p>
             <p className="contact-us__icon">
               <IoLocationSharp />
-              <span className="contact-us__location">
-                Zirakpur, Mohali, India
-              </span>
+              <span className="contact-us__location">{admin_address}</span>
             </p>
           </div>
         </div>

@@ -21,7 +21,6 @@ const ProductSection = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(4);
   const params = useParams();
-  const slug = params?.slug;
 
   useEffect(() => {
     const updateItemsPerView = () => {
@@ -61,7 +60,9 @@ const ProductSection = ({
         {categories.map((cat) => (
           <div
             key={cat.id}
-            className={`btn-product-list ${slug === cat.slug ? 'active' : ''}`}
+            className={`btn-product-list ${
+              activeCategory === cat.slug ? 'active' : ''
+            }`}
             onClick={() => handleCategory(cat)}
           >
             {cat.title}
@@ -78,7 +79,9 @@ const ProductSection = ({
           {visibleCategories.map((cat) => (
             <div
               key={cat.id}
-              className={`btn-product-list ${slug === cat.id ? 'active' : ''}`}
+              className={`btn-product-list ${
+                activeCategory === cat.slug ? 'active' : ''
+              }`}
               onClick={() => handleCategory(cat)}
             >
               {cat.title}

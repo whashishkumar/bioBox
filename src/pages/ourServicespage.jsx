@@ -17,8 +17,6 @@ export default function OurServicesPage() {
     ['sub-heading']: subHeading,
   } = ourServiceBnnerInfo?.data || {};
 
-  console.log(ourServiceBnnerInfo, 'ourService');
-
   useEffect(() => {
     dispatch(fetchLandingPageOurServices());
   }, []);

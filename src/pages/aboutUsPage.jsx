@@ -86,8 +86,6 @@ export default function AboutUs() {
     dispatch(fetchAboutUsProductListing());
   }, []);
 
-  console.log(aboutUsProductListing, 'aboutUsBannerPage');
-
   return (
     <PageLayout
       bannerImage={image || imageUrl}
