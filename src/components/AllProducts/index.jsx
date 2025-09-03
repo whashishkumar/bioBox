@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
 import { useRouter } from 'next/navigation';
 import Sidebar from './Sidebar';
@@ -19,12 +19,12 @@ export default function AllProducts({ category }) {
   const router = useRouter();
   const dispatch = useDispatch();
   const [selectedCategory, setSelectedCategory] = useState(category);
-  const [currentPage, setCurrentPage] = useState(1);
   const [activeCategory, setActiveCategory] = useState('');
   const [activeSource, setActiveSource] = useState('');
   const { ourProducts, selectedproductCategory } =
     useSelector((state) => state?.allProducts) || {};
-  const { products, loading, error, total } = ourProducts || [];
+  const { products, loading, error, last_page, current_page } =
+    ourProducts || [];
   const { productCategories, productTypes, productsByType } =
     useSelector((state) => state?.allProducts) || {};
   const productCategoriesList = productCategories?.data || [];
@@ -32,7 +32,7 @@ export default function AllProducts({ category }) {
   const productListBySelectedType = productsByType?.data || [];
   const categoryBaseProducts = selectedproductCategory?.products || {};
   const isEmpty = !products;
-
+  const [currentPage, setCurrentPage] = useState(1);
   const filteredProductsList =
     activeSource === 'type' && productListBySelectedType?.length > 0
       ? productListBySelectedType
@@ -40,44 +40,45 @@ export default function AllProducts({ category }) {
       ? categoryBaseProducts
       : products || [];
 
-  console.log(activeCategory, 'activeCategory', activeSource);
-
   const handleSingleProduct = (product) => {
-    console.log(product, 'product');
-
     router.push(`/product-detail/${product.slug}`);
-    // router.push(`/product-detail`);
-    // if (selectedCategory) {
-    //   router.push(`/our-products/${selectedCategory}/${product.slug}`);
-    // } else {
-    //   router.push(
-    //     `/our-products/${product.type.replace(/\s+/g, '')}/${product.slug}`
-    //   );
-    // }
   };
+
+  console.log(activeSource, 'activeSource');
 
   const handleSetPage = (currentPageNo) => {
     setCurrentPage(currentPageNo);
-    dispatch(fetchOurProducts(currentPageNo));
-    // dispatch(
-    //   fetchOurSelectedCategoryProduct({
-    //     category: selectedCategory,
-    //     currentPage: currentPageNo,
-    //   })
-    // );
-    dispatch(
-      fetchProductByTypes({ type: activeCategory, currentPage: currentPageNo })
-    );
+    // Dispatch the appropriate action based on the active source
+    if (activeSource === 'type' && activeCategory) {
+      dispatch(
+        fetchProductByTypes({
+          type: activeCategory,
+          currentPage: currentPageNo,
+        })
+      );
+    } else if (activeSource === 'category' && selectedCategory) {
+      dispatch(
+        fetchOurSelectedCategoryProduct({
+          category: selectedCategory,
+          currentPage: currentPageNo,
+        })
+      );
+    } else {
+      dispatch(fetchOurProducts(currentPageNo));
+    }
   };
-
-  console.log(currentPage, 'currentPage');
 
   const handleCategory = (category) => {
     setActiveSource('type');
     setActiveCategory(category?.slug);
-    dispatch(fetchProductByTypes({ type: category?.slug, currentPage }));
+    setCurrentPage(1);
+    dispatch(fetchProductByTypes({ type: category?.slug, currentPage: 1 }));
     if (selectedCategory) {
-      router.push(`/our-products/${selectedCategory}?type=${category?.slug}`);
+      router.push(
+        `/our-products/${selectedCategory}/${category?.slug}`,
+        undefined,
+        { shallow: true }
+      );
     } else {
       router.push(`/our-products?type=${category?.slug}`);
     }
@@ -86,16 +87,34 @@ export default function AllProducts({ category }) {
   const handleOnSelectCategory = (category) => {
     setActiveSource('category');
     setSelectedCategory(category?.slug);
+    setCurrentPage(1);
+    setActiveCategory('');
     router.push(`/our-products/${category?.slug}`);
     dispatch(
-      fetchOurSelectedCategoryProduct({ category: category?.slug, currentPage })
+      fetchOurSelectedCategoryProduct({
+        category: category?.slug,
+        currentPage: 1,
+      })
     );
   };
 
   useEffect(() => {
     dispatch(fetchProductCategories());
     dispatch(fetchProductType());
-  }, [dispatch, currentPage]);
+    // Initial data fetch based on the current state
+    if (!activeSource && !selectedCategory) {
+      dispatch(fetchOurProducts(1));
+    }
+  }, [dispatch]);
+
+  // Separate effect for initial category-based fetch
+  useEffect(() => {
+    if (category && !activeSource) {
+      setSelectedCategory(category);
+      setActiveSource('category');
+      dispatch(fetchOurSelectedCategoryProduct({ category, currentPage: 1 }));
+    }
+  }, [category, dispatch, activeSource]);
 
   return (
     <>
@@ -125,7 +144,7 @@ export default function AllProducts({ category }) {
               onProductClick={handleSingleProduct}
               currentPage={currentPage}
               setCurrentPage={handleSetPage}
-              totalPages={total}
+              totalPages={last_page}
               handleCategory={handleCategory}
             />
           </div>

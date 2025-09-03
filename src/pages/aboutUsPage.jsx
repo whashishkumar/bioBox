@@ -74,10 +74,7 @@ export default function AboutUs() {
   const imageUrl = `${baseUrl}${imagePath}/${image}`;
 
   const handleProductClick = (product) => {
-    const compositionSlug = product?.type
-      ? product.type.trim().toLowerCase().replace(/\s+/g, '-')
-      : '';
-    router.push(`/our-products/${compositionSlug}/${product.slug}`);
+    router.push(`/product-detail/${product.slug}`);
   };
 
   useEffect(() => {

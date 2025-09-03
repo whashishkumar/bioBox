@@ -4,6 +4,7 @@ import './style.css';
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import Carousel from '@/components/Crousal';
+import Pagination from '@/components/Pagination';
 import Image from 'next/image';
 
 export default function ProductCard({
@@ -57,7 +58,7 @@ export default function ProductCard({
   };
 
   return (
-    <div className={`sub-container ${className}`}>
+    <div className={`sub-container ${className} `}>
       <div className="our-product-box-container margin margin-top-none">
         {showCarousel ? (
           <>
@@ -91,47 +92,11 @@ export default function ProductCard({
               ))}
             </div>
 
-            {totalPages > 1 && (
-              <div className="pagination">
-                <button
-                  disabled={currentPage === 1}
-                  onClick={() => onPageChange(currentPage - 1)}
-                >
-                  Prev
-                </button>
-
-                {(() => {
-                  const maxVisible = 4;
-                  let start = Math.max(1, currentPage - 2);
-                  let end = start + maxVisible - 1;
-
-                  if (end > totalPages) {
-                    end = totalPages;
-                    start = Math.max(1, end - maxVisible + 1);
-                  }
-
-                  return Array.from({ length: end - start + 1 }, (_, i) => {
-                    const pageNumber = start + i;
-                    return (
-                      <button
-                        key={pageNumber}
-                        className={currentPage === pageNumber ? 'active' : ''}
-                        onClick={() => onPageChange(pageNumber)}
-                      >
-                        {pageNumber}
-                      </button>
-                    );
-                  });
-                })()}
-
-                <button
-                  disabled={currentPage === totalPages}
-                  onClick={() => onPageChange(currentPage + 1)}
-                >
-                  Next
-                </button>
-              </div>
-            )}
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={onPageChange}
+            />
           </>
         )}
       </div>

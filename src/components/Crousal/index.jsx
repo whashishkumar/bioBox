@@ -39,9 +39,7 @@ export default function Carousel({ children, slidesPerView = 4 }) {
       }}
     >
       {items.map((child, index) => (
-        <SwiperSlide key={index} className="padding">
-          {child}
-        </SwiperSlide>
+        <SwiperSlide key={index}>{child}</SwiperSlide>
       ))}
     </Swiper>
   );

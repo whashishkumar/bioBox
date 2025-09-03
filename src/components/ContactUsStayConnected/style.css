@@ -89,7 +89,7 @@
 
 .form-wrapper {
   border-radius: 20px;
-  background: #fff;
+  /* background: #fff; */
   text-align: left;
 }
 
@@ -100,7 +100,7 @@
   text-align: center;
   color: var(--text-color);
   font-family: var(--font-red-hat-display);
-  text-align: left;
+  /* text-align: left; */
 }
 
 .contact-form {
@@ -108,6 +108,7 @@
   flex-direction: column;
   gap: 18px;
   width: 600px;
+  margin: 0 auto;
 }
 
 .form-group {

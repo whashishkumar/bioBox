@@ -148,11 +148,12 @@ export default function Header() {
             </li>
           </ul>
         </div>
-
-        <div className="callButton">
-          <FaPhoneAlt />
-          <span>{contact?.phone}</span>
-        </div>
+        <Link href={`tel:${contact?.phone}`}>
+          <div className="callButton">
+            <FaPhoneAlt />
+            <span>{contact?.phone}</span>
+          </div>
+        </Link>
       </div>
     </nav>
   );

@@ -1,21 +1,23 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './style.css';
+import { productEnquary } from '@/store/features/ourProducts/ourProductsSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const EnquiryForm = ({ productName }) => {
-  // const { productName } = props;
-
+  const dispatch = useDispatch();
   const initialState = {
     name: '',
     email: '',
-    contact: '',
-    product: productName,
+    phone: '',
+    product_name: productName,
     message: '',
   };
 
   const [formData, setFormData] = useState(initialState);
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const { formSubmitMessage } = useSelector((state) => state.allProducts);
 
   // Validation logic
   const validateField = (name, value) => {
@@ -27,7 +29,7 @@ const EnquiryForm = ({ productName }) => {
         if (!value.trim()) return 'Email is required';
         if (!/\S+@\S+\.\S+/.test(value)) return 'Invalid email format';
         break;
-      case 'contact':
+      case 'phone':
         if (!value.trim()) return 'Contact number is required';
         if (!/^\d{10}$/.test(value)) return 'Contact number must be 10 digits';
         break;
@@ -43,19 +45,14 @@ const EnquiryForm = ({ productName }) => {
   const validateForm = () => {
     const newErrors = {};
     Object.keys(formData).forEach((field) => {
-      if (field !== 'product') {
-        const error = validateField(field, formData[field]);
-        if (error) newErrors[field] = error;
-      }
+      const error = validateField(field, formData[field]);
+      if (error) newErrors[field] = error;
     });
     return newErrors;
   };
 
-  // Handle input change with live validation
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    // Remove success message on user interaction
     if (submitted) setSubmitted(false);
 
     setFormData((prev) => ({
@@ -63,11 +60,10 @@ const EnquiryForm = ({ productName }) => {
       [name]: value,
     }));
 
-    // Validate the field dynamically
     const fieldError = validateField(name, value);
     setErrors((prev) => ({
       ...prev,
-      [name]: fieldError || undefined, // remove error if valid
+      [name]: fieldError || undefined,
     }));
   };
 
@@ -77,13 +73,16 @@ const EnquiryForm = ({ productName }) => {
 
     if (Object.keys(validationErrors).length === 0) {
       setSubmitted(true);
-      // Reset the form but keep product name
+      dispatch(productEnquary(formData));
       setFormData(initialState);
       setErrors({});
     } else {
       setErrors(validationErrors);
       setSubmitted(false);
     }
+    setTimeout(() => {
+      setSubmitted(false);
+    }, 3000);
   };
 
   return (
@@ -102,6 +101,7 @@ const EnquiryForm = ({ productName }) => {
             />
             {errors.name && <span className="error">{errors.name}</span>}
           </div>
+
           <div className="form-field">
             <label className="label-text">Email</label>
             <input
@@ -118,23 +118,24 @@ const EnquiryForm = ({ productName }) => {
             <label className="label-text">Contact No.</label>
             <input
               type="text"
-              name="contact"
+              name="phone"
               placeholder="Enter Contact No."
-              value={formData.contact}
+              value={formData.phone}
               onChange={handleChange}
             />
-            {errors.contact && <span className="error">{errors.contact}</span>}
+            {errors.phone && <span className="error">{errors.phone}</span>}
           </div>
 
           <div className="form-field">
             <label className="label-text">Product Name</label>
             <input
               type="text"
-              name="product"
-              value={formData.product}
+              name="product_name"
+              value={formData.product_name}
               readOnly
             />
           </div>
+
           <div className="form-field-full">
             <label className="label-text">Message</label>
             <textarea
@@ -153,7 +154,7 @@ const EnquiryForm = ({ productName }) => {
         </button>
       </form>
 
-      {submitted && <p className="success">Form submitted successfully!</p>}
+      {submitted ? <p className="success">{formSubmitMessage}</p> : null}
     </div>
   );
 };

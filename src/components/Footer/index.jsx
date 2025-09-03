@@ -13,7 +13,8 @@ export default function Footer({ className }) {
     useSelector((state) => state?.footerInfo) || {};
   const { data, menu } = footerInfo || {};
   const { social_icons, categories, quick_links } = menu || {};
-  const { logo, site_description, address, copyright } = data || {};
+  const { logo, site_description, address, copyright, company_iframe } =
+    data || {};
 
   const baseUrl = process.env.NEXT_PUBLIC_IMAGE_URL;
   const imagePath = process.env.NEXT_PUBLIC_IMAGE_PATH;
@@ -87,7 +88,7 @@ export default function Footer({ className }) {
               <iframe
                 className="footer-map"
                 title="BioBox Location"
-                src="https://maps.google.com/maps?q=zirakpur&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                src={company_iframe}
                 width="100%"
                 height="100%"
                 style={{ border: 0, borderRadius: '12px' }}

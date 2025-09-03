@@ -1,5 +1,4 @@
 'use client';
-
 import AboutUs from '@/components/AboutUs';
 import { fetchLandingPageBannerData } from '@/store/features/landingPage/landingPageSlice';
 import { lazyImport } from '@/utils/lazyImport';
@@ -11,9 +10,6 @@ const HeroBanner = lazyImport(() => import('@/components/HeroBanner'));
 const OurCertification = lazyImport(() =>
   import('@/components/OurCertification')
 );
-// const OurCertification = React.lazy(() =>
-//   import('@/components/OurCertification')
-// );
 
 const OurProducts = lazyImport(() => import('@/components/OurProducts'));
 const ProductCategories = lazyImport(() =>
@@ -34,13 +30,23 @@ export default function LandingPage() {
     (state) => state.landingPage
   );
 
+  console.log(loading, 'loading');
+
   const { images = [] } = bannerData || {};
 
   useEffect(() => {
-    if (!loading) {
-      dispatch(fetchLandingPageBannerData());
-    }
+    // if (!loading) {
+    dispatch(fetchLandingPageBannerData());
+    // }
   }, []);
+
+  // if (loading) {
+  //   return (
+  //     <div>
+  //       <h1>Loading 1234567</h1>
+  //     </div>
+  //   );
+  // }
 
   return (
     <>

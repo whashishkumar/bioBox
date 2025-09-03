@@ -49,6 +49,7 @@ export const fetchAboutUsProductListing = createAsyncThunk(
     return response.data;
   }
 );
+
 const initialState = {
   aboutUs: null,
   aboutUsBannerPage: null,

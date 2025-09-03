@@ -1,8 +1,11 @@
-import React from 'react';
+'use client';
+import React, { useEffect } from 'react';
 import PageHeadingTitle from '../PageHeadingTitle';
 import './style.css';
 import ReachUs from './ReachUs';
 import ContactUsForm from './ContactUsForm';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchContactUsStayConnectedSection } from '@/store/features/contactUs/contactusSlice';
 
 const headerObject = {
   heading: 'Stay Connected',
@@ -11,13 +14,24 @@ const headerObject = {
 };
 
 export default function StayConnected() {
+  const dispatch = useDispatch();
+  const { stayConnected, loading, error } =
+    useSelector((state) => state.contactUs) || {};
+
+  const { data, menu } = stayConnected || {};
+  const { title, heading, sub_heading } = data || {};
+  console.log(data, 'stayConnected');
+
+  useEffect(() => {
+    dispatch(fetchContactUsStayConnectedSection());
+  }, []);
   return (
     <div className="hero-sub-container">
       <div className="sub-container  padding">
-        <p className="tag-line">We'd love to hear from you</p>
+        <p className="tag-line">{title}</p>
         <PageHeadingTitle
-          heading={headerObject.heading}
-          subheading={headerObject.subHeading}
+          heading={heading}
+          subheading={sub_heading}
           className="title-connect"
         />
         <div className="col-section-contact-us padding-y-axis">

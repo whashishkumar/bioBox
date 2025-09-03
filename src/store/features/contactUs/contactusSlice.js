@@ -17,6 +17,15 @@ export const fetchContactUsSecondSection = createAsyncThunk(
   }
 );
 
+// Change this base on stayConnected api route
+export const fetchContactUsStayConnectedSection = createAsyncThunk(
+  'landingPage/fetchContactUsStayConnectedSection',
+  async () => {
+    const response = await api.get('/v1/contact-page/third-section');
+    return response.data;
+  }
+);
+
 export const contactUsForm = createAsyncThunk(
   'enquiryForm/contactUsForm',
   async (formData, { rejectWithValue }) => {
@@ -33,6 +42,7 @@ const initialState = {
   contactUs: {},
   locationSection: null,
   formSubmitMessage: null,
+  stayConnected: null,
   loading: false,
   error: null,
 };
@@ -55,7 +65,7 @@ const contactUsSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       });
-    //Banner Info
+    //contact us second section Info
     builder
       .addCase(fetchContactUsSecondSection.pending, (state) => {
         state.loading = true;
@@ -65,6 +75,23 @@ const contactUsSlice = createSlice({
         state.locationSection = action.payload;
       })
       .addCase(fetchContactUsSecondSection.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      });
+
+    //Stay Connected Info
+    builder
+      .addCase(fetchContactUsStayConnectedSection.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(
+        fetchContactUsStayConnectedSection.fulfilled,
+        (state, action) => {
+          state.loading = false;
+          state.stayConnected = action.payload;
+        }
+      )
+      .addCase(fetchContactUsStayConnectedSection.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       });

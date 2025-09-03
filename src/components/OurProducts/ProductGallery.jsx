@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchOurProducts,
   fetchProductByTypes,
+  fetchProductTypes,
 } from '@/store/features/ourProducts/ourProductsSlice';
 import { useRouter } from 'next/navigation';
 import ProductCard from '@/ui/ProductCard';
@@ -33,10 +34,7 @@ export default function ProductGallery() {
   const { products } = ourProducts || {};
 
   const handleProductClick = (product) => {
-    const compositionSlug = product?.type
-      ? product.type.trim().toLowerCase().replace(/\s+/g, '-')
-      : '';
-    router.push(`/our-products/${compositionSlug}/${product?.slug}`);
+    router.push(`/product-detail/${product.slug}`);
   };
 
   const { productsByType, productTypes } =
@@ -47,13 +45,20 @@ export default function ProductGallery() {
 
   const renderProductByType = (cat) => {
     setActiveCategory(cat?.slug);
-    dispatch(fetchProductByTypes(cat?.slug));
+    // dispatch(fetchProductByTypes(cat?.slug));
+    fetchProductByTypes({
+      type: cat?.slug,
+      currentPage: 1,
+    });
   };
 
   useEffect(() => {
     dispatch(fetchOurProducts());
-    dispatch(fetchProductByTypes(activeCategory));
+    // dispatch(fetchProductByTypes(activeCategory));
+    dispatch(fetchProductTypes());
   }, [dispatch, activeCategory]);
+
+  console.log(productBaseType, 'activeCategory');
 
   return (
     <>
@@ -76,16 +81,6 @@ export default function ProductGallery() {
             </div>
           ))}
         </div>
-        {/* {products.length > 0 || productBaseType.length > 0 ? (
-          <ProductCard
-            products={activeCategory === '' ? products : productBaseType}
-            showCarousel={true}
-            slidesPerView={4}
-            onProductClick={handleProductClick}
-          />
-        ) : (
-          <p className="product-info-message"> {message}</p>
-        )} */}
 
         {(
           activeCategory === ''
