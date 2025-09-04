@@ -4,15 +4,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/autoplay';
+import './style.css';
 
-export default function Carousel({ children, slidesPerView = 4 }) {
+export default function Carousel({ children, slidesPerView }) {
   const items = React.Children.toArray(children);
-  console.log(slidesPerView, 'slidesPerView');
 
   return (
     <Swiper
-      spaceBetween={10}
-      slidesPerView={slidesPerView}
       speed={3000}
       loop={true}
       modules={[Autoplay]}
@@ -27,15 +25,15 @@ export default function Carousel({ children, slidesPerView = 4 }) {
         },
         640: {
           slidesPerView: 2,
-          spaceBetween: 12,
+          spaceBetween: 15,
         },
         1024: {
           slidesPerView: 3,
-          spaceBetween: 20,
+          spaceBetween: 12,
         },
         1280: {
           slidesPerView,
-          spaceBetween: 25,
+          spaceBetween: 26,
         },
       }}
     >

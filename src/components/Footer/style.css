@@ -59,6 +59,10 @@
   margin: 20px 0;
 }
 
+.footer-socials {
+  display: flex;
+}
+
 .footer-socials a {
   color: var(--color-white);
   margin-right: 16px;
