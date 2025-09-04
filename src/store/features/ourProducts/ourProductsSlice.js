@@ -36,21 +36,8 @@ export const fetchProductTypes = createAsyncThunk(
 
 export const fetchProductByTypes = createAsyncThunk(
   'landingPage/fetchProductByTypes',
-  async ({ type, currentPage }) => {
-    const response = await api.get(
-      `v1/products/type/${type}?page=${currentPage}`
-    );
-    // ?page=${currentPage}
-    return response.data;
-  }
-);
-
-export const fetchOurSelectedCategoryProduct = createAsyncThunk(
-  'landingPage/fetchOurSelectedCategoryProduct',
-  async ({ category, currentPage }) => {
-    const response = await api.get(
-      `/v1/products/category/${category}?page=${currentPage}`
-    );
+  async (type) => {
+    const response = await api.get(`/v1/products/type/${type}`);
     return response.data;
   }
 );
@@ -75,15 +62,35 @@ export const fetchExplorePharmaProdctSection = createAsyncThunk(
   }
 );
 
+export const fetchOurProductList = createAsyncThunk(
+  'landingPage/fetchOurProductList',
+  async ({ mainCategory, subCategory, currentPage } = {}) => {
+    const parts = ['/v1/our-products-list'];
+    // Add mainCategory if exists
+    if (mainCategory) {
+      parts.push(mainCategory);
+    }
+    // Add subCategory only if exists
+    if (subCategory) {
+      parts.push(subCategory);
+    }
+    // Construct final URL
+    const url = `${parts.join('/')}` + `?page=${currentPage}`;
+    const response = await api.get(url);
+    return response.data;
+  }
+);
+
 const initialState = {
   ourProducts: {},
   singleProduct: null,
   productCategories: null,
   productTypes: null,
   productsByType: null,
-  selectedproductCategory: null,
+  // selectedproductCategory: null,
   formSubmitMessage: null,
   explorePharmaProducts: null,
+  ourProductsList: null,
   loading: false,
   error: null,
 };
@@ -157,19 +164,6 @@ const ourProductsSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       });
-    // Send  product Query
-    builder
-      .addCase(fetchOurSelectedCategoryProduct.pending, (state) => {
-        state.loading = true;
-      })
-      .addCase(fetchOurSelectedCategoryProduct.fulfilled, (state, action) => {
-        state.loading = false;
-        state.selectedproductCategory = action.payload;
-      })
-      .addCase(fetchOurSelectedCategoryProduct.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message;
-      });
 
     //Product Enquary form
     builder
@@ -197,6 +191,19 @@ const ourProductsSlice = createSlice({
         state.explorePharmaProducts = action.payload;
       })
       .addCase(fetchExplorePharmaProdctSection.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      });
+    //Fetch list of Products
+    builder
+      .addCase(fetchOurProductList.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchOurProductList.fulfilled, (state, action) => {
+        state.loading = false;
+        state.ourProductsList = action.payload;
+      })
+      .addCase(fetchOurProductList.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       });

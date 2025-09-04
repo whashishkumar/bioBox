@@ -2,9 +2,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import ProductCard from '@/ui/ProductCard';
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from 'react-icons/fa';
-import { fetchProductByTypes } from '@/store/features/ourProducts/ourProductsSlice';
-import { useDispatch } from 'react-redux';
-import { useRouter, useParams, useSearchParams } from 'next/navigation';
+
+import { useParams, useSearchParams } from 'next/navigation';
 
 const ProductSection = ({
   activeCategory,
@@ -21,10 +20,7 @@ const ProductSection = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(4);
   const params = useParams();
-  const searchParams = useSearchParams();
-
   const categoryType = params?.type;
-  // console.log(category, 'type');
 
   useEffect(() => {
     const updateItemsPerView = () => {
@@ -58,8 +54,6 @@ const ProductSection = ({
     currentIndex + itemsPerView
   );
 
-  // console.log(activeCategory, 'activeCategory');
-
   return (
     <div className="col-2">
       <div className="flex-product navbar-fix desk-top-view-sub-menu">
@@ -67,7 +61,6 @@ const ProductSection = ({
           <div
             key={cat.id}
             className={`btn-product-list ${
-              // categoryType || activeCategory === cat.slug ? 'active' : ''
               categoryType === cat.slug || activeCategory === cat.slug
                 ? 'active'
                 : ''
@@ -89,7 +82,6 @@ const ProductSection = ({
             <div
               key={cat.id}
               className={`btn-product-list ${
-                // categoryType || activeCategory === cat.slug ? 'active' : ''
                 categoryType === cat.slug || activeCategory === cat.slug
                   ? 'active'
                   : ''

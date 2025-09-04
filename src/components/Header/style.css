@@ -178,7 +178,9 @@
 
 
 @media (min-width: 768px) and (max-width: 1024px) {
-
+  .nav-bar-col-2 {
+    gap: 0px;
+  }
 
   .navLinks {
     gap: 15px;
@@ -207,6 +209,10 @@
 }
 
 @media (max-width: 768px) {
+  .nav-bar-col-2 {
+    gap: 0px;
+  }
+
   .hamburger {
     display: block;
   }

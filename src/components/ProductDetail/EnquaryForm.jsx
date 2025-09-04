@@ -10,7 +10,7 @@ const EnquiryForm = ({ productName }) => {
     name: '',
     email: '',
     phone: '',
-    product_name: productName,
+    product_name: '',
     message: '',
   };
 
@@ -85,6 +85,12 @@ const EnquiryForm = ({ productName }) => {
     }, 3000);
   };
 
+  useEffect(() => {
+    if (productName) {
+      setFormData((prev) => ({ ...prev, product_name: productName }));
+    }
+  }, [productName]);
+
   return (
     <div className="form-container">
       <h2 className="enquary-form-title">Get Updates about Products</h2>
@@ -131,7 +137,7 @@ const EnquiryForm = ({ productName }) => {
             <input
               type="text"
               name="product_name"
-              value={formData.product_name}
+              value={formData?.product_name}
               readOnly
             />
           </div>

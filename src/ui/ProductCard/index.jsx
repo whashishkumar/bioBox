@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import './style.css';
 import 'swiper/css';
 import 'swiper/css/autoplay';
@@ -10,7 +10,7 @@ import Image from 'next/image';
 export default function ProductCard({
   products = [],
   showCarousel = true,
-  slidesPerView = 4,
+  slidesPerView,
   className = '',
   onProductClick = () => {},
   totalPages = 1,
@@ -33,7 +33,6 @@ export default function ProductCard({
               width={298}
             />
           ) : null}
-          {/* <img src={imageUrl} alt={product.name} /> */}
         </div>
         <div className="custom-card-content">
           <span className="custom-card-tag">{product.type}</span>
@@ -58,39 +57,35 @@ export default function ProductCard({
   };
 
   return (
-    <div className={`sub-container ${className} `}>
-      <div className="our-product-box-container margin margin-top-none">
+    <div className={`sub-container ${className}`}>
+      <div className="our-product-box-container margin margin-top-none ">
         {showCarousel ? (
           <>
             {products?.length > slidesPerView ? (
-              <Carousel SlidesPerView={slidesPerView}>
-                {products.map((p) => (
-                  <Card
-                    key={p.id}
-                    product={p}
-                    onProductClick={onProductClick}
-                  />
+              <Carousel slidesPerView={slidesPerView}>
+                {products.map((p, id) => (
+                  <Card key={id} product={p} onProductClick={onProductClick} />
                 ))}
               </Carousel>
             ) : (
               <div className="product-grid">
-                {products?.map((p) => (
-                  <Card
-                    key={p.id}
-                    product={p}
-                    onProductClick={onProductClick}
-                  />
+                {products?.map((p, id) => (
+                  <Card key={id} product={p} onProductClick={onProductClick} />
                 ))}
               </div>
             )}
           </>
         ) : (
           <>
-            <div className="product-grid">
-              {products?.map((p) => (
-                <Card key={p.id} product={p} onProductClick={onProductClick} />
-              ))}
-            </div>
+            {products?.length > 0 ? (
+              <div className="product-grid">
+                {products?.map((p, id) => (
+                  <Card key={id} product={p} onProductClick={onProductClick} />
+                ))}
+              </div>
+            ) : (
+              <p className="our-product-not-found">No products found </p>
+            )}
 
             <Pagination
               currentPage={currentPage}

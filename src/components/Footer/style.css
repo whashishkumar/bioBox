@@ -154,6 +154,10 @@
   margin-bottom: 8px;
 }
 
+.social-link-img {
+  object-fit: contain;
+}
+
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .section-container {
@@ -185,6 +189,10 @@
 
   .footer-categories a {
     font-size: 14px;
+  }
+
+  .footer-socials {
+    display: flex;
   }
 }
 
@@ -219,5 +227,9 @@
 
   .footer-categories a {
     font-size: 14px;
+  }
+
+  .footer-socials {
+    display: flex;
   }
 }

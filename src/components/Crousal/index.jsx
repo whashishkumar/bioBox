@@ -1,5 +1,4 @@
-'use client'; // only if using Next.js App Router
-
+'use client';
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
@@ -8,10 +7,11 @@ import 'swiper/css/autoplay';
 
 export default function Carousel({ children, slidesPerView = 4 }) {
   const items = React.Children.toArray(children);
+  console.log(slidesPerView, 'slidesPerView');
 
   return (
     <Swiper
-      spaceBetween={30}
+      spaceBetween={10}
       slidesPerView={slidesPerView}
       speed={3000}
       loop={true}
@@ -27,14 +27,15 @@ export default function Carousel({ children, slidesPerView = 4 }) {
         },
         640: {
           slidesPerView: 2,
-          spaceBetween: 15,
+          spaceBetween: 12,
         },
         1024: {
           slidesPerView: 3,
           spaceBetween: 20,
         },
         1280: {
-          slidesPerView: slidesPerView,
+          slidesPerView,
+          spaceBetween: 25,
         },
       }}
     >

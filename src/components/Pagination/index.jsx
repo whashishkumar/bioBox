@@ -24,7 +24,7 @@ const Pagination = ({
 
   const visiblePages = getVisiblePages();
 
-  console.log(currentPage, 'pagination componet');
+  console.log(currentPage, 'currentPage');
 
   return (
     <div className="pagination-container">

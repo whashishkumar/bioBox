@@ -42,6 +42,7 @@ const landingPageSlice = createSlice({
         state.loading = false;
         state.error = action.error.message;
       });
+
     // Fetch Banner
     builder
       .addCase(fetchLandingPageBannerData.pending, (state) => {

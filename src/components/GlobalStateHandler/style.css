@@ -6,9 +6,9 @@
 }
 
 .error {
-  text-align: center;
   color: red;
-  font-size: 18px;
+  font-size: 14px;
+  font-family: var(--font-sanchez);
 }
 
 .empty-state {

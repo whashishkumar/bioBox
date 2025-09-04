@@ -45,20 +45,13 @@ export default function ProductGallery() {
 
   const renderProductByType = (cat) => {
     setActiveCategory(cat?.slug);
-    // dispatch(fetchProductByTypes(cat?.slug));
-    fetchProductByTypes({
-      type: cat?.slug,
-      currentPage: 1,
-    });
+    dispatch(fetchProductByTypes(cat?.slug));
   };
 
   useEffect(() => {
     dispatch(fetchOurProducts());
-    // dispatch(fetchProductByTypes(activeCategory));
     dispatch(fetchProductTypes());
-  }, [dispatch, activeCategory]);
-
-  console.log(productBaseType, 'activeCategory');
+  }, []);
 
   return (
     <>
@@ -81,7 +74,6 @@ export default function ProductGallery() {
             </div>
           ))}
         </div>
-
         {(
           activeCategory === ''
             ? products?.length > 0

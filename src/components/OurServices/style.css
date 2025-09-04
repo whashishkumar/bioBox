@@ -93,7 +93,7 @@
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 15px;
   width: 100%;
   max-width: 500px;
 }
@@ -155,9 +155,11 @@ textarea {
 }
 
 .error {
-  font-size: 13px;
+  font-size: 14px;
   color: red;
   padding: 8px 0;
+  text-align: left;
+  font-family: var(--font-sanchez);
 }
 
 .success {

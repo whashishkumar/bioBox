@@ -106,7 +106,7 @@
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 15px;
   width: 600px;
   margin: 0 auto;
 }
@@ -188,9 +188,11 @@ textarea {
 }
 
 .error {
-  font-size: 13px;
+  font-size: 14px;
   color: red;
   padding: 8px 0;
+  font-family: var(--font-sanchez);
+  text-align: left;
 }
 
 .success {

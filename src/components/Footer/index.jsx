@@ -42,18 +42,24 @@ export default function Footer({ className }) {
               </div>
               <p className="footer-desc">{site_description}</p>
               <div className="footer-socials">
-                <a href="#">
-                  <FaFacebook />
-                </a>
-                <a href="#">
-                  <FaTwitter />
-                </a>
-                <a href="#">
-                  <FaInstagram />
-                </a>
-                <a href="#">
-                  <FaLinkedin />
-                </a>
+                {social_icons?.map((icons) => {
+                  return (
+                    <Link
+                      key={icons?.name}
+                      href={icons?.url}
+                      className="flex items-center gap-2"
+                      target="__blank"
+                    >
+                      <Image
+                        className="social-link-img"
+                        src={icons?.image}
+                        alt={icons?.name}
+                        height={22}
+                        width={22}
+                      />
+                    </Link>
+                  );
+                })}
               </div>
             </div>
             <div className="footer-links">

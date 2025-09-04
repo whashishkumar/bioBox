@@ -101,6 +101,7 @@ export default function AboutUs() {
         showCarousel={true}
         slidesPerView={4}
         onProductClick={handleProductClick}
+        className="about-us-product-card"
       />
     </PageLayout>
   );

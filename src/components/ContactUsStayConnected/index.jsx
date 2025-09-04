@@ -15,12 +15,10 @@ const headerObject = {
 
 export default function StayConnected() {
   const dispatch = useDispatch();
-  const { stayConnected, loading, error } =
-    useSelector((state) => state.contactUs) || {};
+  const { stayConnected } = useSelector((state) => state.contactUs) || {};
 
-  const { data, menu } = stayConnected || {};
+  const { data } = stayConnected || {};
   const { title, heading, sub_heading } = data || {};
-  console.log(data, 'stayConnected');
 
   useEffect(() => {
     dispatch(fetchContactUsStayConnectedSection());

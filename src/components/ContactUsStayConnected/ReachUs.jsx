@@ -9,11 +9,7 @@ import { FaInstagram } from 'react-icons/fa';
 import { FaPinterest } from 'react-icons/fa';
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  fetchContactUsSecondSection,
-  fetchContactUsStayConnectedSection,
-} from '@/store/features/contactUs/contactusSlice';
-import Image from 'next/image';
+import { fetchContactUsStayConnectedSection } from '@/store/features/contactUs/contactusSlice';
 
 export default function ReachUs() {
   const dispatch = useDispatch();
@@ -28,10 +24,12 @@ export default function ReachUs() {
   }, []);
 
   const socialIcons = [
-    { key: 'facebook', icon: <FaTwitter /> },
-    { key: 'twitter', icon: <FaInstagram /> },
-    { key: 'linkedin', icon: <FaPinterest /> },
+    { key: 'facebook', icon: <FaFacebookF /> },
+    { key: 'instagram', icon: <FaInstagram /> },
+    { key: 'twitter', icon: <FaTwitter /> },
+    { key: 'pinterest', icon: <FaPinterest /> },
   ];
+
   return (
     <div className="registred-address ">
       <iframe
@@ -51,10 +49,10 @@ export default function ReachUs() {
             <IoLocationSharp />
             <span className="location-des">
               {address?.split(',').map((part, idx) => (
-                <React.Fragment key={idx}>
+                <span key={idx}>
                   {part.trim()}
                   <br />
-                </React.Fragment>
+                </span>
               ))}
             </span>
           </p>
@@ -69,47 +67,23 @@ export default function ReachUs() {
         </div>
         <div className="social-network">
           <h2 className="reachus-title">Social Networks</h2>
-          {menu?.map((socialLinks) => {
+
+          {menu?.map((socialLink, index) => {
+            // pick icon by index OR match by key
+            const Icon = socialIcons?.[index]?.icon;
             return (
-              <p className="loc-icon">
-                <Link href={''}>
-                  {/* <FaFacebookF /> */}
-                  <Image
-                    src={socialLinks?.image}
-                    alt={socialLinks?.name}
-                    height={30}
-                    width={30}
-                  />
-                  <span className="location-des">{socialLinks?.name}</span>
+              <p key={index} className="loc-icon flex items-center gap-2">
+                <Link
+                  href={socialLink?.url}
+                  className="flex items-center gap-2"
+                  target="__blank"
+                >
+                  {Icon && <span>{Icon}</span>}
+                  <span className="location-des">{socialLink?.name}</span>
                 </Link>
               </p>
             );
           })}
-
-          {/* <p className="loc-icon">
-            <Link href={''}>
-              <FaFacebookF />
-              <span className="location-des">Facebook</span>
-            </Link>
-          </p>
-          <p className="loc-icon">
-            <Link href={''}>
-              <FaTwitter />
-              <span className="location-des">Twitter</span>
-            </Link>
-          </p>
-          <p className="loc-icon">
-            <Link href={''}>
-              <FaInstagram />
-              <span className="location-des">Instagram</span>
-            </Link>
-          </p>
-          <p className="loc-icon">
-            <Link href={''}>
-              <FaPinterest />
-              <span className="location-des">Pinterest</span>
-            </Link>
-          </p> */}
         </div>
       </div>
     </div>

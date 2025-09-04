@@ -6,9 +6,7 @@ import Sidebar from './Sidebar';
 import ProductSection from './ProductListing';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  fetchOurProducts,
-  fetchOurSelectedCategoryProduct,
-  fetchProductByTypes,
+  fetchOurProductList,
   fetchProductCategories,
 } from '@/store/features/ourProducts/ourProductsSlice';
 import GlobalStateHandler from '../GlobalStateHandler/GlobalStateHandler';
@@ -18,103 +16,69 @@ import { Loader } from '@/utils/lazyImport';
 export default function AllProducts({ category }) {
   const router = useRouter();
   const dispatch = useDispatch();
+  const { ourProductsList, loading, error } =
+    useSelector((state) => state?.allProducts) || {};
+  const { current_page, last_page, products } = ourProductsList || {};
   const [selectedCategory, setSelectedCategory] = useState(category);
   const [activeCategory, setActiveCategory] = useState('');
-  const [activeSource, setActiveSource] = useState('');
-  const { ourProducts, selectedproductCategory } =
-    useSelector((state) => state?.allProducts) || {};
-  const { products, loading, error, last_page, current_page } =
-    ourProducts || [];
-  const { productCategories, productTypes, productsByType } =
+
+  const { productCategories, productTypes } =
     useSelector((state) => state?.allProducts) || {};
   const productCategoriesList = productCategories?.data || [];
   const productType = productTypes?.data || [];
-  const productListBySelectedType = productsByType?.data || [];
-  const categoryBaseProducts = selectedproductCategory?.products || {};
+
   const isEmpty = !products;
   const [currentPage, setCurrentPage] = useState(1);
-  const filteredProductsList =
-    activeSource === 'type' && productListBySelectedType?.length > 0
-      ? productListBySelectedType
-      : activeSource === 'category' && categoryBaseProducts?.length > 0
-      ? categoryBaseProducts
-      : products || [];
 
   const handleSingleProduct = (product) => {
     router.push(`/product-detail/${product.slug}`);
   };
 
-  console.log(activeSource, 'activeSource');
-
   const handleSetPage = (currentPageNo) => {
     setCurrentPage(currentPageNo);
-    // Dispatch the appropriate action based on the active source
-    if (activeSource === 'type' && activeCategory) {
-      dispatch(
-        fetchProductByTypes({
-          type: activeCategory,
-          currentPage: currentPageNo,
-        })
-      );
-    } else if (activeSource === 'category' && selectedCategory) {
-      dispatch(
-        fetchOurSelectedCategoryProduct({
-          category: selectedCategory,
-          currentPage: currentPageNo,
-        })
-      );
-    } else {
-      dispatch(fetchOurProducts(currentPageNo));
-    }
+    dispatch(
+      fetchOurProductList({
+        mainCategory: selectedCategory,
+        subCategory: activeCategory,
+        currentPage: currentPageNo,
+      })
+    );
   };
 
-  const handleCategory = (category) => {
-    setActiveSource('type');
-    setActiveCategory(category?.slug);
-    setCurrentPage(1);
-    dispatch(fetchProductByTypes({ type: category?.slug, currentPage: 1 }));
+  const handleTypeCategory = (type) => {
+    setActiveCategory(type?.slug);
     if (selectedCategory) {
-      router.push(
-        `/our-products/${selectedCategory}/${category?.slug}`,
-        undefined,
-        { shallow: true }
+      dispatch(
+        fetchOurProductList({
+          mainCategory: selectedCategory,
+          subCategory: type?.slug,
+          currentPage,
+        })
       );
+      router.push(`/our-products/${selectedCategory}?type=${type?.slug}`);
     } else {
-      router.push(`/our-products?type=${category?.slug}`);
+      router.push(`/our-products?type=${type?.slug}`);
     }
+    dispatch(fetchOurProductList({ subCategory: type?.slug, currentPage }));
   };
 
   const handleOnSelectCategory = (category) => {
-    setActiveSource('category');
     setSelectedCategory(category?.slug);
-    setCurrentPage(1);
-    setActiveCategory('');
-    router.push(`/our-products/${category?.slug}`);
-    dispatch(
-      fetchOurSelectedCategoryProduct({
-        category: category?.slug,
-        currentPage: 1,
-      })
-    );
+    dispatch(fetchOurProductList({ mainCategory: category.slug, currentPage }));
+    router.push(`/our-products/${category.slug}`);
   };
 
   useEffect(() => {
     dispatch(fetchProductCategories());
     dispatch(fetchProductType());
-    // Initial data fetch based on the current state
-    if (!activeSource && !selectedCategory) {
-      dispatch(fetchOurProducts(1));
-    }
-  }, [dispatch]);
-
-  // Separate effect for initial category-based fetch
-  useEffect(() => {
-    if (category && !activeSource) {
-      setSelectedCategory(category);
-      setActiveSource('category');
-      dispatch(fetchOurSelectedCategoryProduct({ category, currentPage: 1 }));
-    }
-  }, [category, dispatch, activeSource]);
+    dispatch(
+      fetchOurProductList({
+        mainCategory: selectedCategory,
+        subCategory: activeCategory,
+        currentPage,
+      })
+    );
+  }, [dispatch, selectedCategory, activeCategory, currentPage]);
 
   return (
     <>
@@ -140,12 +104,12 @@ export default function AllProducts({ category }) {
               activeCategory={activeCategory}
               categories={productType}
               setActiveCategory={setActiveCategory}
-              filteredProducts={filteredProductsList}
+              filteredProducts={products}
               onProductClick={handleSingleProduct}
               currentPage={currentPage}
               setCurrentPage={handleSetPage}
               totalPages={last_page}
-              handleCategory={handleCategory}
+              handleCategory={handleTypeCategory}
             />
           </div>
         </div>

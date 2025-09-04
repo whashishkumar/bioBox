@@ -30,8 +30,6 @@ export default function LandingPage() {
     (state) => state.landingPage
   );
 
-  console.log(loading, 'loading');
-
   const { images = [] } = bannerData || {};
 
   useEffect(() => {
@@ -39,14 +37,6 @@ export default function LandingPage() {
     dispatch(fetchLandingPageBannerData());
     // }
   }, []);
-
-  // if (loading) {
-  //   return (
-  //     <div>
-  //       <h1>Loading 1234567</h1>
-  //     </div>
-  //   );
-  // }
 
   return (
     <>

@@ -69,7 +69,7 @@ textarea {
   padding: 8px 0;
   text-align: left !important;
   color: red;
-  font-size: 16px !important;
+  font-size: 14px !important;
   font-family: var(--font-sanchez) !important;
 }
 
@@ -167,10 +167,11 @@ textarea {
 }
 
 .product-price {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
   color: #f65a38;
   margin-top: 10px;
+  text-transform: capitalize;
 }
 
 

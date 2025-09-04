@@ -42,41 +42,42 @@ export default function ProductDescription({ singleProduct, loading }) {
           </h1>
           {brand_name ? (
             <p className="product-category">
-              <strong className="item-des-tag-line">Brand Name:</strong>{' '}
+              <strong className="item-des-tag-line">Brand Name: </strong>{' '}
               {brand_name}
             </p>
           ) : null}
           {category ? (
             <p className="product-category">
-              <strong className="item-des-tag-line">Category:</strong>{' '}
+              <strong className="item-des-tag-line">Category: </strong>{' '}
               {category}
             </p>
           ) : null}
           {combination ? (
             <p className="product-category">
-              <strong className="item-des-tag-line">Combination:</strong>{' '}
+              <strong className="item-des-tag-line">Combination: </strong>{' '}
               {combination}
             </p>
           ) : null}
           {desc ? (
             <p className="product-description">
-              <strong className="item-des-tag-line">Description:</strong> {desc}
+              <strong className="item-des-tag-line">Description: </strong>{' '}
+              {desc}
             </p>
           ) : null}
 
           {pack ? (
             <p className="product-pack">
-              <strong className="item-des-tag-line">Pack:</strong> {pack}
+              <strong className="item-des-tag-line">Pack: </strong> {pack}
             </p>
           ) : null}
 
           {mrp ? (
             <p className="product-price">
-              <strong className="item-des-tag-line">Price:</strong> ₹ {mrp}
+              <strong className="item-des-tag-line">Price: </strong> ₹ {mrp}
             </p>
           ) : (
             <p className="product-price">
-              <strong className="item-des-tag-line">Price:</strong>
+              <strong className="item-des-tag-line">Price: </strong>
               {priceNotDeclear}
             </p>
           )}
