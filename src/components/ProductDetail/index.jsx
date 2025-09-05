@@ -27,17 +27,17 @@ export default function ProductDetail({ slug }) {
       bannerImage="/images/contactUs-banner.jpg"
       className="banner-dimesions banner-c-wrapper-container"
     >
-      {/* {loading ? (
+      {loading ? (
         <GlobalStateHandler loading={loading} loaderComponent={Loader} />
-      ) : ( */}
-      <div className="product-detail-page-container all-product-category padding">
-        <ProductDescription
-          singleProduct={singleProduct?.product}
-          loading={loading}
-        />
-        <EnquaryForm productName={title} />
-      </div>
-      {/* )} */}
+      ) : (
+        <div className="product-detail-page-container all-product-category padding">
+          <ProductDescription
+            singleProduct={singleProduct?.product}
+            loading={loading}
+          />
+          <EnquaryForm productName={title} />
+        </div>
+      )}
     </PageLayout>
   );
 }

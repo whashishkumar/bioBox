@@ -18,7 +18,9 @@ export default function GlobalStateHandler({
 
   if (error) {
     return (
-      <div className="error">Failed to load data. Please try again later.</div>
+      <div className="api-error">
+        Failed to load data. Please try again later.
+      </div>
     );
   }
 

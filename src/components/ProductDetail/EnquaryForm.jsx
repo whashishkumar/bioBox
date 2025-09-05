@@ -10,7 +10,7 @@ const EnquiryForm = ({ productName }) => {
     name: '',
     email: '',
     phone: '',
-    product_name: '',
+    product_name: productName,
     message: '',
   };
 

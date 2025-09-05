@@ -1,7 +1,7 @@
 .bg {
   position: relative;
   background: var(--color-primary);
-  padding: 0 12px;
+  padding: 0 15px;
   height: 650px;
 }
 
@@ -84,6 +84,39 @@
   justify-content: center;
   align-items: center;
 }
+
+/* @media (min-width: 768px) and (max-width: 1024px) {
+
+
+
+  .slider-wrapper {
+    height: 650px;
+    border-radius: 40px;
+  }
+
+  .overlay-content {
+    height: 650px;
+  }
+
+  .banner-title {
+    font-size: 36px;
+    top: 35%;
+    width: 100%;
+  }
+} */
+
+/* @media (max-width: 768px) {
+  .bg {
+    height: 500px;
+  }
+
+  .slider-wrapper {
+    height: 550px;
+    border-radius: 30px;
+  }
+} */
+
+
 
 @media (max-width: 1024px) {
   .slider-wrapper {

@@ -25,14 +25,16 @@ export default function ExplorePharmaProducts() {
         <div className=" explore-pharma">
           <p>{heading}</p>
           <h2>{sub_heading}</h2>
-          <Link className="btn-top-margin" href={`tel:${button_link}`}>
-            <Button
-              className="btn-top-margin"
-              text={`${button_text}`}
-              variant="primary"
-              size="lg"
-            />
-          </Link>
+          {button_text ? (
+            <Link className="btn-top-margin" href={`tel:${button_link}`}>
+              <Button
+                className="btn-top-margin"
+                text={`${button_text}`}
+                variant="primary"
+                size="lg"
+              />
+            </Link>
+          ) : null}
         </div>
       </div>
     </div>

@@ -102,7 +102,7 @@
 @media (min-width: 768px) and (max-width: 1024px) {
   .product-card-container {
     gap: 40px 20px;
-    margin-top: 30px;
+    padding: 40px 0;
     margin-bottom: 0px;
   }
 
@@ -119,8 +119,8 @@
 /* Mobile */
 @media (max-width: 768px) {
   .product-card-container {
-    margin-top: 30px;
-    gap: 30px 15px;
+    padding: 40px 0;
+    gap: 50px 15px;
     margin-bottom: 0px;
   }
 

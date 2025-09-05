@@ -12,6 +12,7 @@ import {
 } from '@/store/features/aboutUs/aboutUsPageSlice';
 import Link from 'next/link';
 import GlobalStateHandler from '../GlobalStateHandler/GlobalStateHandler';
+import { Loader } from '@/utils/lazyImport';
 
 const bioData = {
   welcomeText: 'Welcome',
@@ -166,7 +167,12 @@ export default function BioBoxPharma() {
 
   return (
     <>
-      <GlobalStateHandler loading={loading} error={error} isEmpty={isEmpty} />
+      <GlobalStateHandler
+        loading={loading}
+        error={error}
+        empty={isEmpty}
+        loaderComponent={Loader}
+      />
       <div className="hero-sub-container parent-container-bio-box">
         {/* =================== Bio Section =================== */}
         <div className="sub-container bio-flex  padding padding-top margin-top">

@@ -1,3 +1,9 @@
 /* .swiper-backface-hidden .swiper-slide {
   width: 300px !important;
 } */
+
+.card-inside-swiper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

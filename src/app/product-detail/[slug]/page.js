@@ -1,7 +1,7 @@
 import ProductDetail from '@/components/ProductDetail';
 import React from 'react';
 
-export default function productDetail({ params }) {
-  const { slug } = params;
+export default async function productDetail({ params }) {
+  const { slug } = await params;
   return <ProductDetail slug={slug} />;
 }

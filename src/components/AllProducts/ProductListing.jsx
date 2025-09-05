@@ -55,7 +55,7 @@ const ProductSection = ({
   );
 
   return (
-    <div className="col-2">
+    <div className="col-2 our-products-root">
       <div className="flex-product navbar-fix desk-top-view-sub-menu">
         {categories.map((cat) => (
           <div

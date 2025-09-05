@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPartnerBenifitsInfo } from '@/store/features/partnerBenifits/partnerBenifitsSlice';
 import GlobalStateHandler from '../GlobalStateHandler/GlobalStateHandler';
+import { Loader } from '@/utils/lazyImport';
 
 const headerObject = {
   heading: 'Benefits of Partner with Us',
@@ -59,7 +60,12 @@ export default function BenifitsCard() {
 
   return (
     <>
-      <GlobalStateHandler loading={loading} error={error} isEmpty={isEmpty} />
+      <GlobalStateHandler
+        loading={loading}
+        error={error}
+        empty={isEmpty}
+        loaderComponent={Loader}
+      />
       <div className="benifits-card-container">
         <div className="sub-container padding">
           <PageHeadingTitle

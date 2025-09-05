@@ -19,6 +19,15 @@
 
 }
 
+.logoImg {
+  height: 89px;
+  width: 193px;
+}
+
+.logoImg img {
+  object-fit: contain;
+}
+
 .logoImg img {
   height: 100%;
   width: 100%;
@@ -60,7 +69,6 @@
 .link:hover {
   color: var(--color-primary);
 }
-
 
 .link.active {
   color: var(--color-primary);
@@ -176,14 +184,17 @@
   visibility: visible;
 }
 
-
 @media (min-width: 768px) and (max-width: 1024px) {
   .nav-bar-col-2 {
-    gap: 0px;
+    gap: 15px;
   }
 
   .navLinks {
     gap: 15px;
+  }
+
+  .navLinks ul {
+    gap: 20px;
   }
 
   .navbar {
@@ -205,10 +216,18 @@
   .mobileCallButton {
     display: none;
   }
-
 }
 
 @media (max-width: 768px) {
+
+  .logo {
+    z-index: 10;
+  }
+
+  .hamburger {
+    z-index: 10;
+  }
+
   .nav-bar-col-2 {
     gap: 0px;
   }
@@ -220,10 +239,10 @@
   .logoImg {
     height: 60px;
     width: 120px;
+    object-fit: contain;
   }
 
   .logoImg img {
-
     object-fit: contain;
   }
 
@@ -237,21 +256,26 @@
 
   .navLinks {
     position: absolute;
-    top: 72%;
+    /* top: 72%; */
+    top: 25%;
     left: 0;
     width: 100%;
     background: var(--color-white);
     flex-direction: column;
-    border-radius: 0 0 20px 20px;
+    /* border-radius: 0 0 20px 20px; */
+    border-radius: 20px 20px;
     max-height: 0;
     overflow: hidden;
     transition: all 0.3s ease-in-out;
     padding: 0 40px;
+    /* z-index: -1; */
+    height: 100vh;
   }
 
   .navLinks ul {
     flex-direction: column;
-    padding: 30px 0;
+    /* padding: 30px 0; */
+    padding-top: 70px;
     align-items: flex-start;
     width: 100%;
     gap: 25px;
@@ -259,7 +283,7 @@
 
   .navLinks.open {
     max-height: 500px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
   }
 
   .callButton {
@@ -270,7 +294,7 @@
     display: flex;
   }
 
-  .navLinks {
+  /* .navLinks {
     z-index: 1;
-  }
+  } */
 }

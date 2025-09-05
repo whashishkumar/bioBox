@@ -67,7 +67,7 @@
 }
 
 .text-color {
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
 }
 
 
@@ -93,6 +93,7 @@
 
   .cards-wrapper {
     justify-content: center;
+    padding: 30px 0;
   }
 
   .card-heading {
@@ -109,6 +110,7 @@
   .cards-wrapper {
     flex-direction: column;
     gap: 20px;
+    padding: 30px 0;
   }
 
   .gift-card {

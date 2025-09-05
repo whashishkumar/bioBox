@@ -16,22 +16,12 @@ const headerObject = {
   subHeading: 'Biobox Pharma, Incorporate a high-quality Products',
 };
 
-const categories = [
-  'Critical Care',
-  'Derma Care',
-  'Gynae Care',
-  'Dental Care',
-  'ENT',
-  'Pediatric',
-  'Ayurvedic',
-];
-
 export default function ProductGallery() {
   const router = useRouter();
   const dispatch = useDispatch();
   const [activeCategory, setActiveCategory] = useState('');
   const { ourProducts } = useSelector((state) => state?.allProducts) || {};
-  const { products } = ourProducts || {};
+  const { products, section_heading, section_sub_heading } = ourProducts || {};
 
   const handleProductClick = (product) => {
     router.push(`/product-detail/${product.slug}`);
@@ -58,9 +48,9 @@ export default function ProductGallery() {
       <div className="product-container-banner">
         <div className="width-left-col">
           <PageHeadingTitle
-            heading={headerObject.heading}
-            subheading={headerObject.subHeading}
-            className="align-text"
+            heading={section_heading}
+            subheading={section_sub_heading}
+            className="ourProduct-banner-title"
           />
         </div>
         <div className="tabs flex width-right-col">
@@ -74,6 +64,8 @@ export default function ProductGallery() {
             </div>
           ))}
         </div>
+      </div>
+      <>
         {(
           activeCategory === ''
             ? products?.length > 0
@@ -88,7 +80,7 @@ export default function ProductGallery() {
         ) : (
           <p className="product-info-message">{message}</p>
         )}
-      </div>
+      </>
     </>
   );
 }

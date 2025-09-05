@@ -72,8 +72,8 @@ export default function Header() {
 
   return (
     <nav className="navbar sub-container">
-      <Link href="/">
-        <div className="logo">
+      <div className="logo">
+        <Link href="/">
           {logo ? (
             <Image
               src={logo}
@@ -83,8 +83,8 @@ export default function Header() {
               width={193}
             />
           ) : null}
-        </div>
-      </Link>
+        </Link>
+      </div>
 
       <div className="nav-bar-col-2">
         <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>

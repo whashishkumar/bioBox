@@ -58,8 +58,7 @@ export default function ProductCard({
 
   return (
     <div className={`sub-container ${className}`}>
-      {/* margin */}
-      <div className=" margin-top-none ">
+      <div className="margin-top-none procuct-card-parent-container">
         {showCarousel ? (
           <div className="swiper-sub-container">
             {products?.length > slidesPerView ? (

@@ -1,8 +1,8 @@
 import OurProductsPage from '@/pages/ourProductsPage';
 import React from 'react';
 
-export default function ourProducts({ params }) {
-  const { category } = params;
+export default async function ourProducts({ params }) {
+  const { category } = await params;
   return (
     <div>
       <OurProductsPage category={category} />

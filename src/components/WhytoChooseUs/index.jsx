@@ -25,7 +25,6 @@ export default function Choose() {
         empty={isEmpty}
         loaderComponent={Loader}
       />
-
       <div className="padding">
         <PageHeadingTitle
           heading={name}

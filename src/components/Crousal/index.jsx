@@ -8,37 +8,38 @@ import './style.css';
 
 export default function Carousel({ children, slidesPerView }) {
   const items = React.Children.toArray(children);
-
   return (
     <Swiper
       speed={3000}
-      loop={true}
-      modules={[Autoplay]}
+      // loop={true}
+      // modules={[Autoplay]}
+      spaceBetween={30}
       autoplay={{
         delay: 2500,
-        disableOnInteraction: false,
       }}
       breakpoints={{
         0: {
           slidesPerView: 1,
-          spaceBetween: 10,
+          spaceBetween: 13,
         },
         640: {
           slidesPerView: 2,
-          spaceBetween: 15,
+          spaceBetween: -15,
         },
         1024: {
           slidesPerView: 3,
-          spaceBetween: 12,
+          spaceBetween: -50,
         },
         1280: {
           slidesPerView,
-          spaceBetween: 26,
+          spaceBetween: 20,
         },
       }}
     >
       {items.map((child, index) => (
-        <SwiperSlide key={index}>{child}</SwiperSlide>
+        <SwiperSlide key={index} className="card-inside-swiper">
+          {child}
+        </SwiperSlide>
       ))}
     </Swiper>
   );

@@ -107,6 +107,11 @@
   .mvv-subtitle {
     font-size: 14px;
   }
+
+  .mvv-card-box-space {
+    bottom: 0%;
+    z-index: 1;
+  }
 }
 
 @media (max-width: 767px) {
@@ -116,5 +121,10 @@
 
   .mvv-subtitle {
     font-size: 14px;
+  }
+
+  .mvv-card-box-space {
+    bottom: 0%;
+    z-index: 1;
   }
 }

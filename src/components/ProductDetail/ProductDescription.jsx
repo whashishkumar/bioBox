@@ -20,7 +20,7 @@ export default function ProductDescription({ singleProduct, loading }) {
   const imagePath = process.env.NEXT_PUBLIC_IMAGE_PATH;
   const imageUrl = `${baseUrl}${imagePath}/${image}`;
 
-  const priceNotDeclear = 'on request';
+  const priceNotDeclear = ' -- ';
   return (
     <>
       <div className="product-detail-container">

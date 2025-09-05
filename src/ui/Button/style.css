@@ -61,6 +61,7 @@
   padding: 14px 28px;
   font-size: 1.125rem;
   font-family: var(--font-sanchez);
+  margin: 0;
 }
 
 .ui-btn-icon {

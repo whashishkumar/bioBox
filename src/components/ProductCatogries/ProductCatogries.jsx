@@ -95,7 +95,7 @@ const ProductCategories = () => {
         loading={loading}
         error={error}
         loaderComponent={Loader}
-        isEmpty={isEmpty}
+        empty={isEmpty}
       />
       <div className="root-container">
         <div className="section padding-top-category">

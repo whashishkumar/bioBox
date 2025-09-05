@@ -15,7 +15,7 @@ export default function Breadcrumbs() {
 
   return (
     <nav aria-label="breadcrumb" className="py-4 text-sm text-gray-600">
-      <ol className="flex gap-2">
+      <ol className="flex gap-2 crum-listing">
         <li>
           <Link href="/" className="text-blue-600 hover:underline">
             Home
@@ -30,7 +30,7 @@ export default function Breadcrumbs() {
           const isLast = index === filteredPathArray.length - 1;
 
           return (
-            <li key={href} className="flex gap-2 items-center">
+            <li key={href} className="flex gap-2 items-center crum-listing">
               <span>/</span>
               {isLast ? (
                 <span className="font-semibold">{formatLabel(segment)}</span>

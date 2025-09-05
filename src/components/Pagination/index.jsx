@@ -18,13 +18,10 @@ const Pagination = ({
     if (end - start + 1 < maxVisiblePages) {
       start = Math.max(1, end - maxVisiblePages + 1);
     }
-
     return Array.from({ length: end - start + 1 }, (_, i) => start + i);
   };
 
   const visiblePages = getVisiblePages();
-
-  console.log(currentPage, 'currentPage');
 
   return (
     <div className="pagination-container">
