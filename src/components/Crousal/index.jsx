@@ -11,8 +11,8 @@ export default function Carousel({ children, slidesPerView }) {
   return (
     <Swiper
       speed={3000}
-      // loop={true}
-      // modules={[Autoplay]}
+      loop={true}
+      modules={[Autoplay]}
       spaceBetween={30}
       autoplay={{
         delay: 2500,
