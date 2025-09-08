@@ -103,11 +103,6 @@ export default function RootLayout({ children, ...rest }) {
           content="BioBox Pharma commitment to quality Healthcare"
         />
       </Head>
-      <title>BioBox Pharma</title>
-      <meta
-        name="description"
-        content="BioBox Pharma commitment to quality Healthcare"
-      />
       <link rel="icon" href="/favicon.ico" />
       <body
         className={`${geistSans.variable} ${redHatDisplay.variable} ${sanchez.variable} ${poppins.variable} ${lexend.variable}  ${roboto.variable} `}
