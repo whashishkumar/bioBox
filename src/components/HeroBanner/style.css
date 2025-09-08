@@ -85,10 +85,7 @@
   align-items: center;
 }
 
-/* @media (min-width: 768px) and (max-width: 1024px) {
-
-
-
+@media (min-width: 768px) and (max-width: 1024px) {
   .slider-wrapper {
     height: 650px;
     border-radius: 40px;
@@ -103,9 +100,9 @@
     top: 35%;
     width: 100%;
   }
-} */
+}
 
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
   .bg {
     height: 500px;
   }
@@ -114,7 +111,7 @@
     height: 550px;
     border-radius: 30px;
   }
-} */
+}
 
 
 
@@ -210,5 +207,10 @@
     font-size: 18px;
     top: 50%;
     line-height: 24px;
+  }
+
+  .bg {
+    padding: 0 10px;
+    height: 280px;
   }
 }

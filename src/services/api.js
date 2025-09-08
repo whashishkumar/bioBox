@@ -2,7 +2,6 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
-
 const api = axios.create({
   baseURL: API_URL,
   headers: {
@@ -10,12 +9,9 @@ const api = axios.create({
   },
 });
 
-//  Request Interceptor (Add token if needed)
+// Request Interceptor (Add token if needed)
 api.interceptors.request.use(
   (config) => {
-    // const token =
-    //   typeof window !== 'undefined' ? localStorage.getItem('token') : null;
-    // const token = Cookies().get('token')?.value;
     const token = Cookies.get('token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
