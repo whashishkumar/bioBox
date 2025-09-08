@@ -1,6 +1,9 @@
 'use client';
 import AboutUs from '@/components/AboutUs';
-import { fetchLandingPageBannerData } from '@/store/features/landingPage/landingPageSlice';
+import {
+  fetchLandingPageBannerData,
+  loginUser,
+} from '@/store/features/landingPage/landingPageSlice';
 import { lazyImport } from '@/utils/lazyImport';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -33,6 +36,7 @@ export default function LandingPage() {
   const { images = [] } = bannerData || {};
 
   useEffect(() => {
+    dispatch(loginUser());
     // if (!loading) {
     dispatch(fetchLandingPageBannerData());
     // }
