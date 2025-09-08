@@ -197,6 +197,10 @@
     gap: 20px;
   }
 
+  .bg {
+    height: 600px;
+  }
+
   .navbar {
     max-width: 1100px;
     width: auto;
@@ -216,6 +220,81 @@
   .mobileCallButton {
     display: none;
   }
+
+  .logo {
+    z-index: 10;
+  }
+
+  .hamburger {
+    z-index: 10;
+  }
+
+  .nav-bar-col-2 {
+    gap: 0px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .logoImg {
+    height: 60px;
+    width: 120px;
+    object-fit: contain;
+  }
+
+  .logoImg img {
+    object-fit: contain;
+  }
+
+  .navbar {
+    height: auto;
+    box-shadow: none;
+    /* border-radius: 0; */
+    margin-top: 0;
+    z-index: 1;
+  }
+
+  .navLinks {
+    position: absolute;
+    /* top: 72%; */
+    top: 25%;
+    left: 0;
+    width: 100%;
+    background: var(--color-white);
+    flex-direction: column;
+    /* border-radius: 0 0 20px 20px; */
+    border-radius: 20px 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    padding: 0 40px;
+    /* z-index: -1; */
+    height: 100vh;
+  }
+
+  .navLinks ul {
+    flex-direction: column;
+    /* padding: 30px 0; */
+    padding-top: 70px;
+    align-items: flex-start;
+    width: 100%;
+    gap: 25px;
+  }
+
+  .navLinks.open {
+    max-height: 500px;
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+  }
+
+  .callButton {
+    display: none;
+  }
+
+  .mobileCallButton {
+    display: flex;
+  }
+
 }
 
 @media (max-width: 768px) {
