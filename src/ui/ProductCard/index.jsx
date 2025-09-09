@@ -32,7 +32,9 @@ export default function ProductCard({
               height={236}
               width={298}
             />
-          ) : null}
+          ) : (
+            <p className="image-err-text-msg">No Image Available</p>
+          )}
         </div>
         <div className="custom-card-content">
           <span className="custom-card-tag">{product.type}</span>

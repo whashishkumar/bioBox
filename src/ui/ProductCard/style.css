@@ -183,6 +183,14 @@
   font-size: 16px;
 }
 
+.image-err-text-msg {
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  font-family: var(--font-sanchez);
+  font-size: 14px;
+  text-transform: capitalize;
+}
 
 
 @media (min-width: 768px) and (max-width: 1024px) {

@@ -7,6 +7,8 @@ import { FaFacebookF } from 'react-icons/fa';
 import { FaInstagram } from 'react-icons/fa';
 import { FaPinterest } from 'react-icons/fa';
 import Link from 'next/link';
+import { FaLinkedin } from 'react-icons/fa';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContactUsStayConnectedSection } from '@/store/features/contactUs/contactusSlice';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -27,7 +29,7 @@ export default function ReachUs() {
     { key: 'facebook', icon: <FaFacebookF /> },
     { key: 'twitter', icon: <FaXTwitter /> },
     { key: 'instagram', icon: <FaInstagram /> },
-    { key: 'pinterest', icon: <FaPinterest /> },
+    { key: 'linkedIn', icon: <FaLinkedin /> },
   ];
 
   return (

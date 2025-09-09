@@ -27,9 +27,6 @@ export default function ProductDetail({ slug }) {
       bannerImage="/images/contactUs-banner.jpg"
       className="banner-dimesions banner-c-wrapper-container"
     >
-      {/* {loading ? ( */}
-      {/* <GlobalStateHandler loading={loading} loaderComponent={Loader} /> */}
-      {/* ) : ( */}
       <div className="product-detail-page-container all-product-category padding">
         <ProductDescription
           singleProduct={singleProduct?.product}
@@ -37,7 +34,6 @@ export default function ProductDetail({ slug }) {
         />
         <EnquaryForm productName={title} />
       </div>
-      {/* )} */}
     </PageLayout>
   );
 }
