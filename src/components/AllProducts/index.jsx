@@ -85,7 +85,6 @@ export default function AllProducts({ category }) {
       {loading ? (
         <GlobalStateHandler
           loading={loading}
-          error={error}
           empty={isEmpty}
           loaderComponent={Loader}
         />

@@ -169,7 +169,6 @@ export default function BioBoxPharma() {
     <>
       <GlobalStateHandler
         loading={loading}
-        error={error}
         empty={isEmpty}
         loaderComponent={Loader}
       />

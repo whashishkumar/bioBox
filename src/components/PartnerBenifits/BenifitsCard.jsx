@@ -62,7 +62,6 @@ export default function BenifitsCard() {
     <>
       <GlobalStateHandler
         loading={loading}
-        error={error}
         empty={isEmpty}
         loaderComponent={Loader}
       />

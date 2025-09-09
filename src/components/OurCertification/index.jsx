@@ -26,7 +26,6 @@ export default function OurCertification() {
     <>
       <GlobalStateHandler
         loading={loading}
-        error={error}
         empty={isEmpty}
         loaderComponent={Loader}
       />

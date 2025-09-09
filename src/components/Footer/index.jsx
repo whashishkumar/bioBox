@@ -66,9 +66,12 @@ export default function Footer({ className }) {
               <h4>Quick Links</h4>
               <ul>
                 {quick_links?.map((link) => {
+                  const linkUrl = link.url.startsWith('/')
+                    ? link.url
+                    : `/${link.url}`;
                   return (
                     <li key={link.id}>
-                      <Link href={link?.url}>{link.title}</Link>
+                      <Link href={linkUrl}>{link.title}</Link>
                     </li>
                   );
                 })}

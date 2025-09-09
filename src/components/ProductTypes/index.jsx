@@ -21,11 +21,9 @@ export default function ProductTypes() {
     <>
       <GlobalStateHandler
         loading={loading}
-        error={error}
         empty={isEmpty}
         loaderComponent={Loader}
       />
-
       <div className="product-type-root padding">
         <div className="sub-container">
           <PageHeadingTitle

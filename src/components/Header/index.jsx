@@ -55,21 +55,6 @@ export default function Header() {
     }
   };
 
-  // const renderDropdown = (submenu) => (
-  //   <div className="dropdown-menu mobile-dropdown">
-  //     {submenu.map((item) => (
-  //       <Link
-  //         key={item.id}
-  //         href={item.url}
-  //         className={`dropdown-item ${activeLink === item.url ? 'active' : ''}`}
-  //         onClick={() => handleLinkClick(item.url)}
-  //       >
-  //         {item.title}
-  //       </Link>
-  //     ))}
-  //   </div>
-  // );
-
   return (
     <nav className="navbar sub-container">
       <div className="logo">

@@ -64,7 +64,7 @@ export default function OurServices() {
             {enquiry_heading}
             <GoDash className="enquary-tag" />
           </h1>
-          <h2>{enquiry_sub_heading}</h2>
+          {/* <h2>{enquiry_sub_heading}</h2> */}
           <p>{enquiry_description}</p>
         </div>
         <OurServicesForm />

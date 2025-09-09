@@ -93,7 +93,6 @@ const ProductCategories = () => {
     <>
       <GlobalStateHandler
         loading={loading}
-        error={error}
         loaderComponent={Loader}
         empty={isEmpty}
       />

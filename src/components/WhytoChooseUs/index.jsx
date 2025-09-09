@@ -21,7 +21,6 @@ export default function Choose() {
     <>
       <GlobalStateHandler
         loading={loading}
-        error={error}
         empty={isEmpty}
         loaderComponent={Loader}
       />

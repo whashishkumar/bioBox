@@ -82,7 +82,7 @@ const EnquiryForm = ({ productName }) => {
     }
     setTimeout(() => {
       setSubmitted(false);
-    }, 3000);
+    }, 3500);
   };
 
   useEffect(() => {

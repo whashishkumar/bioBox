@@ -4,12 +4,12 @@ import { IoLocationSharp } from 'react-icons/io5';
 import { FaPhone } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { FaFacebookF } from 'react-icons/fa';
-import { FaTwitter } from 'react-icons/fa6';
 import { FaInstagram } from 'react-icons/fa';
 import { FaPinterest } from 'react-icons/fa';
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContactUsStayConnectedSection } from '@/store/features/contactUs/contactusSlice';
+import { FaXTwitter } from 'react-icons/fa6';
 
 export default function ReachUs() {
   const dispatch = useDispatch();
@@ -25,8 +25,8 @@ export default function ReachUs() {
 
   const socialIcons = [
     { key: 'facebook', icon: <FaFacebookF /> },
+    { key: 'twitter', icon: <FaXTwitter /> },
     { key: 'instagram', icon: <FaInstagram /> },
-    { key: 'twitter', icon: <FaTwitter /> },
     { key: 'pinterest', icon: <FaPinterest /> },
   ];
 
@@ -58,11 +58,15 @@ export default function ReachUs() {
           </p>
           <p className="loc-icon">
             <FaPhone />
-            <span className="location-des">{contact_phone}</span>
+            <a href={`tel:${contact_phone}`}>
+              <span className="location-des">{contact_phone}</span>
+            </a>
           </p>
           <p className="loc-icon">
             <MdEmail />
-            <span className="location-des">{contact_email}</span>
+            <a href={`mailto:${contact_email}`} className="location-des">
+              <span className="location-des">{contact_email}</span>
+            </a>
           </p>
         </div>
         <div className="social-network">
