@@ -244,6 +244,13 @@ textarea {
     font-size: 18px;
     line-height: 22px;
   }
+
+  .col-section-contact-us {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+  }
 }
 
 

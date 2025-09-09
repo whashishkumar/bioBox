@@ -4,6 +4,7 @@ import './globals.css';
 import localFont from 'next/font/local';
 import Head from 'next/head';
 import ReduxProvider from '@/store/ReduxProvider';
+import ScrollToTop from '@/components/ScrollToTop/ScrollToTop';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -108,6 +109,7 @@ export default function RootLayout({ children, ...rest }) {
         className={`${geistSans.variable} ${redHatDisplay.variable} ${sanchez.variable} ${poppins.variable} ${lexend.variable}  ${roboto.variable} `}
       >
         <ReduxProvider>{children}</ReduxProvider>
+        <ScrollToTop />
       </body>
     </html>
   );
