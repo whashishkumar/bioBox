@@ -5,7 +5,6 @@ import { FaPhone } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { FaFacebookF } from 'react-icons/fa';
 import { FaInstagram } from 'react-icons/fa';
-import { FaPinterest } from 'react-icons/fa';
 import Link from 'next/link';
 import { FaLinkedin } from 'react-icons/fa';
 
@@ -61,7 +60,9 @@ export default function ReachUs() {
           <p className="loc-icon">
             <FaPhone />
             <a href={`tel:${contact_phone}`}>
-              <span className="location-des">{contact_phone}</span>
+              <span className="location-des">
+                {contact_phone.replace(/\s+/g, '')}
+              </span>
             </a>
           </p>
           <p className="loc-icon">
