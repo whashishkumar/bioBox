@@ -61,7 +61,7 @@ export default function ReachUs() {
             <FaPhone />
             <a href={`tel:${contact_phone}`}>
               <span className="location-des">
-                {contact_phone.replace(/\s+/g, '')}
+                {contact_phone?.replace(/\s+/g, '')}
               </span>
             </a>
           </p>
