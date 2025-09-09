@@ -291,6 +291,10 @@
     display: flex;
   }
 
+  .navbar {
+    height: auto;
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -311,22 +315,33 @@
     display: block;
   }
 
-  .logoImg {
+  /* .logoImg {
     height: 60px;
     width: 120px;
     object-fit: contain;
-  }
+  } */
 
   .logoImg img {
     object-fit: contain;
   }
 
+  .logoImg {
+    object-fit: contain;
+    width: 80px;
+    height: 30px;
+  }
+
+  .hamburger {
+    font-size: 18px;
+  }
+
   .navbar {
-    height: auto;
+    height: 43px;
     box-shadow: none;
     /* border-radius: 0; */
     margin-top: 0;
     z-index: 1;
+    /* height: auto; */
   }
 
   .navLinks {
@@ -350,7 +365,7 @@
   .navLinks ul {
     flex-direction: column;
     /* padding: 30px 0; */
-    padding-top: 70px;
+    padding-top: 45px;
     align-items: flex-start;
     width: 100%;
     gap: 25px;
@@ -358,7 +373,6 @@
 
   .navLinks.open {
     max-height: 500px;
-    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
   }
 
   .callButton {
@@ -368,8 +382,4 @@
   .mobileCallButton {
     display: flex;
   }
-
-  /* .navLinks {
-    z-index: 1;
-  } */
 }

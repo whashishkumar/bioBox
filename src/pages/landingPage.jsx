@@ -23,8 +23,9 @@ const Choose = lazyImport(() => import('@/components/WhytoChooseUs'));
 
 const bannerImages = [
   '/images/bannerNob.jpg',
-  '/images/Welcome-img-1.jpg',
-  '/images/Welcome-img-2.jpg',
+  '/images/bannerNob.jpg',
+  '/images/bannerNob.jpg',
+  '/images/bannerNob.jpg',
 ];
 
 export default function LandingPage() {
@@ -37,14 +38,15 @@ export default function LandingPage() {
 
   useEffect(() => {
     dispatch(loginUser());
-    // if (!loading) {
     dispatch(fetchLandingPageBannerData());
-    // }
   }, []);
 
   return (
     <>
-      <HeroBanner backgroundImage={images} clasName="parent-container" />
+      <HeroBanner
+        backgroundImage={images}
+        className="parent-container banner-resize hero-page-banner"
+      />
       <ProductCategories />
       <AboutUs />
       <ProductTypes />

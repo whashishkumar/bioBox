@@ -26,6 +26,7 @@
 .slide {
   min-width: 100%;
   height: 100%;
+  /* aspect-ratio: 1920 / 900; */
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -86,78 +87,63 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+  .banner-title {
+    font-size: 36px;
+    top: 30%;
+    width: 100%;
+  }
+
+  .bg {
+    height: 300px;
+  }
+
   .slider-wrapper {
-    height: 650px;
+    max-height: 400px;
     border-radius: 40px;
   }
 
   .overlay-content {
-    height: 650px;
+    top: 8%;
   }
 
-  .banner-title {
-    font-size: 36px;
-    top: 35%;
-    width: 100%;
-  }
 }
+
 
 @media (max-width: 768px) {
   .bg {
-    height: 500px;
+    height: 300px;
   }
 
   .slider-wrapper {
-    height: 550px;
-    border-radius: 30px;
-  }
-}
-
-
-
-@media (max-width: 1024px) {
-  .slider-wrapper {
-    height: 650px;
+    height: 350px;
     border-radius: 40px;
   }
 
+  .slide {
+    background-position: center top;
+  }
+
   .overlay-content {
     height: 650px;
-  }
-
-  .banner-title {
-    font-size: 36px;
-    top: 35%;
-    width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .slider-wrapper {
-    height: 550px;
-    border-radius: 30px;
-    top: 3%;
-  }
-
-  .overlay-content {
-    height: 550px;
-  }
-
-  .banner-title {
-    width: 100%;
-    top: 35%;
-  }
-
-  .banner-title h1 {
-    font-size: 28px;
-    top: 35%;
   }
 }
 
 @media (max-width: 600px) {
-  .slider-wrapper {
-    height: 450px;
-    border-radius: 25px;
+  .overlay-content .header-container {
+    pointer-events: auto;
+    width: 94%;
+  }
+
+  .banner-title {
+    font-size: 36px;
+    top: 30%;
+    width: 100%;
+  }
+
+  .slide {
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   .overlay-content {
@@ -167,50 +153,6 @@
   .banner-title {
     width: 100%;
     font-size: 26px;
-    top: 25%;
-  }
-}
-
-
-@media (max-width: 480px) {
-  .slider-wrapper {
-    height: 400px;
-    border-radius: 20px;
-    top: 3%;
-  }
-
-  .overlay-content {
-    height: 400px;
-  }
-
-  .banner-title {
-    width: 100%;
-    font-size: 22px;
-    top: 60%;
-    padding: 0 10px;
-  }
-
-  .bg {
-    padding: 0 10px;
-    height: 350px;
-  }
-}
-
-
-@media (max-width: 360px) {
-  .slider-wrapper {
-    height: 320px;
-    border-radius: 15px;
-  }
-
-  .banner-title {
-    font-size: 18px;
     top: 50%;
-    line-height: 24px;
-  }
-
-  .bg {
-    padding: 0 10px;
-    height: 280px;
   }
 }

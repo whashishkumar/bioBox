@@ -72,8 +72,24 @@ a {
   height: 350px !important;
 }
 
-.bg .banner-dimesions,
-.parent-container .hero-sub-container,
-.hero-sub-container .slider .banner-c-wrapper-container {
+.bg.banner-dimesions.banner-c-wrapper-container .slider-wrapper {
   height: 400px !important;
+}
+
+
+@media (max-width: 600px) {
+
+  .parent-container .hero-sub-container,
+  .hero-sub-container .slider .banner-c-wrapper-container .hero-page-banner {
+    height: 200px !important;
+  }
+
+  .bg.parent-container {
+    height: 150px;
+  }
+
+  .slider-wrapper.hero-sub-container .banner-resize .slider-wrapper {
+    max-height: 190px !important;
+    border-radius: 40px !important;
+  }
 }

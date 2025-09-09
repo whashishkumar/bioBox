@@ -254,6 +254,10 @@
     margin-top: 20px;
   }
 
+  .padding-top {
+    padding-top: 60px;
+  }
+
 }
 
 @media (max-width: 768px) {
@@ -327,5 +331,9 @@
     justify-content: center;
     align-self: center;
     margin-top: 20px;
+  }
+
+  .padding-top {
+    padding-top: 0px;
   }
 }
