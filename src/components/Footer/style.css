@@ -81,8 +81,16 @@
   align-items: center;
 }
 
-.footer-links h4,
+/* .footer-links h4,
 .footer-categories h4 {
+  font-family: var(--font-red-hat-display);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 20px;
+  margin-bottom: 15px;
+} */
+
+.footer-link-heading {
   font-family: var(--font-red-hat-display);
   font-weight: 700;
   font-size: 20px;

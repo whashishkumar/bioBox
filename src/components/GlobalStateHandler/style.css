@@ -15,6 +15,7 @@
 
 .empty-state {
   text-align: center;
-  color: #777;
+  color: var(--text-color-text);
   font-size: 16px;
+  font-family: var(--font-sanchez);
 }

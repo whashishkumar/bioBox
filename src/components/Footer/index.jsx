@@ -63,7 +63,7 @@ export default function Footer({ className }) {
               </div>
             </div>
             <div className="footer-links">
-              <h4>Quick Links</h4>
+              <p className="footer-link-heading">Quick Links</p>
               <ul>
                 {quick_links?.map((link) => {
                   const linkUrl = link.url.startsWith('/')
@@ -78,7 +78,7 @@ export default function Footer({ className }) {
               </ul>
             </div>
             <div className=" footer-categories">
-              <h4>Categories</h4>
+              <p className="footer-link-heading">Categories</p>
               <div className="footer-categories-box">
                 <ul className="category-list">
                   {categories?.map((link) => {

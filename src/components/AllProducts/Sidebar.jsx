@@ -5,7 +5,7 @@ const Sidebar = ({ categories, selectedCategory, handleCategory }) => {
   return (
     <>
       <nav className="submenu-container">
-        <h3 className="catogery-title">Categories</h3>
+        <p className="catogery-title">Categories</p>
         <div className="category-items-list">
           {categories?.map((category) => (
             <button

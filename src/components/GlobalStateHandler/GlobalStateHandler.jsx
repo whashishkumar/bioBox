@@ -18,14 +18,12 @@ export default function GlobalStateHandler({
 
   if (error) {
     return (
-      <div className="api-error">
-        Failed to load data. Please try again later.
-      </div>
+      <p className="api-error">Failed to load data. Please try again later.</p>
     );
   }
 
   if (empty) {
-    return <div className="empty-state">No data available</div>;
+    return <p className="empty-state">No data available</p>;
   }
 
   return <>{children}</>;
