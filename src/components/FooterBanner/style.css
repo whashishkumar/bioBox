@@ -30,8 +30,6 @@
 
 .pcd-image-wrapper {
   width: 45%;
-  /* flex: 1 1 500px; */
-  /* min-width: 280px; */
   max-width: 628px;
   position: relative;
 }
