@@ -65,7 +65,12 @@ export default function PCDSection() {
             ) : null}
             <div className="tag-container">
               <p className="pentogone"></p>
-              <img src="/icons/mski1.png" alt="icon" />
+              <Image
+                src={'/icons/mski1.png'}
+                alt="icon"
+                height={27}
+                width={78}
+              />
             </div>
             <div className="pcd-experience-tag-bg"> </div>
             <div className="pcd-experience-tag">
@@ -78,7 +83,14 @@ export default function PCDSection() {
             <div className="pcd-info-block">
               <div className="pcd-icon">
                 {' '}
-                <img src={patient_icon} alt="pcd-icon" />{' '}
+                {patient_icon && (
+                  <Image
+                    src={patient_icon}
+                    alt="pcd-icon"
+                    height={50}
+                    width={50}
+                  />
+                )}
               </div>
               <div>
                 <h4>{patient_title}</h4>
@@ -87,7 +99,14 @@ export default function PCDSection() {
             </div>
             <div className="pcd-info-block">
               <div className="pcd-icon">
-                <img src={quality_icon} alt="pcd-icon" />
+                {quality_icon && (
+                  <Image
+                    src={quality_icon}
+                    alt="pcd-icon"
+                    height={50}
+                    width={50}
+                  />
+                )}
               </div>
               <div>
                 <h4>{quality_title}</h4>

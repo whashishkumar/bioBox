@@ -133,7 +133,7 @@
   }
 
   .about-image-bg {
-    width: 400px;
+    width: auto;
     height: auto;
   }
 
@@ -156,6 +156,10 @@
   .about-note {
     align-items: center;
     text-align: left;
+  }
+
+  .about-note img {
+    object-fit: contain;
   }
 }
 

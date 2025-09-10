@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './style.css';
 import { useEffect } from 'react';
 import { fetchAboutUsData } from '@/store/features/aboutUs/aboutUsPageSlice';
+import Image from 'next/image';
 
 const aboutUsa = {
   image: '/images/doctor.png',
@@ -53,12 +54,24 @@ export default function AboutUs() {
       <div className="about-container padding ">
         <div className="about-left">
           <div className="container-image-sec">
-            <img
-              src={icon_image}
-              alt="Doctor"
-              className="about-image-quality"
-            />
-            <img src={main_image} alt="Doctor" className="about-image-bg" />
+            {icon_image && (
+              <Image
+                src={icon_image}
+                height={200}
+                width={280}
+                alt="Doctor"
+                className="about-image-quality"
+              />
+            )}
+            {main_image && (
+              <Image
+                src={main_image}
+                height={500}
+                width={550}
+                alt="Doctor"
+                className="about-image-bg"
+              />
+            )}
           </div>
         </div>
 
@@ -74,7 +87,12 @@ export default function AboutUs() {
             ))}
           </div>
           <div className="about-note">
-            <img src={'/images/aboutbg.png'} />
+            <Image
+              src={'/images/aboutbg.png'}
+              height={58}
+              width={58}
+              alt="icon"
+            />
             <p>{aboutUsa.note}</p>
           </div>
         </div>

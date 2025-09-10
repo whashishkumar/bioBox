@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useState, useCallback } from 'react';
 import { FaArrowCircleUp } from 'react-icons/fa';
-
 import './style.css';
 
 export default function ScrollToTop() {

@@ -6,10 +6,11 @@ import ProductDescription from './ProductDescription';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSingleProduct } from '@/store/features/ourProducts/ourProductsSlice';
+import { Loader } from '@/utils/lazyImport';
 
 export default function ProductDetail({ slug }) {
   const dispatch = useDispatch();
-  const { singleProduct, loading, error } =
+  const { singleProduct, loading } =
     useSelector((state) => state?.allProducts) || {};
   const { product } = singleProduct || {};
   const { title } = product || {};
@@ -18,7 +19,7 @@ export default function ProductDetail({ slug }) {
     if (slug) {
       dispatch(fetchSingleProduct(slug));
     }
-  }, [slug, dispatch]);
+  }, [slug]);
 
   return (
     <PageLayout
@@ -26,13 +27,17 @@ export default function ProductDetail({ slug }) {
       bannerImage="/images/contactUs-banner.jpg"
       className="banner-dimesions banner-c-wrapper-container"
     >
-      <div className="product-detail-page-container all-product-category padding">
-        <ProductDescription
-          singleProduct={singleProduct?.product}
-          loading={loading}
-        />
-        <EnquaryForm productName={title} />
-      </div>
+      {singleProduct?.product ? (
+        <div className="product-detail-page-container all-product-category padding">
+          <ProductDescription
+            singleProduct={singleProduct?.product}
+            loading={loading}
+          />
+          <EnquaryForm productName={title} />
+        </div>
+      ) : (
+        <Loader />
+      )}
     </PageLayout>
   );
 }

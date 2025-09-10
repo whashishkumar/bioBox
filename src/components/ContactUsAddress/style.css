@@ -63,7 +63,7 @@
   .contact-us__wrapper {
     gap: 30px;
     flex-direction: column;
-    margin-top: 80px;
+    /* margin-top: 80px; */
   }
 
   .contact-us__block {
@@ -73,6 +73,7 @@
 
   .contact-us__map {
     height: 280px;
+    width: auto;
   }
 
   .contact-us__title {
@@ -97,6 +98,7 @@
 
   .contact-us__map {
     height: 220px;
+    width: auto;
   }
 
   .contact-us__title {

@@ -116,6 +116,7 @@ const ourProductsSlice = createSlice({
     builder
       .addCase(fetchSingleProduct.pending, (state) => {
         state.loading = true;
+        state.singleProduct = {};
       })
       .addCase(fetchSingleProduct.fulfilled, (state, action) => {
         state.loading = false;

@@ -22,6 +22,10 @@ export default function ProductDescription({ singleProduct, loading }) {
   const imageUrl = `${baseUrl}${imagePath}/${image}`;
   const priceNotDeclear = ' -- ';
 
+  const handleGetToProductPrevPage = () => {
+    router.back();
+  };
+
   return (
     <>
       <div className="product-detail-container">
@@ -84,7 +88,7 @@ export default function ProductDescription({ singleProduct, loading }) {
               {priceNotDeclear}
             </p>
           )}
-          <button className="submit-btn" onClick={() => router.back()}>
+          <button className="submit-btn" onClick={handleGetToProductPrevPage}>
             Back to Products
           </button>
         </div>

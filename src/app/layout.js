@@ -10,6 +10,7 @@ export const metadata = {
   description: 'BioBox Pharma commitment to quality Healthcare',
   icons: {
     icon: '/images/logo.png',
+    apple: '/images/logo.png',
   },
 };
 
