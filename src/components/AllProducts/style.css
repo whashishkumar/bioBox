@@ -197,7 +197,7 @@
   @media (max-width: 768px) {
     .banner-title {
       width: 100%;
-      top: 60%;
+      /* top: 60%; */
     }
 
     .all-products-container {
