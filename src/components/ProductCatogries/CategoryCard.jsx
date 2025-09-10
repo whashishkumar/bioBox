@@ -7,7 +7,6 @@ export default function CategoryCard({ title, image, icon_image }) {
   const imageUrl = `${baseUrl}${imagePath}/${image}`;
   const iconImageUrl = `${baseUrl}${imagePath}/${icon_image}`;
 
-  // https://biobox.whdev.in/api/v1/products?page=2
   return (
     <div className="card">
       <div className="image-wrapper-category">

@@ -4,7 +4,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const fetchProductType = createAsyncThunk(
   'landingPage/fetchProductTypes',
   async () => {
-    const response = await api.get('/v1/product-types');
+    const response = await api.get('/product-types');
     return response.data;
   }
 );

@@ -4,7 +4,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const fetchLandingPageOurCertifacationData = createAsyncThunk(
   'landingPage/fetchLandingPageOurCertifacationData',
   async () => {
-    const response = await api.get('/v1/our-certifications');
+    const response = await api.get('/our-certifications');
     return response.data;
   }
 );

@@ -5,7 +5,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const fetchOurProducts = createAsyncThunk(
   'landingPage/fetchOurProducts',
   async (payload) => {
-    const response = await api.get(`/v1/products`);
+    const response = await api.get(`/products`);
     return response.data;
   }
 );
@@ -13,7 +13,7 @@ export const fetchOurProducts = createAsyncThunk(
 export const fetchSingleProduct = createAsyncThunk(
   'landingPage/fetchSingleProduct',
   async (payload) => {
-    const response = await api.get(`/v1/our-products/${payload}`);
+    const response = await api.get(`/our-products/${payload}`);
     return response.data;
   }
 );
@@ -21,7 +21,7 @@ export const fetchSingleProduct = createAsyncThunk(
 export const fetchProductCategories = createAsyncThunk(
   'landingPage/fetchProductCategories',
   async () => {
-    const response = await api.get('/v1/product-categories');
+    const response = await api.get('/product-categories');
     return response.data;
   }
 );
@@ -29,7 +29,7 @@ export const fetchProductCategories = createAsyncThunk(
 export const fetchProductTypes = createAsyncThunk(
   'landingPage/fetchProductTypes',
   async () => {
-    const response = await api.get('/v1/product-types');
+    const response = await api.get('/product-types');
     return response.data;
   }
 );
@@ -37,7 +37,7 @@ export const fetchProductTypes = createAsyncThunk(
 export const fetchProductByTypes = createAsyncThunk(
   'landingPage/fetchProductByTypes',
   async (type) => {
-    const response = await api.get(`/v1/products/type/${type}`);
+    const response = await api.get(`/products/type/${type}`);
     return response.data;
   }
 );
@@ -46,7 +46,7 @@ export const productEnquary = createAsyncThunk(
   'enquiryForm/productEnquary',
   async (formData, { rejectWithValue }) => {
     try {
-      const response = await api.post('/v1/product-enquiry', formData);
+      const response = await api.post('/product-enquiry', formData);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || 'Something went wrong');
@@ -57,7 +57,7 @@ export const productEnquary = createAsyncThunk(
 export const fetchExplorePharmaProdctSection = createAsyncThunk(
   'landingPage/fetchExplorePharmaProdctSection',
   async () => {
-    const response = await api.get('/v1/our-products/call-us-now');
+    const response = await api.get('/our-products/call-us-now');
     return response.data;
   }
 );
@@ -65,7 +65,7 @@ export const fetchExplorePharmaProdctSection = createAsyncThunk(
 export const fetchOurProductList = createAsyncThunk(
   'landingPage/fetchOurProductList',
   async ({ mainCategory, subCategory, currentPage } = {}) => {
-    const parts = ['/v1/our-products-list'];
+    const parts = ['/our-products-list'];
     // Add mainCategory if exists
     if (mainCategory) {
       parts.push(mainCategory);

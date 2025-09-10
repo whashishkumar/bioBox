@@ -15,7 +15,7 @@ export const loginUser = createAsyncThunk(
     };
 
     try {
-      const response = await api.post('/v1/login', credentials);
+      const response = await api.post('/login', credentials);
       const { bearer_token, user } = response.data;
       Cookies.set('token', bearer_token, {
         expires: 7,
@@ -34,7 +34,7 @@ export const loginUser = createAsyncThunk(
 export const fetchLandingPageMenuData = createAsyncThunk(
   'landingPage/fetchLandingPageMenuData',
   async () => {
-    const response = await api.get('/v1/menus');
+    const response = await api.get('/menus');
     return response.data;
   }
 );
@@ -42,7 +42,7 @@ export const fetchLandingPageMenuData = createAsyncThunk(
 export const fetchLandingPageBannerData = createAsyncThunk(
   'landingPage/fetchLandingPageBannerData',
   async () => {
-    const response = await api.get('/v1/hero-section');
+    const response = await api.get('/hero-section');
     return response.data;
   }
 );

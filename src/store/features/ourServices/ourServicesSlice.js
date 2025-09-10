@@ -4,7 +4,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const fetchLandingPageOurServices = createAsyncThunk(
   'ourServicesPage/fetchLandingPageOurServices',
   async () => {
-    const response = await api.get('/v1/service-page/banner');
+    const response = await api.get('/service-page/banner');
     return response.data;
   }
 );
@@ -12,7 +12,7 @@ export const fetchLandingPageOurServices = createAsyncThunk(
 export const fetchOurServicesSecondSection = createAsyncThunk(
   'ourServicesPage/fetchOurServicesSecondSection',
   async () => {
-    const response = await api.get('/v1/service-page/second-section');
+    const response = await api.get('/service-page/second-section');
     return response.data;
   }
 );
@@ -21,7 +21,7 @@ export const submitEnquiryForm = createAsyncThunk(
   'enquiryForm/submitEnquiryForm',
   async (formData, { rejectWithValue }) => {
     try {
-      const response = await api.post('/v1/enquiry-form', formData);
+      const response = await api.post('/enquiry-form', formData);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || 'Something went wrong');

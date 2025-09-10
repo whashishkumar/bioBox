@@ -4,7 +4,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const fetchLandingPageChooseUsData = createAsyncThunk(
   'landingPage/fetchLandingPageChooseUsData',
   async () => {
-    const response = await api.get('/v1/why-choose-us');
+    const response = await api.get('/why-choose-us');
     return response.data;
   }
 );

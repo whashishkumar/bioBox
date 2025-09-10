@@ -4,7 +4,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const fetchPdcBusinessOppurnity = createAsyncThunk(
   'landingPage/fetchPdcBusinessOppurnity',
   async () => {
-    const response = await api.get('/v1/pcd-business-opportunity');
+    const response = await api.get('/pcd-business-opportunity');
     return response.data;
   }
 );

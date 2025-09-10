@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchPartnerBenifitsInfo = createAsyncThunk(
   'partnerBenifits/fetchPartnerBenifitsInfo',
   async () => {
-    const response = await api.get('/v1/about-page/fifth-section');
+    const response = await api.get('/about-page/fifth-section');
     return response.data;
   }
 );

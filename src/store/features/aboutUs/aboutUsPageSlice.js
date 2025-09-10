@@ -5,7 +5,7 @@ const { createSlice, createAsyncThunk } = require('@reduxjs/toolkit');
 export const fetchAboutUsData = createAsyncThunk(
   'landingPage/fetchAboutUsData',
   async () => {
-    const response = await api.get('/v1/about-section');
+    const response = await api.get('/about-section');
     return response.data;
   }
 );
@@ -13,7 +13,7 @@ export const fetchAboutUsData = createAsyncThunk(
 export const fetchAboutUsLandingPageBannerData = createAsyncThunk(
   'landingPage/fetchAboutUsLandingPageBannerData',
   async () => {
-    const response = await api.get('/v1/about-page/banner');
+    const response = await api.get('/about-page/banner');
     return response.data;
   }
 );
@@ -21,7 +21,7 @@ export const fetchAboutUsLandingPageBannerData = createAsyncThunk(
 export const fetchAboutUsWelcomePageData = createAsyncThunk(
   'landingPage/fetchAboutUsWelcomePageData',
   async () => {
-    const response = await api.get('/v1/about-page/second-section');
+    const response = await api.get('/about-page/second-section');
     return response.data;
   }
 );
@@ -29,7 +29,7 @@ export const fetchAboutUsWelcomePageData = createAsyncThunk(
 export const fetchAboutUsCeoSectionInfo = createAsyncThunk(
   'landingPage/fetchAboutUsCeoSectionInfo',
   async () => {
-    const response = await api.get('/v1/about-page/third-section');
+    const response = await api.get('/about-page/third-section');
     return response.data;
   }
 );
@@ -37,7 +37,7 @@ export const fetchAboutUsCeoSectionInfo = createAsyncThunk(
 export const fetchAboutUsWhyWeAreUnique = createAsyncThunk(
   'landingPage/fetchAboutUsWhyWeAreUnique',
   async () => {
-    const response = await api.get('/v1/about-page/fourth-section');
+    const response = await api.get('/about-page/fourth-section');
     return response.data;
   }
 );
@@ -45,7 +45,7 @@ export const fetchAboutUsWhyWeAreUnique = createAsyncThunk(
 export const fetchAboutUsProductListing = createAsyncThunk(
   'landingPage/fetchAboutUsProductListing',
   async () => {
-    const response = await api.get('/v1/about-page/sixth-section');
+    const response = await api.get('/about-page/sixth-section');
     return response.data;
   }
 );

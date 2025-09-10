@@ -4,7 +4,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const fetchFooterData = createAsyncThunk(
   'landingPage/fetchFooterData',
   async () => {
-    const response = await api.get('v1/footer-menu');
+    const response = await api.get('/footer-menu');
     return response.data;
   }
 );
