@@ -93,7 +93,7 @@ export default function PCDSection() {
                 )}
               </div>
               <div>
-                <h4>{patient_title}</h4>
+                <h2 className="patient-title">{patient_title}</h2>
                 <p>{patient_description}</p>
               </div>
             </div>
@@ -109,7 +109,7 @@ export default function PCDSection() {
                 )}
               </div>
               <div>
-                <h4>{quality_title}</h4>
+                <h2 className="patient-title">{quality_title}</h2>
                 <p>{quality_description}</p>
               </div>
             </div>

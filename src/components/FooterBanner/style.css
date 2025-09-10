@@ -129,7 +129,12 @@
   align-items: center;
 }
 
-.pcd-info-block h4 {
+.pcd-info-block h2 {
+  font-family: var(--font-lexend);
+  font-size: 19px;
+}
+
+.patient-title {
   font-family: var(--font-lexend);
   font-size: 19px;
 }
