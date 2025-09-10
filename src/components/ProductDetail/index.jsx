@@ -6,20 +6,19 @@ import ProductDescription from './ProductDescription';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSingleProduct } from '@/store/features/ourProducts/ourProductsSlice';
-import GlobalStateHandler from '../GlobalStateHandler/GlobalStateHandler';
-import { Loader } from '@/utils/lazyImport';
 
 export default function ProductDetail({ slug }) {
   const dispatch = useDispatch();
   const { singleProduct, loading, error } =
     useSelector((state) => state?.allProducts) || {};
-
   const { product } = singleProduct || {};
   const { title } = product || {};
 
   useEffect(() => {
-    dispatch(fetchSingleProduct(slug));
-  }, []);
+    if (slug) {
+      dispatch(fetchSingleProduct(slug));
+    }
+  }, [slug, dispatch]);
 
   return (
     <PageLayout

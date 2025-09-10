@@ -25,7 +25,7 @@ export default function ProductCard({
     return (
       <div className="custom-card">
         <div className="custom-card-image">
-          {imageUrl ? (
+          {imageUrl && product.image !== null ? (
             <Image
               src={imageUrl}
               alt={'product-image'}

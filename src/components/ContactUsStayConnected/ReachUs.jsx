@@ -34,9 +34,9 @@ export default function ReachUs() {
   return (
     <div className="registred-address ">
       <iframe
+        src={company_iframe}
         className="reach-us-map"
         title="BioBox Location"
-        src={company_iframe}
         width="100%"
         height="100%"
         style={{ border: 0, borderRadius: '12px' }}
@@ -59,11 +59,14 @@ export default function ReachUs() {
           </p>
           <p className="loc-icon">
             <FaPhone />
-            <a href={`tel:${contact_phone}`}>
-              <span className="location-des">
-                {contact_phone?.replace(/\s+/g, '')}
-              </span>
-            </a>
+
+            {contact_phone && (
+              <a href={`tel:${contact_phone}`}>
+                <span className="location-des">
+                  {contact_phone?.replace(/\s+/g, '')}
+                </span>
+              </a>
+            )}
           </p>
           <p className="loc-icon">
             <MdEmail />

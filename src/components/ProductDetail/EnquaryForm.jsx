@@ -80,10 +80,17 @@ const EnquiryForm = ({ productName }) => {
       setErrors(validationErrors);
       setSubmitted(false);
     }
-    setTimeout(() => {
-      setSubmitted(false);
-    }, 3500);
   };
+
+  useEffect(() => {
+    let timer;
+    if (submitted) {
+      timer = setTimeout(() => {
+        setSubmitted(false);
+      }, 4000);
+    }
+    return () => clearTimeout(timer);
+  }, [submitted]);
 
   useEffect(() => {
     if (productName) {
@@ -137,7 +144,7 @@ const EnquiryForm = ({ productName }) => {
             <input
               type="text"
               name="product_name"
-              value={formData?.product_name}
+              value={formData?.product_name || ''}
               readOnly
             />
           </div>
@@ -159,7 +166,6 @@ const EnquiryForm = ({ productName }) => {
           Submit
         </button>
       </form>
-
       {submitted ? <p className="success">{formSubmitMessage}</p> : null}
     </div>
   );

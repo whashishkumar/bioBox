@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React from 'react';
+import { Loader } from '@/utils/lazyImport';
 
 export default function ProductDescription({ singleProduct, loading }) {
   const router = useRouter();
@@ -19,20 +20,22 @@ export default function ProductDescription({ singleProduct, loading }) {
   const baseUrl = process.env.NEXT_PUBLIC_IMAGE_URL;
   const imagePath = process.env.NEXT_PUBLIC_IMAGE_PATH;
   const imageUrl = `${baseUrl}${imagePath}/${image}`;
-
   const priceNotDeclear = ' -- ';
+
   return (
     <>
       <div className="product-detail-container">
         <div className="product-image-section">
-          {imageUrl ? (
+          {imageUrl && image !== null ? (
             <Image
               src={imageUrl}
               height={250}
               width={300}
               alt="priduct-image"
             />
-          ) : null}
+          ) : (
+            <p className="image-err-text-msg">No Image Available</p>
+          )}
         </div>
         <div className="product-info-section">
           {type ? <span className="product-tag">{type}</span> : null}
@@ -81,7 +84,6 @@ export default function ProductDescription({ singleProduct, loading }) {
               {priceNotDeclear}
             </p>
           )}
-
           <button className="submit-btn" onClick={() => router.back()}>
             Back to Products
           </button>

@@ -244,14 +244,16 @@
 
   .pcd-experience-tag {
     writing-mode: rl-tb;
+    -webkit-writing-mode: vertical-rl;
     height: 50px;
     top: 2%;
     width: 260px;
-    right: -4%;
+    right: 0%;
   }
 
   .pcd-experience-tag-bg {
     writing-mode: rl-tb;
+    -webkit-writing-mode: vertical-rl;
     height: 50px;
     top: 0%;
     /* left: 38%; */

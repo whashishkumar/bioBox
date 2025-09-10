@@ -23,6 +23,7 @@ export default function ContactUsAddress() {
   useEffect(() => {
     dispatch(fetchContactUsSecondSection());
   }, []);
+
   return (
     <div className="contact-us padding ">
       <div className="contact-us__wrapper sub-container ">
@@ -42,7 +43,6 @@ export default function ContactUsAddress() {
             <p className="contact-us__icon">
               <FaShoppingBasket />
               <span className="contact-us__location">
-                {' '}
                 {registered_local_address}{' '}
               </span>
             </p>

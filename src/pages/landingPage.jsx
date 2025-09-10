@@ -21,13 +21,6 @@ const ProductCategories = lazyImport(() =>
 const ProductTypes = lazyImport(() => import('@/components/ProductTypes'));
 const Choose = lazyImport(() => import('@/components/WhytoChooseUs'));
 
-const bannerImages = [
-  '/images/bannerNob.jpg',
-  '/images/bannerNob.jpg',
-  '/images/bannerNob.jpg',
-  '/images/bannerNob.jpg',
-];
-
 export default function LandingPage() {
   const dispatch = useDispatch();
   const { bannerData, loading, error } = useSelector(
@@ -39,7 +32,7 @@ export default function LandingPage() {
   useEffect(() => {
     dispatch(loginUser());
     dispatch(fetchLandingPageBannerData());
-  }, []);
+  }, [dispatch]);
 
   return (
     <>

@@ -1,10 +1,17 @@
-'use client';
+// 'use client';
 import { Geist } from 'next/font/google';
 import './globals.css';
 import localFont from 'next/font/local';
-import Head from 'next/head';
 import ReduxProvider from '@/store/ReduxProvider';
 import ScrollToTop from '@/components/ScrollToTop/ScrollToTop';
+
+export const metadata = {
+  title: 'bioBox Pharma',
+  description: 'BioBox Pharma commitment to quality Healthcare',
+  icons: {
+    icon: '/images/logo.png',
+  },
+};
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -97,14 +104,6 @@ const roboto = localFont({
 export default function RootLayout({ children, ...rest }) {
   return (
     <html lang="en">
-      <Head>
-        <title>bioBox Pharma</title>
-        <meta
-          name="description"
-          content="BioBox Pharma commitment to quality Healthcare"
-        />
-      </Head>
-      <link rel="icon" href="/favicon.ico" />
       <body
         className={`${geistSans.variable} ${redHatDisplay.variable} ${sanchez.variable} ${poppins.variable} ${lexend.variable}  ${roboto.variable} `}
       >

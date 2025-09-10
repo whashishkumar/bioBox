@@ -73,7 +73,7 @@
 }
 
 .ourProduct-banner-title {
-  text-align: left;
+  text-align: left !important;
 }
 
 /* .swiper-slide {
