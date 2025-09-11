@@ -4,6 +4,7 @@ import './globals.css';
 import localFont from 'next/font/local';
 import ReduxProvider from '@/store/ReduxProvider';
 import ScrollToTop from '@/components/ScrollToTop/ScrollToTop';
+import AuthProvider from '@/store/AuthProvider';
 
 export const metadata = {
   title: 'bioBox Pharma',
@@ -107,7 +108,9 @@ export default function RootLayout({ children, ...rest }) {
       <body
         className={`${geistSans.variable} ${redHatDisplay.variable} ${sanchez.variable} ${poppins.variable} ${lexend.variable}  ${roboto.variable} `}
       >
-        <ReduxProvider>{children}</ReduxProvider>
+        <ReduxProvider>
+          <AuthProvider>{children}</AuthProvider>
+        </ReduxProvider>
         <ScrollToTop />
       </body>
     </html>

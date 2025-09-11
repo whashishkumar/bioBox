@@ -68,7 +68,7 @@ const landingPageSlice = createSlice({
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.token = action.payload.token;
+        state.token = action.payload.bearer_token;
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;
