@@ -75,8 +75,6 @@ export default function AllProducts({ category }) {
     // }
   }, [dispatch, selectedCategory, activeCategory, currentPage]);
 
-  console.log(ourProductsList, 'products');
-
   return (
     <>
       {loading ? (
