@@ -93,7 +93,7 @@ export default function AboutUs() {
               width={58}
               alt="icon"
             />
-            <p>{aboutUsa.note}</p>
+            <p className="about-note-desc">{aboutUsa.note}</p>
           </div>
         </div>
       </div>

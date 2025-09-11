@@ -159,6 +159,7 @@ export default function BioBoxPharma() {
   const whyweUniqueImageUrl = `${baseUrl}${imagePath}/${image_1}`;
   const whyWeUniqueImageUrl = `${baseUrl}${imagePath}/${image_2}`;
   const ceoProfileImage = `${baseUrl}${imagePath}/${ceo_image}`;
+
   useEffect(() => {
     dispatch(fetchAboutUsWelcomePageData());
     dispatch(fetchAboutUsWhyWeAreUnique());

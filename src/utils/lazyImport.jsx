@@ -13,5 +13,6 @@ export const Loader = () => {
 export function lazyImport(factory) {
   return dynamic(factory, {
     loading: () => <Loader />,
+    ssr: true,
   });
 }

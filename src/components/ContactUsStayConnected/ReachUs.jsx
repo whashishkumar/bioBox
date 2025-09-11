@@ -8,21 +8,20 @@ import { FaInstagram } from 'react-icons/fa';
 import Link from 'next/link';
 import { FaLinkedin } from 'react-icons/fa';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchContactUsStayConnectedSection } from '@/store/features/contactUs/contactusSlice';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { fetchContactUsStayConnectedSection } from '@/store/features/contactUs/contactusSlice';
 import { FaXTwitter } from 'react-icons/fa6';
 
-export default function ReachUs() {
-  const dispatch = useDispatch();
-  const { stayConnected, loading, error } =
-    useSelector((state) => state.contactUs) || {};
+export default function ReachUs({ data, menu }) {
+  // const dispatch = useDispatch();
+  // const { stayConnected, loading, error } =
+  //   useSelector((state) => state.contactUs) || {};
+  // const { data, menu } = stayConnected || {};
 
-  const { data, menu } = stayConnected || {};
   const { company_iframe, address, contact_phone, contact_email } = data || {};
-
-  useEffect(() => {
-    dispatch(fetchContactUsStayConnectedSection());
-  }, []);
+  // useEffect(() => {
+  // dispatch(fetchContactUsStayConnectedSection());
+  // }, []);
 
   const socialIcons = [
     { key: 'facebook', icon: <FaFacebookF /> },

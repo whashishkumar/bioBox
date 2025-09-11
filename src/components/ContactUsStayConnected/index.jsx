@@ -17,12 +17,20 @@ export default function StayConnected() {
   const dispatch = useDispatch();
   const { stayConnected } = useSelector((state) => state.contactUs) || {};
 
-  const { data } = stayConnected || {};
+  const { data, menu } = stayConnected || {};
   const { title, heading, sub_heading } = data || {};
 
+  const fetchData = async () => {
+    try {
+      await dispatch(fetchContactUsStayConnectedSection()).unwrap();
+    } catch (error) {
+      console.error('Failed to fetch:', error);
+    }
+  };
+
   useEffect(() => {
-    dispatch(fetchContactUsStayConnectedSection());
-  }, []);
+    fetchData();
+  }, [dispatch]);
   return (
     <div className="hero-sub-container">
       <div className="sub-container  padding">
@@ -34,7 +42,7 @@ export default function StayConnected() {
         />
         <div className="col-section-contact-us padding-y-axis">
           <div className="reach-us">
-            <ReachUs />
+            <ReachUs data={data} menu={menu} />
           </div>
           <div className="contact-us-form">
             <ContactUsForm />
