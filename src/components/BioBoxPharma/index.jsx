@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './style.css';
 import { PiEyeBold } from 'react-icons/pi';
 import { IoIosCheckbox } from 'react-icons/io';
@@ -110,6 +110,8 @@ const uniqueData = {
   },
 };
 export default function BioBoxPharma() {
+  const hasFetched = useRef(false);
+
   const dispatch = useDispatch();
   const {
     aboutUsWelcomePageData,
@@ -161,9 +163,12 @@ export default function BioBoxPharma() {
   const ceoProfileImage = `${baseUrl}${imagePath}/${ceo_image}`;
 
   useEffect(() => {
-    dispatch(fetchAboutUsWelcomePageData());
-    dispatch(fetchAboutUsWhyWeAreUnique());
-    dispatch(fetchAboutUsCeoSectionInfo());
+    if (!hasFetched.current) {
+      dispatch(fetchAboutUsWelcomePageData());
+      dispatch(fetchAboutUsWhyWeAreUnique());
+      dispatch(fetchAboutUsCeoSectionInfo());
+      hasFetched.current = true;
+    }
   }, []);
 
   return (

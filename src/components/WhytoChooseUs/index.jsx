@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PageHeadingTitle from '../PageHeadingTitle';
 import MissionVisionValues from './MissionVisionValues';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,13 +7,17 @@ import { fetchLandingPageChooseUsData } from '@/store/features/whyToChooseus/why
 import { Loader } from '@/utils/lazyImport';
 import GlobalStateHandler from '../GlobalStateHandler/GlobalStateHandler';
 export default function Choose() {
+  const hasFetched = useRef(false);
   const dispatch = useDispatch();
   const { data, loading, error } = useSelector((state) => state.chooseUs || {});
   const chooseData = data?.data || {};
   const { name, description, mission, value, vision } = chooseData;
 
   useEffect(() => {
-    dispatch(fetchLandingPageChooseUsData());
+    if (!hasFetched.current) {
+      dispatch(fetchLandingPageChooseUsData());
+      hasFetched.current = true;
+    }
   }, [dispatch]);
 
   const isEmpty = !name && !description && !mission && !value && !vision;

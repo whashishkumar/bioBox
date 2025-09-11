@@ -5,10 +5,11 @@ import ExplorePharmaProducts from '@/components/ExploreProductBanner';
 import PartnerBenifits from '@/components/PartnerBenifits';
 import { fetchOurProducts } from '@/store/features/ourProducts/ourProductsSlice';
 import Breadcrumbs from '@/ui/Breadcrumbs/Breadcrumbs';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function OurProductsPage({ category }) {
+  const hasFetched = useRef(false);
   const dispatch = useDispatch();
   const { ourProducts } = useSelector((state) => state?.allProducts) || {};
   const { allproducts } = ourProducts || {};
@@ -18,7 +19,10 @@ export default function OurProductsPage({ category }) {
   const imageUrl = `${baseUrl}${imagePath}/${banner_image}`;
 
   useEffect(() => {
-    dispatch(fetchOurProducts());
+    if (!hasFetched.current) {
+      dispatch(fetchOurProducts());
+      hasFetched.current = true;
+    }
   }, []);
 
   return (
@@ -32,7 +36,6 @@ export default function OurProductsPage({ category }) {
         breadCrumbs={<Breadcrumbs />}
       >
         <AllPRoducts category={category} />
-
         <ExplorePharmaProducts />
         <PartnerBenifits />
       </PageLayout>

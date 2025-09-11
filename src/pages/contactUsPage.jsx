@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { lazyImport } from '@/utils/lazyImport';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContactUsBannerInfo } from '@/store/features/contactUs/contactusSlice';
@@ -13,14 +13,20 @@ const StayConnected = lazyImport(() =>
 );
 
 export default function ContactUsPage() {
+  const hasFetched = useRef(false);
+
   const dispatch = useDispatch();
+
   const { contactUs, loading, error } =
     useSelector((state) => state?.contactUs) || {};
 
   const { heading, image } = contactUs?.data || {};
 
   useEffect(() => {
-    dispatch(fetchContactUsBannerInfo());
+    if (!hasFetched.current) {
+      dispatch(fetchContactUsBannerInfo());
+      hasFetched.current = true;
+    }
   }, []);
   return (
     <PageLayout

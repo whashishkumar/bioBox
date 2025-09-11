@@ -5,7 +5,7 @@ import {
   loginUser,
 } from '@/store/features/landingPage/landingPageSlice';
 import { lazyImport } from '@/utils/lazyImport';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const FooterBanner = lazyImport(() => import('@/components/FooterBanner'));
@@ -22,6 +22,7 @@ const ProductTypes = lazyImport(() => import('@/components/ProductTypes'));
 const Choose = lazyImport(() => import('@/components/WhytoChooseUs'));
 
 export default function LandingPage() {
+  const hasFetched = useRef(false);
   const dispatch = useDispatch();
   const { bannerData, loading, error } = useSelector(
     (state) => state.landingPage
@@ -30,8 +31,11 @@ export default function LandingPage() {
   const { images = [] } = bannerData || {};
 
   useEffect(() => {
-    dispatch(loginUser());
-    dispatch(fetchLandingPageBannerData());
+    if (!hasFetched.current) {
+      dispatch(loginUser());
+      dispatch(fetchLandingPageBannerData());
+      hasFetched.current = true;
+    }
   }, [dispatch]);
 
   return (

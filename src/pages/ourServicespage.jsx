@@ -1,11 +1,13 @@
 'use client';
 import OurServices from '@/components/OurServices';
 import PageLayout from '@/app/pageLayout';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchLandingPageOurServices } from '@/store/features/ourServices/ourServicesSlice';
 
 export default function OurServicesPage() {
+  const hasFetched = useRef(false);
+
   const dispatch = useDispatch();
 
   const { ourServiceBnnerInfo, loading, error } =
@@ -18,7 +20,10 @@ export default function OurServicesPage() {
   } = ourServiceBnnerInfo?.data || {};
 
   useEffect(() => {
-    dispatch(fetchLandingPageOurServices());
+    if (!hasFetched.current) {
+      dispatch(fetchLandingPageOurServices());
+      hasFetched.current = true;
+    }
   }, []);
   return (
     <>

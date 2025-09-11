@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PageHeadingTitle from '../PageHeadingTitle';
 import './style.css';
 import ReachUs from './ReachUs';
@@ -14,6 +14,8 @@ const headerObject = {
 };
 
 export default function StayConnected() {
+  const hasFetched = useRef(false);
+
   const dispatch = useDispatch();
   const { stayConnected } = useSelector((state) => state.contactUs) || {};
 
@@ -29,7 +31,10 @@ export default function StayConnected() {
   };
 
   useEffect(() => {
-    fetchData();
+    if (!hasFetched.current) {
+      fetchData();
+      hasFetched.current = true;
+    }
   }, [dispatch]);
   return (
     <div className="hero-sub-container">

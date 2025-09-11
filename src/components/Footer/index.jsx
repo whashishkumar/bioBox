@@ -3,11 +3,13 @@ import Image from 'next/image';
 import './style.css';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { fetchFooterData } from '@/store/features/footer/footerSlice';
 import Link from 'next/link';
 
 export default function Footer({ className }) {
+  const hasFetched = useRef(false);
+
   const dispatch = useDispatch();
   const { footerInfo, loading, error } =
     useSelector((state) => state?.footerInfo) || {};
@@ -21,7 +23,10 @@ export default function Footer({ className }) {
   const imageUrl = `${baseUrl}${imagePath}/${logo}`;
 
   useEffect(() => {
-    dispatch(fetchFooterData());
+    if (!hasFetched.current) {
+      dispatch(fetchFooterData());
+      hasFetched.current = true;
+    }
   }, []);
 
   return (

@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './style.css';
 import { FaShoppingBasket } from 'react-icons/fa';
 import { IoLocationSharp } from 'react-icons/io5';
@@ -7,7 +7,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchContactUsSecondSection } from '@/store/features/contactUs/contactusSlice';
 
 export default function ContactUsAddress() {
+  const hasFetched = useRef(false);
   const dispatch = useDispatch();
+
   const { locationSection } = useSelector((state) => state?.contactUs) || {};
   const {
     registered_iframe,
@@ -21,7 +23,10 @@ export default function ContactUsAddress() {
   } = locationSection?.data || {};
 
   useEffect(() => {
-    dispatch(fetchContactUsSecondSection());
+    if (!hasFetched.current) {
+      dispatch(fetchContactUsSecondSection());
+      hasFetched.current = true;
+    }
   }, []);
 
   return (

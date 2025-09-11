@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './style.css';
 import Button from '@/ui/Button';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,6 +8,8 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 export default function ExplorePharmaProducts() {
+  const hasFetched = useRef(false);
+
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -16,7 +18,10 @@ export default function ExplorePharmaProducts() {
     explorePharmaProducts?.data || {};
 
   useEffect(() => {
-    dispatch(fetchExplorePharmaProdctSection());
+    if (!hasFetched.current) {
+      dispatch(fetchExplorePharmaProdctSection());
+      hasFetched.current = true;
+    }
   }, []);
 
   return (

@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { lazyImport } from '@/utils/lazyImport';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchOurProducts } from '@/store/features/ourProducts/ourProductsSlice';
@@ -19,48 +19,14 @@ const PremiumProductTag = lazyImport(() =>
 );
 const BioBoxPharma = lazyImport(() => import('@/components/BioBoxPharma'));
 
-// const products = [
-//   {
-//     id: 1,
-//     name: 'Tazobox-4.5',
-//     category: 'Critical Care',
-//     image: '/images/product1.png',
-//   },
-//   {
-//     id: 2,
-//     name: 'Mercoboc‑1gm',
-//     category: 'Critical Care',
-//     image: '/images/product2.png',
-//   },
-//   {
-//     id: 3,
-//     name: 'Boxfix‑1gm',
-//     category: 'Critical Care',
-//     image: '/images/product3.png',
-//   },
-//   {
-//     id: 4,
-//     name: 'Mercoboc‑1gm',
-//     category: 'Critical Care',
-//     image: '/images/product2.png',
-//   },
-//   {
-//     id: 4,
-//     name: 'Mercoboc‑1gm',
-//     category: 'Critical Care',
-//     image: '/images/product2.png',
-//   },
-// ];
-
 export default function AboutUs() {
+  const hasFetched = useRef(false);
   const router = useRouter();
   const dispatch = useDispatch();
-  const { ourProducts } = useSelector((state) => state?.allProducts) || {};
-  // const { products } = ourProducts || {};
   const { aboutUsBannerPage } = useSelector((state) => state?.aboutUs);
   const { heading, image } = aboutUsBannerPage?.data || {};
 
-  const { aboutUsProductListing, loading, error } =
+  const { aboutUsProductListing } =
     useSelector((state) => state?.aboutUs) || {};
   const {
     section_heading,
@@ -78,9 +44,12 @@ export default function AboutUs() {
   };
 
   useEffect(() => {
-    dispatch(fetchOurProducts());
-    dispatch(fetchAboutUsLandingPageBannerData());
-    dispatch(fetchAboutUsProductListing());
+    if (!hasFetched.current) {
+      dispatch(fetchOurProducts());
+      dispatch(fetchAboutUsLandingPageBannerData());
+      dispatch(fetchAboutUsProductListing());
+      hasFetched.current = true;
+    }
   }, []);
 
   return (

@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './style.css';
 import PageHeadingTitle from '../PageHeadingTitle';
 import { useDispatch, useSelector } from 'react-redux';
@@ -17,6 +17,7 @@ const headerObject = {
 };
 
 export default function ProductGallery() {
+  const hasFetched = useRef(false);
   const router = useRouter();
   const dispatch = useDispatch();
   const [activeCategory, setActiveCategory] = useState('');
@@ -39,8 +40,11 @@ export default function ProductGallery() {
   };
 
   useEffect(() => {
-    dispatch(fetchOurProducts());
-    dispatch(fetchProductTypes());
+    if (!hasFetched.current) {
+      dispatch(fetchOurProducts());
+      dispatch(fetchProductTypes());
+      hasFetched.current = true;
+    }
   }, []);
 
   return (

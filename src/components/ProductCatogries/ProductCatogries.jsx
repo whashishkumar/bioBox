@@ -1,5 +1,5 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PageHeadingTitle from '../PageHeadingTitle';
 import CategoryCard from './CategoryCard';
@@ -79,6 +79,7 @@ export const categoriesItems = [
 ];
 
 const ProductCategories = () => {
+  const hasFetched = useRef(false);
   const dispatch = useDispatch();
   const { categories, loading, error } = useSelector((state) => state) || {};
   const { data, heading, description } = categories?.categories || {};
@@ -86,7 +87,10 @@ const ProductCategories = () => {
   const isEmpty = !data || !heading || !description;
 
   useEffect(() => {
-    dispatch(fetchProductCategories());
+    if (!hasFetched.current) {
+      dispatch(fetchProductCategories());
+      hasFetched.current = true;
+    }
   }, []);
 
   return (

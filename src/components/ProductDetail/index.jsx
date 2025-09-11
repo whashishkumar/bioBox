@@ -3,12 +3,13 @@ import PageLayout from '@/app/pageLayout';
 import './style.css';
 import EnquaryForm from './EnquaryForm';
 import ProductDescription from './ProductDescription';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSingleProduct } from '@/store/features/ourProducts/ourProductsSlice';
 import { Loader } from '@/utils/lazyImport';
 
 export default function ProductDetail({ slug }) {
+  const hasFetched = useRef(false);
   const dispatch = useDispatch();
   const { singleProduct, loading } =
     useSelector((state) => state?.allProducts) || {};
@@ -16,8 +17,9 @@ export default function ProductDetail({ slug }) {
   const { title } = product || {};
 
   useEffect(() => {
-    if (slug) {
+    if (!hasFetched.current && slug) {
       dispatch(fetchSingleProduct(slug));
+      hasFetched.current = true;
     }
   }, [slug]);
 

@@ -3,12 +3,14 @@ import Image from 'next/image';
 import './style.css';
 import Footer from '../Footer';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { fetchPdcBusinessOppurnity } from '@/store/features/pcdBusinessOpportunity/pcdBusinessOpportunitySlice';
 import GlobalStateHandler from '../GlobalStateHandler/GlobalStateHandler';
 import { Loader } from '@/utils/lazyImport';
 
 export default function PCDSection() {
+  const hasFetched = useRef(false);
+
   const dispatch = useDispatch();
   const { pdcOppurnity, loading, error } =
     useSelector((state) => state?.pdcOppurnity) || {};
@@ -41,7 +43,10 @@ export default function PCDSection() {
     !quality_icon;
 
   useEffect(() => {
-    dispatch(fetchPdcBusinessOppurnity());
+    if (!hasFetched.current) {
+      dispatch(fetchPdcBusinessOppurnity());
+      hasFetched.current = true;
+    }
   }, []);
 
   return (

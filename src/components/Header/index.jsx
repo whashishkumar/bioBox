@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { FaPhoneAlt, FaBars, FaTimes } from 'react-icons/fa';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
@@ -9,6 +9,7 @@ import { fetchLandingPageMenuData } from '@/store/features/landingPage/landingPa
 import Image from 'next/image';
 
 export default function Header() {
+  const hasFetched = useRef(false);
   const pathname = usePathname();
   const router = useRouter();
   const dispatch = useDispatch();
@@ -26,7 +27,10 @@ export default function Header() {
   const navBarLinks = menus?.flatMap((menu) => menu.items) || [];
 
   useEffect(() => {
-    dispatch(fetchLandingPageMenuData());
+    if (!hasFetched.current) {
+      dispatch(fetchLandingPageMenuData());
+      hasFetched.current = true;
+    }
     const handleResize = () => setIsMobile(window.innerWidth <= 1024);
     handleResize();
     window.addEventListener('resize', handleResize);

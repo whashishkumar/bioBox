@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PageHeadingTitle from '../PageHeadingTitle';
 import './style.css';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,6 +9,8 @@ import GlobalStateHandler from '../GlobalStateHandler/GlobalStateHandler';
 import { Loader } from '@/utils/lazyImport';
 
 export default function OurCertification() {
+  const hasFetched = useRef(false);
+
   const dispatch = useDispatch();
   const { data, loading, error } = useSelector(
     (state) => state.ourCertifacation || {}
@@ -17,8 +19,11 @@ export default function OurCertification() {
   const { name, description, images } = ourCetrifacation;
 
   useEffect(() => {
-    dispatch(fetchLandingPageOurCertifacationData());
-  }, []);
+    if (!hasFetched.current) {
+      dispatch(fetchLandingPageOurCertifacationData());
+      hasFetched.current = true;
+    }
+  }, [dispatch]);
 
   const isEmpty = !name && !description && !images;
 

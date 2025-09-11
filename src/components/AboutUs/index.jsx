@@ -1,7 +1,7 @@
 'use client';
 import { useDispatch, useSelector } from 'react-redux';
 import './style.css';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { fetchAboutUsData } from '@/store/features/aboutUs/aboutUsPageSlice';
 import Image from 'next/image';
 
@@ -35,6 +35,7 @@ const aboutUsa = {
 };
 
 export default function AboutUs() {
+  const hasFetched = useRef(false);
   const dispatch = useDispatch();
   const { data = {} } = useSelector((state) => state?.aboutUs?.aboutUs || {});
   const {
@@ -46,7 +47,10 @@ export default function AboutUs() {
   } = data;
 
   useEffect(() => {
-    dispatch(fetchAboutUsData());
+    if (!hasFetched.current) {
+      dispatch(fetchAboutUsData());
+      hasFetched.current = true;
+    }
   }, []);
 
   return (

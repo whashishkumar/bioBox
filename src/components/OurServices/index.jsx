@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './style.css';
 import Image from 'next/image';
 import { GoDash } from 'react-icons/go';
@@ -8,6 +8,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchOurServicesSecondSection } from '@/store/features/ourServices/ourServicesSlice';
 
 export default function OurServices() {
+  const hasFetched = useRef(false);
+
   const dispatch = useDispatch();
   const { ourServicesHeroSection, loading, error, formSubmitMessage } =
     useSelector((state) => state.ourServices) || {};
@@ -31,7 +33,10 @@ export default function OurServices() {
   const iconImageUrl = `${baseUrl}${imagePath}/${enquiry_image}`;
 
   useEffect(() => {
-    dispatch(fetchOurServicesSecondSection());
+    if (!hasFetched.current) {
+      dispatch(fetchOurServicesSecondSection());
+      hasFetched.current = true;
+    }
   }, []);
 
   return (

@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PageHeadingTitle from '../PageHeadingTitle';
 import './style.css';
 import Image from 'next/image';
@@ -42,6 +42,7 @@ const giftCards = [
 ];
 
 export default function BenifitsCard() {
+  const hasFetched = useRef(false);
   const dispatch = useDispatch();
 
   const { partnerBenifitsInfo, loading, error } =
@@ -55,7 +56,10 @@ export default function BenifitsCard() {
   const isEmpty = !partnerBenifitsInfo;
 
   useEffect(() => {
-    dispatch(fetchPartnerBenifitsInfo());
+    if (!hasFetched.current) {
+      dispatch(fetchPartnerBenifitsInfo());
+      hasFetched.current = true;
+    }
   }, []);
 
   return (
