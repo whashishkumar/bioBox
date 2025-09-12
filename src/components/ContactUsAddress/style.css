@@ -73,7 +73,7 @@
 
   .contact-us__map {
     height: 280px;
-    width: auto;
+    /* width: auto; */
   }
 
   .contact-us__title {
@@ -98,7 +98,7 @@
 
   .contact-us__map {
     height: 220px;
-    width: auto;
+    /* width: auto; */
   }
 
   .contact-us__title {
