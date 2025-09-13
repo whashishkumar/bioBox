@@ -17,6 +17,8 @@
   opacity: 0.3;
   z-index: -1;
   background-attachment: fixed;
+  height: 100%;
+  width: 100%;
 }
 
 .product-card-container {
